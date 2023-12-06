@@ -9,7 +9,13 @@ export const getCategoryList = async () => {
   return data;
 };
 
-export const getCurrentProducts = async ({ value, category, page, limit }) => {
+export const getCurrentProducts = async ({
+  value,
+  category,
+  page,
+  limit,
+  sortBy,
+}) => {
   const params = new URLSearchParams({
     page,
     limit,
@@ -21,6 +27,10 @@ export const getCurrentProducts = async ({ value, category, page, limit }) => {
 
   if (category) {
     params.set('category', category);
+  }
+
+  if (sortBy) {
+    params.set('sortBy', sortBy);
   }
 
   const { data } = await axios.get(`/products/`, { params });
