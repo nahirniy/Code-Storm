@@ -1,24 +1,27 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
+/* general styles*/
 @import url('./reset.css');
-@import url('./header.css');
+@import url('./common.css');
+@import url('./variables.css');
+@import '../../node_modules/modern-normalize/modern-normalize.css';
 
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+/* components styles */
+@import url('./components/header.css');
+@import url('./components/footer.css');
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+/* cart page styles */
+@import url('./cart-page/cart-content.css');
+@import url('./cart-page/cart-content/empty-content.css');
+@import url('./cart-page/cart-content/order-products.css');
+@import url('./cart-page/cart-content/product-list.css');
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
+/* home page styles */
+@import url('./home-page/hero.css');
+@import url('./home-page/filters.css');
+@import url('./home-page/home-content.css');
+@import url('./home-page/home-content/main-content.css');
+@import url('./home-page/home-content/sidebar.css');
+
+/* modals styles */
+@import url('./modals/modal-product.css');
+@import url('./modals/modal-subscription.css');
+@import url('./modals/modal-order.css');

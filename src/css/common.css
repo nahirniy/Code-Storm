@@ -1,0 +1,54 @@
+body {
+  font-family: 'Neue Montreal', sans-serif;
+  background-color: var(--light-grey-cl);
+  color: var(--main-cl);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--mobile-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--tablet-width);
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: var(--desktop-width);
+    padding: 0 100px;
+  }
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: 400;
+  src: url('./fonts/NeueMontreal-Regular.woff2') format('woff2'),
+    url('./fonts/NeueMontreal-Regular.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: 500;
+  src: url('./fonts/NeueMontreal-Medium.woff2') format('woff2'),
+    url('./fonts/NeueMontreal-Medium.ttf') format('ttf');
+}

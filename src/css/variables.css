@@ -1,0 +1,13 @@
+:root {
+  /* colors */
+  --light-grey-cl: #e8e8e2;
+  --main-cl: #010101;
+  --accent-cl: #6d8434;
+  --white-cl: #fafafa;
+  --grey-cl: rgba(1, 1, 1, 0.3);
+
+  /* width for different device */
+  --mobile-width: 375px;
+  --tablet-width: 768px;
+  --desktop-width: 1440px;
+}
