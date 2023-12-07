@@ -51,9 +51,6 @@ function changeKeyword(e) {
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
-form.addEventListener('submit', formSub);
-filtersABClist.addEventListener('change', getFilter);
-
 async function getFilter(e) {
   let filter;
   let state;
@@ -95,12 +92,15 @@ async function getFilter(e) {
 
 function formSub(e) {
   e.preventDefault();
+  console.log(input.value);
   const currentParams = loadFromLS(LOCALSTORAGE_KEY);
   getCurrentProducts(currentParams)
     .then(data => console.log(data))
     .catch(err => console.log(err));
 }
 
+form.addEventListener('submit', formSub);
+filtersABClist.addEventListener('change', getFilter);
 categoryList.addEventListener('change', changeCategory);
 input.addEventListener('input', changeKeyword);
 createCategoryList();
