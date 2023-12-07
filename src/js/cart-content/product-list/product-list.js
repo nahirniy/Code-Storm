@@ -1,17 +1,4 @@
-// (() => {
-//     const refs = {
-//       openModalBtn: document.querySelector("[data-modal-open]"),
-//       closeModalBtn: document.querySelector("[data-modal-close]"),
-//       modal: document.querySelector("[data-modal]"),
-//     };
-
-//     refs.openModalBtn.addEventListener("click", toggleModal);
-//     refs.closeModalBtn.addEventListener("click", toggleModal);
-
-//     function toggleModal() {
-//       refs.modal.classList.toggle("is-hidden");
-//     }
-//   })();
+import { funCartCreateMarkup } from './pr-list-markap';
 console.log('чаокакао');
 const refs = {
   cartTitle: document.querySelector('.cart-title'),
@@ -19,7 +6,7 @@ const refs = {
   cartItemContainer: document.querySelector('.cart-item-container'),
   cartBtnDelAll: document.querySelector('.cart-btn-del-all'),
 };
-// console.log(refs.cartBtnDelAll);
+// console.log(refs.cartBtnItem);
 // console.log(refs.cartTitleContainer);
 refs.cartItemContainer.addEventListener('click', onCartItem);
 refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
@@ -71,58 +58,48 @@ const cartResults = [
 let arrayLength = cartResults.length;
 console.log(arrayLength);
 // колбек кнопки удалить все
-function onCartDellAll() {}
-// колбек удаления поштучно
-function onCartItem() {}
-// функция разметки
-function createMarkup(arr) {
-  return arr
-    .map(
-      ({ name, category, size, price, img }) => `<li class="cart-item">
-        <button name="button" class="cart-btn-close">
-          <svg class="cart-icon-basket">
-            <use href=".\img\icons\sprite.svg#icon-close"></use>
-          </svg>
-        </button>
-        <div class="cart-img-container">
-          <img class="cart-img" src="${img}" alt="${name}" />
-        </div>
-        <div class="cart-img-text">
-          <h3 class="cart-item-title">${name}</h3>
-          <div class="cart-info-container">
-            <p class="cart-info">
-              Category:
-              <span>${category}</span>
-            </p>
-            <p class="cart-info">
-              Size:
-              <span>${size}</span>
-            </p>
-          </div>
-          <h3>${price}</h3>
-        </div>
-      </li>`
-    )
-    .join('');
+function onCartDellAll() {
+  refs.cartItemContainer.innerHTML = '';
+  refs.cartTitleContainer.innerHTML = '';
+  arrayLength = 0;
+  refs.cartBtnDelAll.classList.add('cart-display-none');
+  cartTitleAdd(arrayLength);
+  cartEmply();
 }
-// console.log(createMarkup(cartResults));
+// колбек удаления поштучно
+function onCartItem(evt) {
+  // console.log('qwe');
+  console.log(evt.target.nodeName);
+  if (evt.target.nodeName !== 'svg') {
+    return;
+  }
+  console.log('zwe');
+  const cartItemDell = evt.target.parentNode.parentNode.parentNode;
+  // console.log(cartItemDell);
+  cartItemDell.remove();
+  arrayLength -= 1;
+  cartTitleAdd(arrayLength);
+  // функция пересчета тотала
+  const recountItem = evt.currentTarget.childNodes.length;
+  if (recountItem === 0) {
+    cartEmply();
+  }
+}
+
 // добавление заголовка
-function cartTitleAdd() {
+function cartTitleAdd(leng) {
   refs.cartTitleContainer.classList.remove('cart-display-none');
-  refs.cartTitleContainer.insertAdjacentHTML(
-    'beforeend',
-    `<h2 class="cart-title">cart(${arrayLength})</h2>`
-  );
+  refs.cartTitle.textContent = `cart(${leng})`;
 }
 // главная функция
 function cartProductList() {
-  cartTitleAdd();
+  cartTitleAdd(arrayLength);
   if (!arrayLength) {
     cartEmply();
     return;
   }
   refs.cartBtnDelAll.classList.remove('cart-display-none');
-  refs.cartItemContainer.innerHTML = createMarkup(cartResults);
+  refs.cartItemContainer.innerHTML = funCartCreateMarkup(cartResults);
 }
 cartProductList();
 // функция для пустой корзины
