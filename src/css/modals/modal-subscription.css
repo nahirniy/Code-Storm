@@ -1,0 +1,13 @@
+.modal-subscription {
+    position: fixed;
+    width: 335px;
+    height: 400px;
+    background-color:#E8E8E2;
+    border-radius: 20px;
+}
+
+.clouse_subscription{
+   position: absolute;
+    top: 20px;
+    right: 20px;
+}
