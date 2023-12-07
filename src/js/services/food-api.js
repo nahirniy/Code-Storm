@@ -1,5 +1,6 @@
 // ТУТ ПИШЕ ТІЛЬКИ МАКС
 import axios from 'axios';
+import { createParams } from './helpers';
 
 axios.defaults.baseURL = 'https://food-boutique.b.goit.study/api';
 
@@ -10,24 +11,7 @@ export const getCategoryList = async () => {
 };
 
 export const getCurrentProducts = async parameters => {
-  const { value, category, page, limit, sortBy } = parameters;
-
-  const params = new URLSearchParams({
-    page,
-    limit,
-  });
-
-  if (value) {
-    params.set('value', value);
-  }
-
-  if (category) {
-    params.set('category', category);
-  }
-
-  if (sortBy) {
-    params.set('sortBy', sortBy);
-  }
+  const params = createParams(parameters);
 
   const { data } = await axios.get(`/products/`, { params });
 
@@ -48,6 +32,18 @@ export const getPopularProducts = async limit => {
 
 export const getDiscountProducts = async () => {
   const { data } = await axios.get(`/products/discount`);
+
+  return data;
+};
+
+export const addOrder = async body => {
+  const { data } = await axios.post(`/orders`, body);
+
+  return data;
+};
+
+export const addEmail = async body => {
+  const { data } = await axios.post(`/subscription`, body);
 
   return data;
 };

@@ -15,3 +15,28 @@ export function loadFromLS(key) {
     return data;
   }
 }
+
+export function createParams(parameters) {
+  const { keyword, category, page, limit, ...rest } = parameters;
+  const checkedSortBy = Object.keys(rest).length;
+
+  const params = new URLSearchParams({
+    page,
+    limit,
+  });
+
+  if (keyword) {
+    params.set('keyword', keyword);
+  }
+
+  if (category) {
+    params.set('category', category);
+  }
+
+  if (checkedSortBy) {
+    const [sortBy, state] = Object.entries(rest)[0];
+    params.set(sortBy, state);
+  }
+
+  return params;
+}
