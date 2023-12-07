@@ -117,7 +117,13 @@ function cartTitleAdd() {
 // главная функция
 function cartProductList() {
   cartTitleAdd();
+  if (!arrayLength) {
+    cartEmply();
+    return;
+  }
   refs.cartBtnDelAll.classList.remove('cart-display-none');
-  //   createMarkup(cartResults);
+  refs.cartItemContainer.innerHTML = createMarkup(cartResults);
 }
 cartProductList();
+// функция для пустой корзины
+function cartEmply() {}
