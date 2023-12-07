@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 31px;
+  margin-top: 33px;
 }
 .cart-title {
   color: var(--main-cl);
@@ -18,7 +19,8 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-left: 608px;
+  margin-left: 610px;
+  /* margin-right: 27px; */
   width: 96px;
   height: 24px;
   margin-bottom: 43px;
@@ -30,9 +32,9 @@
   border: none;
 }
 
-/* .cart-display-none {
+.cart-display-none {
   display: none;
-} */
+}
 
 .cart-item {
   list-style: none;
@@ -40,6 +42,22 @@
   gap: 40px;
   align-items: center;
   justify-content: flex-start;
+  position: relative;
+}
+
+.cart-btn-close {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 100%;
+  width: 18px;
+  height: 18px;
+  border: none;
+
+  align-items: center;
+  justify-content: center;
+  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1  */
 }
 
 .cart-item:not(:last-child) {
@@ -84,3 +102,30 @@
 .cart-info span {
   color: var(--main-cl);
 }
+/* кнопка крестик
+.modal-btn {
+  position: absolute;
+  display: flex;
+  top: 24px;
+  right: 24px;
+  border-radius: 50%;
+  background-color: var(--cornflower);
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-btn:hover,
+.modal-btn:focus {
+  background-color: #404bbf;
+  border: none;
+  fill: #fff;
+} */
+/* .modal-btn-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
