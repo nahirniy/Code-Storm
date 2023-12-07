@@ -1,3 +1,4 @@
+/* Mobile */
 .container {
   display: block;
   background-color: #6d8434;
@@ -22,7 +23,6 @@
 .first-motto {
   color: #e8e8e2;
   font-size: 24px;
-  font-style: normal;
   font-weight: 500;
   line-height: 1.16;
   margin-bottom: 14px;
@@ -30,7 +30,6 @@
 
 .second-motto {
   color: #e8e8e2;
-  opacity: 0.5;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -40,7 +39,6 @@
 .email-title {
   color: #e8e8e2;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.28;
   margin-bottom: 20px;
@@ -50,7 +48,6 @@
   color: #e8e8e2;
   opacity: 0.6;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.28;
   padding-left: 18px;
@@ -74,29 +71,83 @@
   height: 42px;
   margin-bottom: 80px;
 }
-.services {
-  padding-bottom: 20px;
-}
+
 .services-list {
-  display: flex;
+  display: inline-flex;
   gap: 8px;
   margin-top: 8px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 .services-item {
   color: #e8e8e2;
   opacity: 0.7;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.28;
 }
-
+.motto {
+  display: flex;
+  flex-direction: column;
+}
 .services-one {
   color: #e8e8e2;
   opacity: 0.7;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
   line-height: 1.28;
-  margin-bottom: 8px;
+  margin-right: 50px;
 }
+
+/* Tablet */
+@media (min-width: 768px) {
+  .container {
+    display: block;
+    gap: 78px;
+    background-color: #6d8434;
+  }
+
+  .first-motto {
+    color: #e8e8e2;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.1;
+    width: 429px;
+  }
+  .second-motto {
+    color: #e8e8e2;
+    opacity: 0.5;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.33;
+    margin-right: 32px;
+    width: 429px;
+  }
+  .email-title {
+    color: #e8e8e2;
+    opacity: 1;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.33;
+  }
+  .form-footer {
+    display: flex;
+    flex-direction: column;
+  }
+  .services-one {
+    color: #e8e8e2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    margin-right: 290px;
+  }
+  .services-list {
+    margin-top: 0px;
+  }
+  .motto {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* Desktop */
