@@ -9,13 +9,9 @@ export const getCategoryList = async () => {
   return data;
 };
 
-export const getCurrentProducts = async ({
-  value,
-  category,
-  page,
-  limit,
-  sortBy,
-}) => {
+export const getCurrentProducts = async parameters => {
+  const { value, category, page, limit, sortBy } = parameters;
+
   const params = new URLSearchParams({
     page,
     limit,
