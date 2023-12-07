@@ -1,21 +1,21 @@
-import sprite from '../../../img/icons/sprite.svg'
+import sprite from '../../../img/icons/sprite.svg';
+
+const productList = document.querySelector('.product-list');
 
 /*--------------------------------CHECK IF ARRAY IS CLEAR----------------------------*/
 export function markupInfoMainProduct() {
-  
   return `<div class="info-query">
                 <h3 class="info-text">Nothing was found for the selected <span class="info-word">filters...</span></h3>
                 <p class="info-message">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you.</p>
               </div>`;
-  
 }
 
 /*-----------------------------------MARKUP----------------------------*/
-export function mainProductMarkup(results) {
-  return results
-    .map((item) => {
+export function mainProductMarkup({ results }) {
+  const markup = results
+    .map(item => {
       let formattedCategory = removeUnderscore(item.category);
-      
+
       return `<li class="resp-item">
         <a class="img-link" href="${item.img}">
           <img class="photo" src="${item.img}" alt="${item.name}" loading="lazy"/>
@@ -35,7 +35,9 @@ export function mainProductMarkup(results) {
       </li>`;
     })
     .join('');
+
+  productList.innerHTML = markup;
 }
 function removeUnderscore(text) {
-  return text.replace(/_/g, ' '); 
+  return text.replace(/_/g, ' ');
 }
