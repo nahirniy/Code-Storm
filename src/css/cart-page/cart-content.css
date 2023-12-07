@@ -1,0 +1,13 @@
+.cart-content-wrap {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1440px) {
+  .cart-content-wrap {
+    flex-direction: row;
+  }
+
+  .product-list {
+    width: 590px;
+  }
+}

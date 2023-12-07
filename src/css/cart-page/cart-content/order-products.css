@@ -1,0 +1,124 @@
+.order-products {
+  display: flex;
+  color: var(--main-cl);
+  font-weight: 500;
+  flex-direction: column;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+.order-products-title {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  gap: 161px;
+  border-radius: 8px;
+  background: rgba(109, 132, 52, 0.05);
+  padding-top: 26px;
+  padding-left: 18px;
+  padding-right: 18px;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+.order-total-value {
+  color: rgba(1, 1, 1, 0.20);
+  font-size: 12px;
+  line-height: 14px;
+}
+.order-total-name {
+  font-size: 18px;
+}
+.order-products-sum {
+  padding-left: 4px;
+  color: var(--main-cl);
+  font-size: 24px;
+  font-weight: 500;
+}
+.button-order {
+  display: inline-flex;
+  padding: 12px 138px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.order-products-form-input {
+  position: relative;
+}
+.order-products-form-input label {
+  position: absolute;
+  left: 0;
+  color: rgba(1, 1, 1, 0.50);
+  font-style: normal;
+  line-height: 18px;
+  padding-top: 12px;
+  padding-left: 20px;
+}
+.order-products-form-input input {
+  width: 100%;
+  height: 42px;
+  border-radius: 30px;
+  border: 1px solid var(--grey-cl);
+  outline: none;
+  padding-left: 56px;
+}
+.order-products-form-input input::placeholder {
+  color: var(--main-cl);
+}
+.order-products-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.order-products-form button {
+  border-radius: 30px;
+  background: var(--accent-cl);
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border: none;
+  color: var(--light-grey-cl);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+}
+.order-products-form button:focus,
+.order-products-form button:hover {
+  background-color: #586F1F;
+}
+
+@media (min-width: 768px) {
+  .order-products {
+    width: 590px;
+  }
+  .order-total-name {
+    font-size: 20px;
+  }
+  .order-products-form {
+    flex-direction: row;
+    column-gap: 16px;
+    justify-content: space-between;
+  }
+  .order-products-form-input {
+    width: 359px;
+    font-size: 18px;
+  }
+  .order-products-form-input input {
+    padding-left: 63px;
+    height: 54px;
+  }
+  .order-products-form button {
+    width: 215px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .order-products-form-input label {
+    font-size: 18px;
+    padding-top: 15px;
+    line-height: 24px;
+  }
+}
