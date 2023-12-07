@@ -40,7 +40,12 @@ async function changeCategory(e) {
     newParams = { ...oldParams, category: null };
   }
   const currentProduct = await getCurrentProducts(newParams);
-  mainProductMarkup(currentProduct);
+
+  if (!currentProduct) {
+    console.log('Ploha');
+  } else {
+    mainProductMarkup(currentProduct);
+  }
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
@@ -91,17 +96,21 @@ async function getFilter(e) {
 
 async function formSub(e) {
   e.preventDefault();
-  console.log(input.value);
   const currentParams = loadFromLS(LOCALSTORAGE_KEY);
   const currentProduct = await getCurrentProducts(currentParams);
-  mainProductMarkup(currentProduct);
+  if (!currentProduct) {
+    console.log('Ploha');
+  } else {
+    mainProductMarkup(currentProduct);
+  }
 }
 
 form.addEventListener('submit', formSub);
 filtersABClist.addEventListener('change', getFilter);
 categoryList.addEventListener('change', changeCategory);
 input.addEventListener('input', changeKeyword);
-createCategoryList();
+document.addEventListener('DOMContentLoaded', createCategoryList);
+document.addEventListener('DOMContentLoaded', changeCategory);
 
 function replaceText(arg) {
   return arg.replaceAll('_', ' ');
