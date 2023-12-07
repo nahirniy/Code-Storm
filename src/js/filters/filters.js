@@ -12,7 +12,6 @@ const defaultParams = {
   category: null,
   page: 1,
   limit: 9,
-  sortBy: null,
 };
 
 loadFromLS(LOCALSTORAGE_KEY) ?? saveToLS(LOCALSTORAGE_KEY, defaultParams);
@@ -27,7 +26,7 @@ async function createCategoryList() {
         )}</option>`
     )
     .join('');
-  categoryList.insertAdjacentHTML('beforeend', markup);
+  categoryList.insertAdjacentHTML('afterbegin', markup);
 }
 
 async function changeCategory(e) {
@@ -57,36 +56,40 @@ filtersABClist.addEventListener('change', getFilter);
 
 async function getFilter(e) {
   let filter;
+  let state;
   let args = e.target.value;
   switch (args) {
     case 'byAtoZ':
-      filter = 'byABC=true';
+      filter = 'byABC';
+      state = true;
       break;
     case 'byZtoA':
-      filter = 'byABC=false';
+      filter = 'byABC';
+      state = false;
       break;
     case 'byCheaperfirst':
-      filter = 'byPrice=true';
+      filter = 'byPrice';
+      state = true;
       break;
     case 'byExpensivefirst':
-      filter = 'byPrice=false';
+      filter = 'byPrice';
+      state = false;
       break;
     case 'byPopular':
-      filter = 'byPopularity=false';
+      filter = 'byPopularity';
+      state = false;
       break;
     case 'byNotpopular':
-      filter = 'byPopularity=true';
+      filter = 'byPopularity';
+      state = true;
       break;
     default:
-      filter = 'byABC=true';
+      filter = 'byABC';
+      state = true;
       break;
   }
-
-  let newFilter = '&' + filter;
-  console.log(newFilter);
-
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-  const newParams = { ...oldParams, sortBy: newFilter };
+  const newParams = { ...oldParams, [filter]: state };
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
