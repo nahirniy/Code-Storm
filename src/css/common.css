@@ -19,6 +19,30 @@ body {
   overflow: hidden;
 }
 
+.modal-backdrop-product,
+.modal-backdrop-subscription,
+.modal-backdrop-order {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 998;
+  background: rgba(46, 47, 66, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 300ms ease-in-out;
+}
+
+.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+  transform: scale(0);
+}
+
 .container {
   max-width: var(--mobile-width);
   margin: 0 auto;
