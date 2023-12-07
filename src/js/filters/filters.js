@@ -1,5 +1,6 @@
 import { getCategoryList, getCurrentProducts } from '../services/food-api';
 import { loadFromLS, saveToLS } from '../services/helpers';
+import { mainProductMarkup } from '../home-content/main-products/markup-main-product';
 
 const categoryList = document.querySelector('.category-list');
 const form = document.querySelector('.form');
@@ -38,10 +39,8 @@ async function changeCategory(e) {
   } else {
     newParams = { ...oldParams, category: null };
   }
-  console.log(currentCategory);
-  getCurrentProducts(newParams)
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
+  const currentProduct = await getCurrentProducts(newParams);
+  mainProductMarkup(currentProduct);
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
@@ -90,13 +89,12 @@ async function getFilter(e) {
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
-function formSub(e) {
+async function formSub(e) {
   e.preventDefault();
   console.log(input.value);
   const currentParams = loadFromLS(LOCALSTORAGE_KEY);
-  getCurrentProducts(currentParams)
-    .then(data => console.log(data))
-    .catch(err => console.log(err));
+  const currentProduct = await getCurrentProducts(currentParams);
+  mainProductMarkup(currentProduct);
 }
 
 form.addEventListener('submit', formSub);
