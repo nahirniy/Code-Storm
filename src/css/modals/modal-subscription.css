@@ -11,3 +11,9 @@
     top: 20px;
     right: 20px;
 }
+
+.img_subs {
+        position: absolute;
+         bottom:0px;
+         right: 0px;
+}
