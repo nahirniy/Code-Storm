@@ -132,3 +132,5 @@ categoryList.addEventListener('change', changeCategory);
 input.addEventListener('input', changeKeyword);
 document.addEventListener('DOMContentLoaded', createCategoryList);
 document.addEventListener('DOMContentLoaded', loadMarkup);
+
+// ! -------------Style Choice JS-------------

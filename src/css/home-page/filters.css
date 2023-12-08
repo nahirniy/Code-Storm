@@ -1,0 +1,103 @@
+.filter_section {
+  padding-top: 74px;
+}
+.filter_title {
+  color: rgba(1, 1, 1, 0.3);
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+.filter_form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.filter_form input::placeholder {
+  color: #010101;
+  padding: 0;
+  font-size: 18px;
+  line-height: 1.33;
+}
+.filter_field {
+  position: relative;
+}
+.filter_button {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 16px;
+  background-color: #e8e8e2;
+  color: #010101;
+  border: none;
+  padding: 0;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  width: 20px;
+}
+.filter_icon_position {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+  margin: 0;
+  height: 20px;
+  width: 20px;
+  pointer-events: none;
+}
+.search-filter {
+  position: relative;
+  list-style: none;
+}
+
+.search-input {
+  color: #010101;
+  position: relative;
+  background-color: transparent;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  padding: 14px 40px 14px 20px;
+  width: 100%;
+  outline: transparent;
+  font-size: 14px;
+  line-height: 1.28;
+  font-family: 'Neue Montreal', sans-serif;
+}
+.search-input:focus,
+.search-input:hover {
+  border-color: #6d8434;
+}
+.select-filter {
+  cursor: pointer;
+  appearance: none;
+}
+
+.filters-all-param-list {
+  cursor: pointer;
+  background-color: #fafafa;
+}
+@media screen and (min-width: 768px) {
+  .filter_form {
+    flex-direction: row;
+    gap: 8px;
+  }
+  .search-input {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .input_name {
+    width: 269px;
+  }
+  .select_categories {
+    width: 189px;
+  }
+  .filters-all-param-list {
+    width: 200px;
+  }
+}
