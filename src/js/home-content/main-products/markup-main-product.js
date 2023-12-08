@@ -1,22 +1,16 @@
 import sprite from '../../../img/icons/sprite.svg';
 
-const productList = document.querySelector('.product-list');
 
-/*--------------------------------CHECK IF ARRAY IS CLEAR----------------------------*/
-export function markupInfoMainProduct() {
-  return `<div class="info-query">
-                <h3 class="info-text">Nothing was found for the selected <span class="info-word">filters...</span></h3>
-                <p class="info-message">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you.</p>
-              </div>`;
-}
+const productMainList = document.querySelector('.product-list')
+
 
 /*-----------------------------------MARKUP----------------------------*/
 export function mainProductMarkup({ results }) {
   const markup = results
     .map(item => {
       let formattedCategory = removeUnderscore(item.category);
-
-      return `<li class="resp-item">
+      let formatPrice = formatNumber(item.price)
+      return `<li class="resp-item" data-id="${item._id}">
         <a class="img-link" href="${item.img}">
           <img class="photo" src="${item.img}" alt="${item.name}" loading="lazy"/>
         </a>
@@ -27,7 +21,7 @@ export function mainProductMarkup({ results }) {
           <p class="popular-product"><span class="style-word">Popularity:</span>${item.popularity}</p>
         </div>
         <div class="footer-product_card">
-          <p class="price-product">$${item.price}</p>
+          <p class="price-product">$${formatPrice}</p>
           <svg class="svg-basket" width="34" height="34">
             <use class="href-icon" href="${sprite}#icon-basket"></use>
           </svg>
@@ -36,8 +30,16 @@ export function mainProductMarkup({ results }) {
     })
     .join('');
 
-  productList.innerHTML = markup;
+  productMainList.innerHTML = markup;
 }
 function removeUnderscore(text) {
   return text.replace(/_/g, ' ');
 }
+function formatNumber(number) {
+  if (Number.isInteger(number)) {
+    return `${number}.00`;
+  } else {
+    return number.toFixed(2);
+  }
+}
+
