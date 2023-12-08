@@ -10,7 +10,7 @@ export function mainProductMarkup({ results }) {
     .map(item => {
       let formattedCategory = removeUnderscore(item.category);
       let formatPrice = formatNumber(item.price)
-      return `<li class="resp-item">
+      return `<li class="resp-item" data-id="${item._id}">
         <a class="img-link" href="${item.img}">
           <img class="photo" src="${item.img}" alt="${item.name}" loading="lazy"/>
         </a>
