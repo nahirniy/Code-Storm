@@ -6,21 +6,17 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* gap: 60px; */
-  padding: 0;
+  gap: 60px;
 }
 .header-navigation {
 }
 .header-logo-link {
-  color: #010101;
+  color: var(--main-cl);
   font-size: 18px;
   font-style: normal;
   font-weight: 900;
   line-height: 1.11;
   letter-spacing: 0.02em;
-}
-.food-boutique-icon {
-  display: none;
 }
 .header-logo {
   display: flex;
@@ -28,18 +24,9 @@
   align-items: center;
   gap: 8px;
 }
-.header-svg-link {
-  width: 28px;
-  height: 28px;
-  background-color: #6d8434;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .header-logo-svg {
-  width: 16px;
-  height: 16px;
+  width: 154px;
+  height: 28px;
   flex-shrink: 0;
 }
 .header-navigation-list {
@@ -50,14 +37,13 @@
 }
 .header-navigation-home {
   padding: 10px 20px;
-  background: #6d8434;
+  background: var(--accent-cl);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   border-radius: 30px;
-
-  color: #e8e8e2;
+  color: var(--light-grey-cl);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.28;
@@ -69,7 +55,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 30px;
-  background: #6d8434;
+  background: var(--accent-cl);
 }
 .header-navigation-link {
   display: none;
@@ -77,6 +63,7 @@
 .header-logo-busket {
   width: 14px;
   height: 14px;
+  fill: var(--light-grey-cl);
 }
 
 @media (min-width: 768px) {
@@ -84,11 +71,7 @@
     margin: 24px 0px;
   }
   .header-logo-svg {
-    width: 20px;
-    height: 20px;
-  }
-  .header-svg-link {
-    width: 32px;
+    width: 197px;
     height: 32px;
   }
   .header-logo-link {
@@ -113,7 +96,7 @@
     display: flex;
     align-items: center;
     gap: 14px;
-    color: #010101;
+    color: var(--main-cl);
     font-size: 18px;
     font-weight: 500;
     line-height: 1.3;
@@ -121,13 +104,8 @@
   }
 }
 @media (min-width: 1440px) {
-  .header-logo-link {
-    display: none;
-  }
-  .food-boutique-icon {
-    display: block;
-    width: 155.026px;
-    height: 20.616px;
-    fill: #010101;
+  .header-logo-svg {
+    width: 195px;
+    height: 32px;
   }
 }
