@@ -50,9 +50,11 @@ async function changeCategory(e) {
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
-function changeKeyword(e) {
+async function changeKeyword(e) {
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
   const newParams = { ...oldParams, keyword: e.target.value };
+  const newFilterBy = await getCurrentProducts(newParams);
+  mainProductMarkup(newFilterBy);
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
