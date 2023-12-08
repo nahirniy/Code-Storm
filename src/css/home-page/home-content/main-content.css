@@ -71,7 +71,7 @@
     height: 140px;
 }
 
-.img-link {
+.img {
     width: 295px;
     padding: 19px 77px;
     border-radius: 10px;
@@ -140,6 +140,14 @@
 }
 
 /*-------------------ADAPTIVE LAYOUT-----------------------*/
+@media  screen and (max-width: 375px) {
+    .photo-card{
+        width: 100%;
+    }
+    .img {
+        width: 100%;
+    }
+}
 @media screen and (min-width: 768px) {
     .product-list {
         margin-bottom: 100px;
@@ -194,7 +202,7 @@
         flex-basis: calc((925px - 40px) / 3);
     }
 
-    .img-link {
+    .img {
         width: 255px;
         padding: 19px 58px;
     }
