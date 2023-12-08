@@ -1,15 +1,8 @@
 import sprite from '../../../img/icons/sprite.svg';
 
 
-const productMainList = document.querySelector('.photo-card')
+const productMainList = document.querySelector('.product-list')
 
-/*--------------------------------CHECK IF ARRAY IS CLEAR----------------------------*/
-export function markupInfoMainProduct() {
-  return `<div class="info-query">
-                <h3 class="info-text">Nothing was found for the selected <span class="info-word">filters...</span></h3>
-                <p class="info-message">Try adjusting your search parameters or browse our range by other criteria to find the perfect product for you.</p>
-              </div>`;
-}
 
 /*-----------------------------------MARKUP----------------------------*/
 export function mainProductMarkup({ results }) {
