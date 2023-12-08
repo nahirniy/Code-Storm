@@ -59,9 +59,9 @@ async function handleClick(event) {
         icon.addEventListener('click', handleClickBasket);
       });
     } else {
-      productItem.innerHTML = '';
+      productList.innerHTML = '';
       const infoMessage = markupInfoMainProduct();
-      productItem.insertAdjacentHTML('beforeend', infoMessage);
+      productList.insertAdjacentHTML('beforeend', infoMessage);
     }
     clickIconBasket();
   } catch (error) {
