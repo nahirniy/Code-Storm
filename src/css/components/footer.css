@@ -101,7 +101,7 @@
 
 /* Tablet */
 @media (min-width: 768px) {
-  .container {
+  .footer-container {
     display: block;
     gap: 78px;
     background-color: #6d8434;
@@ -161,7 +161,7 @@
 
 /* Desktop */
 @media (min-width: 1440px) {
-  .container {
+  .footer-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
