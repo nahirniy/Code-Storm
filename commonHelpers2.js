@@ -1,4 +1,19 @@
-import"./assets/styles-eea4b901.js";import{n as b,a as d}from"./assets/vendor-4dc38fff.js";function y(a,e){localStorage.setItem(a,JSON.stringify(e))}function i(a){const e=localStorage.getItem(a);try{return JSON.parse(e)}catch{return b.Notify.failure("Oops! Something went wrong..."),e}}function w(a){const{keyword:e,category:t,page:r,limit:o,...c}=a,l=Object.keys(c).length,n=new URLSearchParams({page:r,limit:o});if(e&&n.set("keyword",e),t&&n.set("category",t),l){const[m,f]=Object.entries(c)[0];n.set(m,f)}return n}d.defaults.baseURL="https://food-boutique.b.goit.study/api";const P=async()=>{const{data:a}=await d.get("/products/categories");return a},u=async a=>{const e=w(a),{data:t}=await d.get("/products/",{params:e});return t},h=async a=>{const{data:e}=await d.get(`/products/popular?limit=${a}`);return e},v="/Code-Storm/assets/sprite-f073391d.svg",L=document.querySelector(".product-list");function p({results:a}){const e=a.map(t=>{let r=S(t.category);return`<li class="resp-item">
+import"./assets/styles-d3345b9c.js";import{n as b,a as d}from"./assets/vendor-4dc38fff.js";window.addEventListener("resize",()=>void 0);function y(e,a){localStorage.setItem(e,JSON.stringify(a))}function i(e){const a=localStorage.getItem(e);try{return JSON.parse(a)}catch{return b.Notify.failure("Oops! Something went wrong..."),a}}function w(e){const{keyword:a,category:t,page:r,limit:s,...n}=e,l=Object.keys(n).length,c=new URLSearchParams({page:r,limit:s});if(a&&c.set("keyword",a),t&&c.set("category",t),l){const[f,m]=Object.entries(n)[0];c.set(f,m)}return c}d.defaults.baseURL="https://food-boutique.b.goit.study/api";const P=async()=>{const{data:e}=await d.get("/products/categories");return e},u=async e=>{const a=w(e),{data:t}=await d.get("/products/",{params:a});return t},v=async e=>{const{data:a}=await d.get(`/products/popular?limit=${e}`);return a},h={popularList:document.querySelector(".popular-list")};function L(e){const a=e.map(({name:t,img:r,category:s,size:n,popularity:l,_id:c})=>`<li class="popular-item" data-id="${c}">
+                    <div class="wrapper-img">
+                        <img
+                            src="${r}"
+                            alt="${t}"
+                        />
+                    </div>
+                    <div class="popular-product-info">
+                        <h3 class="product-name">${t}</h3>
+                        <p class="product-category">Category: <span>${s.replace("_"," ")}</span></p>
+                        <div class="product-text">
+                            <p>Size: <span>${n}</span></p>
+                            <p>Popularity: <span>${l}</span></p>
+                        </div>
+                    </div>
+                </li>`);h.popularList.insertAdjacentHTML("beforeend",a.join(""))}const k=5;v(k).then(e=>L(e));const $="/Code-Storm/assets/sprite-f073391d.svg",S=document.querySelector(".product-list");function p({results:e}){const a=e.map(t=>{let r=C(t.category),s=A(t.price);return`<li class="resp-item" data-id="${t._id}">
         <a class="img-link" href="${t.img}">
           <img class="photo" src="${t.img}" alt="${t.name}" loading="lazy"/>
         </a>
@@ -9,25 +24,10 @@ import"./assets/styles-eea4b901.js";import{n as b,a as d}from"./assets/vendor-4d
           <p class="popular-product"><span class="style-word">Popularity:</span>${t.popularity}</p>
         </div>
         <div class="footer-product_card">
-          <p class="price-product">$${t.price}</p>
+          <p class="price-product">$${s}</p>
           <svg class="svg-basket" width="34" height="34">
-            <use class="href-icon" href="${v}#icon-basket"></use>
+            <use class="href-icon" href="${$}#icon-basket"></use>
           </svg>
         </div>
-      </li>`}).join("");L.innerHTML=e}function S(a){return a.replace(/_/g," ")}document.querySelector("input");document.querySelector(".btn-submit");document.querySelector(".product-list");document.querySelector(".photo-card");window.addEventListener("resize",function(a){});const k={popularList:document.querySelector(".popular-list")};function $(a){const e=a.map(({name:t,img:r,category:o,size:c,popularity:l,_id:n})=>`<li class="popular-item" data-id="${n}">
-                    <div class="wrapper-img">
-                        <img
-                            src="${r}"
-                            alt="${t}"
-                        />
-                    </div>
-                    <div class="popular-product-info">
-                        <h3 class="product-name">${t}</h3>
-                        <p class="product-category">Category: <span>${o.replace("_"," ")}</span></p>
-                        <div class="product-text">
-                            <p>Size: <span>${c}</span></p>
-                            <p>Popularity: <span>${l}</span></p>
-                        </div>
-                    </div>
-                </li>`);k.popularList.insertAdjacentHTML("beforeend",e.join(""))}const C=5;h(C).then(a=>$(a));const g=document.querySelector(".category-list"),A=document.querySelector(".form"),q=document.querySelector(".keyword"),E=document.querySelector(".filters-all-param-list"),s="params of search",O={keyword:null,category:null,page:1,limit:9,byABC:!0};i(s)??y(s,O);async function B(){const e=(await P()).map(t=>`<option value="${t}" class="category-type">${x(t)}</option>`).join("");g.insertAdjacentHTML("afterbegin",e)}async function _(a){const e=a.target.value,t=i(s);let r;e!=="show-all"?r={...t,category:e}:r={...t,category:null};const o=await u(r);o?p(o):console.log("Ploha"),y(s,r)}async function j(a){const t={...i(s),keyword:a.target.value},r=await u(t);p(r),y(s,t)}async function M(a){a.preventDefault();const e=i(s),t=await u(e);t?p(t):console.log("Ploha")}function x(a){return a.replaceAll("_"," ")}async function z(a){let e,t;switch(a.target.value){case"byAtoZ":e="byABC",t=!0;break;case"byZtoA":e="byABC",t=!1;break;case"byCheaperfirst":e="byPrice",t=!0;break;case"byExpensivefirst":e="byPrice",t=!1;break;case"byPopular":e="byPopularity",t=!1;break;case"byNotpopular":e="byPopularity",t=!0;break;default:e="byABC",t=!0;break}T(e,t)}async function T(a,e){const t=i(s),{[Object.keys(t).pop()]:r,...o}=t,c={...o,[a]:e},l=await u(c);p(l),y(s,c)}async function F(){const a=i(s),e=await u(a);p(e)}A.addEventListener("submit",M);E.addEventListener("change",z);g.addEventListener("change",_);q.addEventListener("input",j);document.addEventListener("DOMContentLoaded",B);document.addEventListener("DOMContentLoaded",F);
+      </li>`}).join("");S.innerHTML=a}function C(e){return e.replace(/_/g," ")}function A(e){return Number.isInteger(e)?`${e}.00`:e.toFixed(2)}const g=document.querySelector(".category-list"),E=document.querySelector(".form"),O=document.querySelector(".keyword"),_=document.querySelector(".filters-all-param-list"),o="params of search",B={keyword:null,category:null,page:1,limit:9,byABC:!0};i(o)??y(o,B);async function j(){const a=(await P()).map(t=>`<option value="${t}" class="category-type">${z(t)}</option>`).join("");g.insertAdjacentHTML("afterbegin",a)}async function M(e){const a=e.target.value,t=i(o);let r;a!=="show-all"?r={...t,category:a}:r={...t,category:null};const s=await u(r);s?p(s):console.log("Ploha"),y(o,r)}async function q(e){const t={...i(o),keyword:e.target.value},r=await u(t);p(r),y(o,t)}async function x(e){e.preventDefault();const a=i(o),t=await u(a);t?p(t):console.log("Ploha")}function z(e){return e.replaceAll("_"," ")}async function F(e){let a,t;switch(e.target.value){case"byAtoZ":a="byABC",t=!0;break;case"byZtoA":a="byABC",t=!1;break;case"byCheaperfirst":a="byPrice",t=!0;break;case"byExpensivefirst":a="byPrice",t=!1;break;case"byPopular":a="byPopularity",t=!1;break;case"byNotpopular":a="byPopularity",t=!0;break;default:a="byABC",t=!0;break}N(a,t)}async function N(e,a){const t=i(o),{[Object.keys(t).pop()]:r,...s}=t,n={...s,[e]:a},l=await u(n);p(l),y(o,n)}async function T(){const e=i(o),a=await u(e);p(a)}E.addEventListener("submit",x);_.addEventListener("change",F);g.addEventListener("change",M);O.addEventListener("input",q);document.addEventListener("DOMContentLoaded",j);document.addEventListener("DOMContentLoaded",T);
 //# sourceMappingURL=commonHelpers2.js.map
