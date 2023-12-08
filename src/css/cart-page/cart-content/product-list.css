@@ -66,7 +66,19 @@
 }
 
 .cart-item:not(:last-child) {
-  margin-bottom: 60px; /*учесть линию*/
+  margin-bottom: 30px; /*учесть линию */
+  padding-bottom: 30px;
+  position: relative;
+}
+.cart-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 335px; /* Ширина линии */
+  height: 1px; /* Высота линии */
+  background-color: rgba(1, 1, 1, 0.1); /* Цвет линии */
+  transform: translateX(-50%);
 }
 .cart-item:last-child {
   margin-bottom: 80px;
@@ -179,15 +191,23 @@
     height: 20px;
   }
   .cart-item:not(:last-child) {
-    margin-bottom: 80px; /*учесть линию*/
+    margin-bottom: 40px; /*учесть линию */
+    padding-bottom: 40px;
   }
   .cart-item:last-child {
     margin-bottom: 100px;
   }
+  .cart-item:not(:last-child)::after {
+    width: 672px; /* Ширина линии */
+  }
 }
 /* ===================desktop=========*/
 @media (min-width: 1440px) {
+  .cart-item:not(:last-child)::after {
+    width: 500px;
+  }
 }
+
 /* mobile-width: 375px;
   --tablet-width: 768px;
   --desktop-width: 1440px */

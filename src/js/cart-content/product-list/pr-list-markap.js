@@ -45,7 +45,7 @@ export const funEmplyCartCreateMarkup = function createEmplyMarkup() {
   const qwe = `<div class="cart-yellow-container">
   <img
     class="cart-yellow-img"
-    src="./img/cart/yellow shopping basket .jpg "
+    src="./img/cart/yellow shopping basket .png "
     alt="yellow shopping basket "
   />
 
