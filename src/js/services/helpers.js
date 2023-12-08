@@ -41,7 +41,7 @@ export function createParams(parameters) {
   return params;
 }
 
-export function updateBasket(LOCALSTORAGE_KEY, currentProduct) {
+export function updateBasket(LOCALSTORAGE_KEY, currentProduct, basket) {
   const index = basket.findIndex(product => product._id === currentProduct._id);
 
   console.log(currentProduct);
