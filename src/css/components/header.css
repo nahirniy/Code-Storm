@@ -18,12 +18,7 @@
   line-height: 1.11;
   letter-spacing: 0.02em;
 }
-.header-logo {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 8px;
-}
+
 .header-logo-svg {
   width: 154px;
   height: 28px;
@@ -32,6 +27,11 @@
 .header-navigation-list {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.navigation-cart {
+  display: flex;
   align-items: center;
   gap: 6px;
 }
@@ -78,6 +78,10 @@
     font-size: 24px;
     line-height: 1;
   }
+
+  .header-navigation-list {
+    gap: 16px;
+  }
   .header-navigation-home {
     padding: 12px 28px;
     font-size: 18px;
@@ -87,15 +91,15 @@
   .header-navigation-cart {
     padding: 10px;
   }
+  .navigation-cart {
+    gap: 14px;
+  }
   .header-logo-busket {
     width: 18px;
     height: 18px;
   }
   .header-navigation-link {
     display: block;
-    display: flex;
-    align-items: center;
-    gap: 14px;
     color: var(--main-cl);
     font-size: 18px;
     font-weight: 500;
@@ -107,5 +111,8 @@
   .header-logo-svg {
     width: 195px;
     height: 32px;
+  }
+  .header-navigation-list {
+    gap: 24px;
   }
 }
