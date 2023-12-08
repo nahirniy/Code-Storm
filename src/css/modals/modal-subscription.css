@@ -4,6 +4,7 @@
     height: 400px;
     background-color:#E8E8E2;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .clouse_subscription{
@@ -14,6 +15,31 @@
 
 .img_subs {
         position: absolute;
-         bottom:0px;
-         right: 0px;
+         bottom:-25px;
+         right: -140px;
+         width: 335px;
+}
+.new_div_subs{
+    margin: 100px 45px;
+  
+}
+.new-sumbs{
+    color: #010101;
+text-align: center;
+font-family: Neue Montreal;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: 24px;
+margin-bottom: 14px;
+}
+.subs-paragrf{
+    color: rgba(1, 1, 1, 0.70);
+
+text-align: center;
+font-family: Neue Montreal;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; 
 }
