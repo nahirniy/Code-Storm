@@ -82,8 +82,12 @@
 .footer-product_card {
     display: flex;
 }
+.btn-basket {
+    border: none;
+}
 
 .svg-basket {
+    
     display: flex;
     fill: var(--white-cl);
     padding: 8px;

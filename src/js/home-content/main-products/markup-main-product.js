@@ -22,9 +22,11 @@ export function mainProductMarkup({ results }) {
         </div>
         <div class="footer-product_card">
           <p class="price-product">$${formatPrice}</p>
+          <button type="button" class="btn-basket">
           <svg class="svg-basket" width="34" height="34">
             <use class="href-icon" href="${sprite}#icon-basket"></use>
           </svg>
+          </button>
         </div>
       </li>`;
     })
