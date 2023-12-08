@@ -1,0 +1,23 @@
+.cart-yellow-container {
+  /* display: inline-block; */
+  text-align: center;
+}
+.cart-yellow-img {
+  margin-top: 105px;
+  margin-bottom: 28px;
+}
+.cart-yellow-title {
+  margin-bottom: 14px;
+  color: var(--main-cl);
+  font-size: 18px;
+  line-height: 1.11em; /* 111.111% */
+  font-style: normal;
+  font-weight: 500;
+}
+.cart-yellow-span {
+  color: var(--accent-cl);
+}
+.cart-yellow-text {
+  color: rgba(1, 1, 1, 0.7);
+  line-height: 1.29em; /* 128.571% */
+}

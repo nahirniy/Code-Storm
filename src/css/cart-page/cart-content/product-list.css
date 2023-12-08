@@ -42,14 +42,12 @@
 .cart-item {
   list-style: none;
   display: flex;
-  /* gap: 40px; */
   align-items: flex-start;
   justify-content: space-between;
-  /* position: relative; */
 }
 
 .cart-btn-close {
-  /* border: none; */
+  border: none;
   /* align-items: center;
   justify-content: center; */
   /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -109,20 +107,6 @@
   color: var(--main-cl);
 }
 /* кнопка крестик
-.modal-btn {
-  position: absolute;
-  display: flex;
-  top: 24px;
-  right: 24px;
-  border-radius: 50%;
-  background-color: var(--cornflower);
-  padding: 0;
-  width: 24px;
-  height: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
