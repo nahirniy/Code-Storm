@@ -227,13 +227,17 @@ border-radius: 10px;
   width: 100%;
   height: 100%;
   display: flex;
-  fill: var(--white-cl);
+  fill: var(--light-grey-cl);
   padding: 8px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 30px;
   background-color: var(--accent-cl);
+}
+
+.svg-basket:hover{
+  background-color: #586F1F;
 }
 
 .svg-discount{
