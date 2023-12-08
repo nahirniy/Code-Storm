@@ -6,7 +6,11 @@ const refs = {
 
 export default function markupDiscountList(arr) {
   const cards = arr.map(({ name, img, _id, price }) => {
-    return `<li class="discount-item" data-id="${_id}"><div class="wrap-img">
+    return `<li class="discount-item" data-id="${_id}">
+        <svg class="svg-discount" width="60" height="60">
+          <use href="${sprite}#icon-discount-mark"></use>
+        </svg>
+        <div class="wrap-img">
           <img
             src="${img}"
             alt="${name}"
@@ -15,9 +19,11 @@ export default function markupDiscountList(arr) {
         <div class="discount-product-info">
           <h3 class="product-name">${name}</h3>
           <p class="product-price">$${price}</p>
-          <svg class="svg-basket" width="34" height="34">
+          <button type="button" class="btn-basket">
+          <svg class="svg-basket">
             <use class="href-icon" href="${sprite}#icon-basket"></use>
           </svg>
+          </button>
         </div>
       </li>`;
   });
