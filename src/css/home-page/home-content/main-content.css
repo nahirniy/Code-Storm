@@ -81,7 +81,9 @@
     display: flex;
 }
 
-.svg-basket {
+.btn-basket {
+    border: none;
+    cursor: pointer;
     display: flex;
     fill: var(--white-cl);
     padding: 8px;

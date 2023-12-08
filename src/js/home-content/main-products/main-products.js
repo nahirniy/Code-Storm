@@ -13,7 +13,7 @@ let page = 1;
 let limit = 6;
 let totalPages = 0;
 
-/*-------------------------CHECK LIMIT(WIDTH SCRENN--------------------*/
+/*-------------------------CHECK LIMIT WIDTH SCRENN--------------------*/
 
 function addClickEventIfInRange() {
   let rezice = window.innerWidth;
@@ -29,9 +29,7 @@ function addClickEventIfInRange() {
 
 addClickEventIfInRange();
 
-window.addEventListener('resize', function (event) {
-  addClickEventIfInRange();
-});
+window.addEventListener('resize',  () => addClickEventIfInRange());
 /*-----------------------------QUERY DATA WITH EVENT SUBMIT---------------------------*/
 // btnSubmit.addEventListener('click', handleClick);
 
@@ -63,19 +61,21 @@ async function handleClick(event) {
       const infoMessage = markupInfoMainProduct();
       productItem.insertAdjacentHTML('beforeend', infoMessage);
     }
-    clickIconBasket();
+    clickIconBasket(event);
   } catch (error) {
     console.error(error);
   }
 }
 /*---------------ADD EVENT FOR ALL ICONS---------------------*/
-function clickIconBasket() {
-  const basketIcons = document.querySelectorAll('.svg-basket');
-  basketIcons.forEach(icon => {
-    icon.addEventListener('click', handleClickBasket);
-  });
+function clickIconBasket(event) {
+  if (event) {
+    const currentBasket = event.target.closest('.btn-basket');
+    if (currentBasket) {
+      console.log('Button clicked:', currentBasket);
+      handleClickBasket(event);
+    }
+  }
 }
-
 /*---------------------HANDLE CLICK BASKET--------------------*/
 function handleClickBasket(event) {
   const clickedItem = event.currentTarget.closest('.resp-item');
