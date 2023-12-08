@@ -17,7 +17,7 @@
 
 .info-text {
     margin-bottom: 14px;
-    color: #010101;
+    color: var(--main-cl);
     text-align: center;
     font-family: Neue Montreal;
     font-size: 18px;
@@ -27,7 +27,7 @@
 }
 
 .info-word {
-    color: #6D8434;
+    color: var(--accent-cl);
     font-family: Neue Montreal;
     font-size: 18px;
     font-style: normal;
@@ -36,7 +36,7 @@
 }
 
 .info-message {
-    color: rgba(1, 1, 1, 0.70);
+    color: var(--grey-cl);
     text-align: center;
     font-family: Neue Montreal;
     font-size: 14px;
@@ -147,4 +147,41 @@
     .resp-item {
         flex-basis: calc((100% - 30px) / 2);
     }
+
+    .name-product {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+
+    .price-product {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .product-list {
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+
+    .resp-item {
+        flex-basis: calc((925px - 40px) / 3);
+    }
+
+    .img-link {
+        width: 255px;
+        padding: 19px 58px;
+    }
+
+    .photo-card {
+        row-gap: 40px;
+        column-gap: 20px;
+        width: 925px;
+    }
+
+    .descr-product {
+        flex-wrap: wrap;
+    }
+
 }
