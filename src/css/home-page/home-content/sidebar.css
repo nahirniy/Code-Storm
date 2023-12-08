@@ -126,10 +126,21 @@
   justify-content: space-between;
 }
 
+
+.btn-basket{
+width: 20px;
+  height: 20px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--white-cl);
+}
+
+
 .ligth-basket {
   display: flex;
-  width: 20px;
-  height: 20px;
+  width: 100%;
+    height: 100%;
     display: inline-flex;
     height: ;
     fill: var(--accent-cl);
