@@ -1,3 +1,5 @@
+import sprite from '../../../img/icons/sprite.svg';
+
 const refs = {
   popularList: document.querySelector('.popular-list'),
 };
@@ -12,7 +14,10 @@ export default function markupPopularList(arr) {
                         />
                     </div>
                     <div class="popular-product-info">
+                    <div class="popular-info-top">
                         <h3 class="product-name">${name}</h3>
+                        <svg class="ligth-basket"><use width="12" height="12 "href="${sprite}#icon-basket"></use></svg>
+                        </div>
                         <p class="product-category">Category: <span>${category.replace(
                           '_',
                           ' '
