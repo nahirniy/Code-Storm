@@ -6,15 +6,37 @@
     <title>Home</title>
     
     <script type="module" crossorigin src="/Code-Storm/commonHelpers2.js"></script>
-    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/styles-d3345b9c.js">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/styles-c4d1e6be.js">
     <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-4dc38fff.js">
-    <link rel="stylesheet" href="/Code-Storm/assets/styles-fc617d54.css">
+    <link rel="stylesheet" href="/Code-Storm/assets/styles-5b865a69.css">
   </head>
   <body>
     <header class="header">
-  <div class="container">
-    <a href="./index.html">home</a>
-    <a href="./cart.html">cart</a>
+  <div class="header-container container">
+    <div class="header-logo">
+      <a class="header-logo-link" href="./index.html">
+        <svg class="header-logo-svg">
+          <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-logo-header"></use>
+        </svg>
+      </a>
+    </div>
+    <nav class="header-navigation">
+      <ul class="header-navigation-list">
+        <li class="header-navigation-item">
+          <a class="header-navigation-home" href="./index.html">Home</a>
+        </li>
+        <li class="header-navigation-item">
+          <a class="navigation-cart" href="./cart.html">
+            <span class="header-navigation-cart">
+              <svg class="header-logo-busket">
+                <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-basket"></use>
+              </svg>
+            </span>
+            <span class="header-navigation-link">Cart (0)</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
 
