@@ -1,11 +1,14 @@
-import sprite from '../../../img/icons/sprite.svg';
+import { saveToLS } from '../../services/helpers';
+import sprite from '../../../img/icons/sprite.svg'
 
-
-const productMainList = document.querySelector('.product-list')
+const productMainList = document.querySelector('.product-list');
+const LOCALSTORAGE_KEY = 'main products';
 
 
 /*-----------------------------------MARKUP----------------------------*/
+
 export function mainProductMarkup({ results }) {
+  saveToLS(LOCALSTORAGE_KEY, results);
   const markup = results
     .map(item => {
       let formattedCategory = removeUnderscore(item.category);
