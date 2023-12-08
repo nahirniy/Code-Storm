@@ -1,9 +1,4 @@
 import { getDiscountProducts } from '../../services/food-api';
+import markupDiscountList from './markup-discount-products';
 
-getDiscountProducts().then(data => console.log(data));
-
-const refs = {
-  discountList: document.querySelector('.discount-list'),
-};
-
-console.log(refs.discountList);
+getDiscountProducts().then(data => markupDiscountList(data));
