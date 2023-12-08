@@ -13,6 +13,7 @@ const defaultParams = {
   category: null,
   page: 1,
   limit: 9,
+  byABC: true,
 };
 
 loadFromLS(LOCALSTORAGE_KEY) ?? saveToLS(LOCALSTORAGE_KEY, defaultParams);
@@ -55,6 +56,21 @@ function changeKeyword(e) {
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
+async function formSub(e) {
+  e.preventDefault();
+  const currentParams = loadFromLS(LOCALSTORAGE_KEY);
+  const currentProduct = await getCurrentProducts(currentParams);
+  if (!currentProduct) {
+    console.log('Ploha');
+  } else {
+    mainProductMarkup(currentProduct);
+  }
+}
+
+function replaceText(arg) {
+  return arg.replaceAll('_', ' ');
+}
+
 async function getFilter(e) {
   let filter;
   let state;
@@ -89,20 +105,23 @@ async function getFilter(e) {
       state = true;
       break;
   }
+
+  changeFilter(filter, state);
+}
+
+async function changeFilter(filter, state) {
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-  const newParams = { ...oldParams, [filter]: state };
+  const { [Object.keys(oldParams).pop()]: _, ...rest } = oldParams;
+  const newParams = { ...rest, [filter]: state };
+  const newFilterBy = await getCurrentProducts(newParams);
+  mainProductMarkup(newFilterBy);
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
-async function formSub(e) {
-  e.preventDefault();
-  const currentParams = loadFromLS(LOCALSTORAGE_KEY);
-  const currentProduct = await getCurrentProducts(currentParams);
-  if (!currentProduct) {
-    console.log('Ploha');
-  } else {
-    mainProductMarkup(currentProduct);
-  }
+async function loadMarkup() {
+  const defaultParams = loadFromLS(LOCALSTORAGE_KEY);
+  const currentProduct = await getCurrentProducts(defaultParams);
+  mainProductMarkup(currentProduct);
 }
 
 form.addEventListener('submit', formSub);
@@ -110,23 +129,4 @@ filtersABClist.addEventListener('change', getFilter);
 categoryList.addEventListener('change', changeCategory);
 input.addEventListener('input', changeKeyword);
 document.addEventListener('DOMContentLoaded', createCategoryList);
-document.addEventListener('DOMContentLoaded', changeCategory);
-
-function replaceText(arg) {
-  return arg.replaceAll('_', ' ');
-}
-
-/*  
-Создать функцию для редактирования текста.
-Написать функцию по собмату не колбеком
-
-
-
-input form в рефс
-листнеры в низ
-
-
-
-
-
-*/
+document.addEventListener('DOMContentLoaded', loadMarkup);
