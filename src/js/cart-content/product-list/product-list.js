@@ -1,5 +1,7 @@
 import { funCartCreateMarkup } from './pr-list-markap';
+import { funEmplyCartCreateMarkup } from './pr-list-markap';
 console.log('чаокакао');
+// console.log(funEmplyCartCreateMarkup());
 const refs = {
   cartTitle: document.querySelector('.cart-title'),
   cartTitleContainer: document.querySelector('.cart-title-container'),
@@ -56,14 +58,17 @@ const cartResults = [
   },
 ];
 let arrayLength = cartResults.length;
-console.log(arrayLength);
+const names = cartResults.map(cartResult => cartResult.price);
+console.log(names);
+const toPrice = cartResults.reduce((total, cartResult) => {
+  return total + cartResult.price;
+}, 0);
+console.log(toPrice);
 // колбек кнопки удалить все
 function onCartDellAll() {
   refs.cartItemContainer.innerHTML = '';
-  refs.cartTitleContainer.innerHTML = '';
-  arrayLength = 0;
+  // очистка локал стораж
   refs.cartBtnDelAll.classList.add('cart-display-none');
-  cartTitleAdd(arrayLength);
   cartEmply();
 }
 // колбек удаления поштучно
@@ -77,11 +82,14 @@ function onCartItem(evt) {
   const cartItemDell = evt.target.parentNode.parentNode.parentNode;
   // console.log(cartItemDell);
   cartItemDell.remove();
+  // удаление элемента из локалстораж
   arrayLength -= 1;
   cartTitleAdd(arrayLength);
-  // функция пересчета тотала
+  // берем новый масив из локал сторож и  пересситываем тотал
+  cartTotal(cartResults);
   const recountItem = evt.currentTarget.childNodes.length;
   if (recountItem === 0) {
+    refs.cartBtnDelAll.classList.add('cart-display-none');
     cartEmply();
   }
 }
@@ -91,7 +99,7 @@ function cartTitleAdd(leng) {
   refs.cartTitleContainer.classList.remove('cart-display-none');
   refs.cartTitle.textContent = `cart(${leng})`;
 }
-// главная функция
+// главная функция-создание контента корзины
 function cartProductList() {
   cartTitleAdd(arrayLength);
   if (!arrayLength) {
@@ -103,4 +111,14 @@ function cartProductList() {
 }
 cartProductList();
 // функция для пустой корзины
-function cartEmply() {}
+function cartEmply() {
+  cartTitleAdd(0);
+  refs.cartItemContainer.innerHTML = funEmplyCartCreateMarkup();
+}
+// функция для подсчета тотал
+function cartTotal(results) {
+  const totalPrice = results.reduce((total, result) => {
+    return total + result.price;
+  }, 0);
+  console.log(totalPrice);
+}

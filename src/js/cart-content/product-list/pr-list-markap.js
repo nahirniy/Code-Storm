@@ -1,4 +1,4 @@
-// функция разметки
+// функция разметки корзины с товаром
 export const funCartCreateMarkup = function createMarkup(arr) {
   return arr
     .map(
@@ -26,8 +26,8 @@ export const funCartCreateMarkup = function createMarkup(arr) {
               <span>${size}</span>
             </p>
           </div>
-          <h3>${price}</h3>
-        </div>
+          <h3 class="cart-info-price">$${price}</h3>
+        </div> 
       </div>
       <div class="cart-btn-wrap">
         <button name="button" type="button" class="cart-btn-close">
@@ -40,3 +40,23 @@ export const funCartCreateMarkup = function createMarkup(arr) {
     )
     .join('');
 };
+// функция разметки пустой корзины
+export const funEmplyCartCreateMarkup = function createEmplyMarkup() {
+  const qwe = `<div class="cart-yellow-container">
+  <img
+    class="cart-yellow-img"
+    src="./img/cart/yellow shopping basket .jpg "
+    alt="yellow shopping basket "
+  />
+
+  <h3 class="cart-yellow-title">
+    Your basket is <span class="cart-yellow-span">empty...</span>
+  </h3>
+  <p class="cart-yellow-text">
+    Go to the main page to select your favorite <br />
+    products and add them to the cart.
+  </p>
+</div>`;
+  return qwe;
+};
+// console.log(funEmplyCartCreateMarkup());

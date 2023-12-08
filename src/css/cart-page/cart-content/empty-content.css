@@ -1,10 +1,14 @@
 .cart-yellow-container {
   /* display: inline-block; */
   text-align: center;
+  margin-bottom: 120px;
 }
+
 .cart-yellow-img {
   margin-top: 105px;
   margin-bottom: 28px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .cart-yellow-title {
   margin-bottom: 14px;
