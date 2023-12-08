@@ -1,0 +1,133 @@
+/* HEADER */
+.header {
+  margin: 18px 0px;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 60px; */
+  padding: 0;
+}
+.header-navigation {
+}
+.header-logo-link {
+  color: #010101;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+}
+.food-boutique-icon {
+  display: none;
+}
+.header-logo {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+.header-svg-link {
+  width: 28px;
+  height: 28px;
+  background-color: #6d8434;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-logo-svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.header-navigation-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+.header-navigation-home {
+  padding: 10px 20px;
+  background: #6d8434;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 30px;
+
+  color: #e8e8e2;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.28;
+}
+.header-navigation-cart {
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: #6d8434;
+}
+.header-navigation-link {
+  display: none;
+}
+.header-logo-busket {
+  width: 14px;
+  height: 14px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin: 24px 0px;
+  }
+  .header-logo-svg {
+    width: 20px;
+    height: 20px;
+  }
+  .header-svg-link {
+    width: 32px;
+    height: 32px;
+  }
+  .header-logo-link {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .header-navigation-home {
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .header-navigation-cart {
+    padding: 10px;
+  }
+  .header-logo-busket {
+    width: 18px;
+    height: 18px;
+  }
+  .header-navigation-link {
+    display: block;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #010101;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+}
+@media (min-width: 1440px) {
+  .header-logo-link {
+    display: none;
+  }
+  .food-boutique-icon {
+    display: block;
+    width: 155.026px;
+    height: 20.616px;
+    fill: #010101;
+  }
+}
