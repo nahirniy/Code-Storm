@@ -1,6 +1,5 @@
 /* Mobile */
-.container {
-  display: block;
+.footer {
   background-color: #6d8434;
 }
 .footer-logo {
@@ -61,6 +60,7 @@
   height: 42px;
   background-color: #6d8434;
   margin-bottom: 14px;
+  padding-left: 18px;
 }
 .subscribe {
   border: 1px solid #e8e8e2;
