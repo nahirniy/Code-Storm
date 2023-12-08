@@ -96,7 +96,7 @@
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
-  margin-right: 50px;
+  margin-right: 55px;
 }
 
 /* Tablet */
@@ -146,7 +146,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    margin-right: 290px;
+    margin-right: 440px;
   }
   .services-list {
     display: flex;
@@ -160,3 +160,40 @@
 }
 
 /* Desktop */
+@media (min-width: 1440px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 40px;
+  }
+  .footer-logo {
+    display: flex;
+    padding-top: 0;
+  }
+  .footer-icons {
+    margin-right: 120px;
+  }
+  .motto {
+    margin-right: 92px;
+  }
+  .bottom-footer {
+    display: block;
+  }
+  .email-title {
+    margin-right: 0;
+  }
+  .form-footer {
+    margin-right: 0;
+  }
+  .services-one {
+    margin-right: 826px;
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-content: center;
+  }
+}
