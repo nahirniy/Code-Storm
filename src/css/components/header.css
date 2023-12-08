@@ -1,6 +1,6 @@
 /* HEADER */
 .header {
-  margin: 18px 0;
+  padding: 18px 0;
 }
 .header-container {
   display: flex;
@@ -66,7 +66,7 @@
 
 @media (min-width: 768px) {
   .header {
-    margin: 24px 0px;
+    padding: 24px 0px;
   }
   .header-logo-svg {
     width: 197px;
