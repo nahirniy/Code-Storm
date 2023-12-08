@@ -43,6 +43,16 @@ body {
   transform: scale(0);
 }
 
+.icon-basket {
+  display: flex;
+  fill: var(--white-cl);
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background-color: var(--accent-cl);
+}
 .container {
   max-width: var(--mobile-width);
   margin: 0 auto;
