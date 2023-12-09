@@ -11,7 +11,9 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
-
+.link-logo {
+  padding: 15px 15px 15px 0;
+}
 .logo-social {
   opacity: 0.8;
   fill: #e8e8e2;
@@ -29,6 +31,7 @@
 
 .second-motto {
   color: #e8e8e2;
+  opacity: 0.6;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
@@ -56,18 +59,20 @@
 .input-label {
   border: 1px solid #e8e8e2;
   border-radius: 30px;
-  width: 335px;
+  width: 100%;
   height: 42px;
   background-color: #6d8434;
   margin-bottom: 14px;
   padding-left: 18px;
+  outline: none;
+  color: #e8e8e2;
 }
 .subscribe {
   border: 1px solid #e8e8e2;
   border-radius: 30px;
   align-items: flex-start;
   gap: 14px;
-  width: 335px;
+  width: 100%;
   height: 42px;
   margin-bottom: 80px;
 }
@@ -90,13 +95,20 @@
   display: flex;
   flex-direction: column;
 }
-.services-one {
+.services {
   color: #e8e8e2;
-  opacity: 0.7;
+  opacity: 0.9;
   font-size: 14px;
   font-weight: 400;
   line-height: 1.28;
   margin-right: 55px;
+}
+.services-one,
+.slash {
+  color: #e8e8e2;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.28;
 }
 
 /* Tablet */
@@ -117,7 +129,6 @@
     font-size: 40px;
     font-weight: 500;
     line-height: 1.1;
-    width: 429px;
   }
   .second-motto {
     color: #e8e8e2;
@@ -126,7 +137,6 @@
     font-weight: 400;
     line-height: 1.33;
     margin-right: 32px;
-    width: 429px;
   }
   .email-title {
     color: #e8e8e2;
@@ -136,17 +146,22 @@
     line-height: 1.33;
     margin-right: 149px;
   }
+  .input-label,
+  .subscribe {
+    width: 335px;
+    height: 42px;
+  }
   .form-footer {
     display: flex;
     flex-direction: column;
     margin-right: 125px;
   }
-  .services-one {
+  .services {
     color: #e8e8e2;
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    margin-right: 440px;
+    margin-right: 290px;
   }
   .services-list {
     display: flex;
@@ -175,7 +190,8 @@
     margin-right: 120px;
   }
   .motto {
-    margin-right: 92px;
+    margin-right: 128px;
+    width: 410px;
   }
   .bottom-footer {
     display: block;
@@ -186,7 +202,12 @@
   .form-footer {
     margin-right: 0;
   }
-  .services-one {
+  .input-label,
+  .subscribe {
+    width: 335px;
+    height: 42px;
+  }
+  .services {
     margin-right: 826px;
   }
   .about {
