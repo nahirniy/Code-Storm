@@ -8,9 +8,16 @@ const modal_window = document.querySelector('.modal-product')
 const window_inModal = document.querySelector('.modal-product-inWindow')
 //////
 
-clouseBottun.addEventListener('click', toglModul)
+clouseBottun.addEventListener('click', function(){
+    toglModul();
+    OnScroll()
+})
 function toglModul(){
     modalBackdrop.classList.toggle('is-hidden')
+}
+function OnScroll(){
+    modal_window.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
 /////////
 
@@ -18,9 +25,7 @@ function toglModul(){
 
 // testButton.addEventListener('click', testFunctD)
 
-// function testFunctD(event){
-//     console.log("dd")
-// }
+
 
 // const TestMod = localStorage.getItem(basket)
 // const LOCALSTORAGE_KEY = 'basket'
@@ -45,11 +50,9 @@ async function handleClickOnLi(event) {
     }
 
     const currentId2 = closestRespItem.dataset.id;
-    // console.log('Значение data-id:', currentId2);
+   
+    const currentProduct = await getProductById(currentId2);
     
-    const testCurren = currentId2
-    const currentProduct = await getProductById(testCurren);
-    // console.log(currentProduct)
  
     const marcap = `<div class="img_modal" >
     <img class="photo" src="${currentProduct.img}" alt="${currentProduct.name}" loading="lazy"/>
@@ -64,8 +67,10 @@ async function handleClickOnLi(event) {
     <div class="footer-product_card">
     <p class="price-product">$${currentProduct.price}</p>
     <button type="button" class="modal-button">Add</button>`
-    // modal_window.insertAdjacentHTML('beforeend', marcap);
+   
     window_inModal.innerHTML = marcap;
+    modal_window.style.display = 'block';
+  document.body.style.overflow = 'hidden'
     toglModul()
 
 }
