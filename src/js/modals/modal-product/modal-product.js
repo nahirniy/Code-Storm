@@ -28,9 +28,9 @@ function toglModul(){
 // console.log(basketTest)
 // console.log(basketTest[0]._id)
 // // const CurrntTestProduct = loadFromLS(currentProduct)
-const testCurren = "640c2dd963a319ea671e3861"
-const currentProduct = await getProductById(testCurren);
-console.log(currentProduct)
+// const testCurren = "640c2dd963a319ea671e3861"
+// const currentProduct = await getProductById(testCurren);
+// console.log(currentProduct)
 
 
 
