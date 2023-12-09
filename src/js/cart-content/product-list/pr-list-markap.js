@@ -31,7 +31,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
       </div>
       <div class="cart-btn-wrap">
         <button name="button" type="button" class="cart-btn-close">
-          <svg class="cart-icon-basket">
+          <svg class="cart-icon-close">
             <use href="./img/icons/sprite.svg#icon-close"></use>
           </svg>
         </button>
