@@ -23,16 +23,20 @@ async function createCategoryList() {
   const markup = categories
     .map(
       category =>
-        `<option value="${category}" class="category-type">${replaceText(
+        `<li data-category="${category}" class="category-type">${replaceText(
           category
-        )}</option>`
+        )}</li>`
     )
     .join('');
   categoryList.insertAdjacentHTML('afterbegin', markup);
 }
 
 async function changeCategory(e) {
-  const currentCategory = e.target.value;
+  if (!e.target.classList.contains('category-type')) {
+    return;
+  }
+
+  const currentCategory = e.target.dataset.category;
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
   let newParams;
   if (currentCategory !== 'show-all') {
@@ -76,7 +80,7 @@ function replaceText(arg) {
 async function getFilter(e) {
   let filter;
   let state;
-  let args = e.target.value;
+  let args = e.target.dataset.filterparam;
   switch (args) {
     case 'byAtoZ':
       filter = 'byABC';
@@ -127,10 +131,60 @@ async function loadMarkup() {
 }
 
 form.addEventListener('submit', formSub);
-filtersABClist.addEventListener('change', getFilter);
-categoryList.addEventListener('change', changeCategory);
+filtersABClist.addEventListener('click', getFilter);
+categoryList.addEventListener('click', changeCategory);
 input.addEventListener('input', changeKeyword);
 document.addEventListener('DOMContentLoaded', createCategoryList);
 document.addEventListener('DOMContentLoaded', loadMarkup);
 
 // ! -------------Style Choice JS-------------
+
+const selectFilterCategories = document.querySelector('.select-filter');
+const selectParamCategories = document.querySelector('.select-param');
+const categoryName = document.querySelector('.category-name');
+const paramName = document.querySelector('.param-name');
+selectFilterCategories.addEventListener('click', toggleFilterVisibility);
+selectParamCategories.addEventListener('click', toggleFilterVisibilitySec);
+categoryList.addEventListener('click', handleCategorySelection);
+filtersABClist.addEventListener('click', handleCategorySelectionSec);
+document.addEventListener('click', hideFilterOnOutsideClick);
+document.addEventListener('click', hideFilterOnOutsideClickSec);
+
+function toggleFilterVisibility(e) {
+  e.stopPropagation();
+  categoryList.classList.toggle('filter-hidden');
+}
+
+function hideFilterOnOutsideClick() {
+  if (!categoryList.classList.contains('filter-hidden')) {
+    return categoryList.classList.add('filter-hidden');
+  }
+}
+
+function handleCategorySelection(e) {
+  const target = e.target;
+  if (target.classList.contains('category-type')) {
+    categoryName.textContent = target.textContent;
+    categoryList.classList.add('filter-hidden');
+  }
+}
+
+function toggleFilterVisibilitySec(e) {
+  e.stopPropagation();
+
+  filtersABClist.classList.toggle('filter-hidden');
+}
+
+function hideFilterOnOutsideClickSec() {
+  if (!filtersABClist.classList.contains('filter-hidden')) {
+    return filtersABClist.classList.add('filter-hidden');
+  }
+}
+
+function handleCategorySelectionSec(e) {
+  const target = e.target;
+  if (target.classList.contains('filter-type')) {
+    paramName.textContent = target.textContent;
+    categoryList.classList.add('filter-hidden');
+  }
+}

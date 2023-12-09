@@ -43,7 +43,7 @@
 .filter_icon_position {
   position: absolute;
   right: 20px;
-  top: 50%;
+  top: 27px;
   transform: translateY(-50%);
   padding: 0;
   margin: 0;
@@ -62,7 +62,7 @@
   background-color: transparent;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
-  padding: 14px 40px 14px 20px;
+  padding: 14px 46px 14px 20px;
   width: 100%;
   outline: transparent;
   font-size: 14px;
@@ -97,7 +97,45 @@
   .select_categories {
     width: 189px;
   }
-  .filters-all-param-list {
+  .select-param {
     width: 200px;
   }
+
+  .select-filter {
+    width: 189px;
+  }
+}
+
+.filter-options {
+  position: absolute;
+  cursor: pointer;
+  background-color: #fafafa;
+  z-index: 999;
+  user-select: none;
+  margin-top: 8px;
+}
+
+.filter-options li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.filter-hidden {
+  display: none;
+}
+
+.category-type {
+  color: rgba(1, 1, 1, 0.5);
+  transition: color 0.3s ease;
+}
+
+.category-type:hover {
+  color: #010101;
+}
+.filter-type {
+  color: rgba(1, 1, 1, 0.5);
+  transition: color 0.3s ease;
+}
+
+.filter-type:hover {
+  color: #010101;
 }
