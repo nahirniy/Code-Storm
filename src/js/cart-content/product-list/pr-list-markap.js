@@ -19,7 +19,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
           <div class="cart-info-container">
             <p class="cart-info">
               Category:
-              <span>${category}</span>
+              <span>${category.replaceAll('_', ' ')}</span>
             </p>
             <p class="cart-info">
               Size:
