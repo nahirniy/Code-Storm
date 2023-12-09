@@ -128,6 +128,12 @@ async function loadMarkup() {
   const defaultParams = loadFromLS(LOCALSTORAGE_KEY);
   const currentProduct = await getCurrentProducts(defaultParams);
   mainProductMarkup(currentProduct);
+
+  if (defaultParams.category !== null) {
+    categoryName.textContent = replaceText(defaultParams.category);
+  } else {
+    categoryName.textContent = 'Categories';
+  }
 }
 
 form.addEventListener('submit', formSub);
@@ -143,48 +149,52 @@ const selectFilterCategories = document.querySelector('.select-filter');
 const selectParamCategories = document.querySelector('.select-param');
 const categoryName = document.querySelector('.category-name');
 const paramName = document.querySelector('.param-name');
-selectFilterCategories.addEventListener('click', toggleFilterVisibility);
-selectParamCategories.addEventListener('click', toggleFilterVisibilitySec);
-categoryList.addEventListener('click', handleCategorySelection);
-filtersABClist.addEventListener('click', handleCategorySelectionSec);
+
+selectFilterCategories.addEventListener('click', () =>
+  toggleFilterVisibility(categoryList)
+);
+selectParamCategories.addEventListener('click', () =>
+  toggleFilterVisibility(filtersABClist)
+);
 document.addEventListener('click', hideFilterOnOutsideClick);
-document.addEventListener('click', hideFilterOnOutsideClickSec);
 
-function toggleFilterVisibility(e) {
-  e.stopPropagation();
-  categoryList.classList.toggle('filter-hidden');
+function toggleFilterVisibility(list) {
+  list.classList.toggle('filter-hidden');
 }
 
-function hideFilterOnOutsideClick() {
-  if (!categoryList.classList.contains('filter-hidden')) {
-    return categoryList.classList.add('filter-hidden');
+function handleCategorySelection(e, list, nameElement) {
+  const target = e.target;
+  if (
+    target.classList.contains('category-type') ||
+    target.classList.contains('filter-type')
+  ) {
+    nameElement.textContent = target.textContent;
+    list.classList.add('filter-hidden');
   }
 }
 
-function handleCategorySelection(e) {
-  const target = e.target;
-  if (target.classList.contains('category-type')) {
-    categoryName.textContent = target.textContent;
+function hideFilterOnOutsideClick(e) {
+  const isClickInsideFirstList = selectFilterCategories.contains(e.target);
+  const isClickInsideSecondList = selectParamCategories.contains(e.target);
+
+  if (
+    !isClickInsideFirstList &&
+    !categoryList.classList.contains('filter-hidden')
+  ) {
     categoryList.classList.add('filter-hidden');
   }
-}
 
-function toggleFilterVisibilitySec(e) {
-  e.stopPropagation();
-
-  filtersABClist.classList.toggle('filter-hidden');
-}
-
-function hideFilterOnOutsideClickSec() {
-  if (!filtersABClist.classList.contains('filter-hidden')) {
-    return filtersABClist.classList.add('filter-hidden');
+  if (
+    !isClickInsideSecondList &&
+    !filtersABClist.classList.contains('filter-hidden')
+  ) {
+    filtersABClist.classList.add('filter-hidden');
   }
 }
 
-function handleCategorySelectionSec(e) {
-  const target = e.target;
-  if (target.classList.contains('filter-type')) {
-    paramName.textContent = target.textContent;
-    categoryList.classList.add('filter-hidden');
-  }
-}
+categoryList.addEventListener('click', e =>
+  handleCategorySelection(e, categoryList, categoryName)
+);
+filtersABClist.addEventListener('click', e =>
+  handleCategorySelection(e, filtersABClist, paramName)
+);

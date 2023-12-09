@@ -18,7 +18,7 @@
 .filter_form input::placeholder {
   color: #010101;
   padding: 0;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 1.33;
 }
 .filter_field {
@@ -68,20 +68,26 @@
   font-size: 14px;
   line-height: 1.28;
   font-family: 'Neue Montreal', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .search-input:focus,
 .search-input:hover {
   border-color: #6d8434;
 }
-.select-filter {
+/* .select-filter {
   cursor: pointer;
   appearance: none;
+} */
+.icon-filter {
+  fill: none;
+  stroke: black;
 }
-
-.filters-all-param-list {
-  cursor: pointer;
+/* .select-param {
   background-color: #fafafa;
-}
+} */
+
 @media screen and (min-width: 768px) {
   .filter_form {
     flex-direction: row;
@@ -106,6 +112,12 @@
   .filters-all-param-list {
     width: 200px;
   }
+  .filter_form input::placeholder {
+    color: #010101;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.33;
+  }
 }
 
 .filter-options {
@@ -115,6 +127,9 @@
   z-index: 999;
   user-select: none;
   margin-top: 8px;
+  border: none;
+  box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04),
+    0px 20px 69px 0px rgba(0, 0, 0, 0.07);
 }
 
 .filter-options li:not(:last-child) {
