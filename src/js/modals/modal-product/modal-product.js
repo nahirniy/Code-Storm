@@ -51,7 +51,7 @@ async function handleClickOnLi(event) {
     const currentProduct = await getProductById(testCurren);
     // console.log(currentProduct)
  
-    const marcap = `<div class="img" >
+    const marcap = `<div class="img_modal" >
     <img class="photo" src="${currentProduct.img}" alt="${currentProduct.name}" loading="lazy"/>
     </div>
     <h2 class="name-product">${currentProduct.name}</h2>
@@ -60,7 +60,7 @@ async function handleClickOnLi(event) {
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
-    <div class="footer-product_card">
+    <div class="footer-product_card"></div>
     <p class="price-product">$${currentProduct.price}</p>
     <button type="button" class="modal-button">Add</button>`
     // modal_window.insertAdjacentHTML('beforeend', marcap);

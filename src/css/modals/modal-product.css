@@ -8,6 +8,15 @@
 }
 .clouse_modal{
    position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 14px;
+    right: 14px;
+}
+
+.img_modal {
+    width: 295px;
+    height: 212px;
+    padding: 19px 77px;
+    border-radius: 10px;
+    background-color: var(--light-grey-cl);
+    margin-bottom: 20px;
 }
