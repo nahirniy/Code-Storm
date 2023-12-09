@@ -14,7 +14,8 @@ clouseBottun.addEventListener('click', function(){
 })
 
 document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
+    const closestRespItem = event.target.closest('.modal_window-item');
+    if (event.key === 'Escape' &&  document.body.style.overflow == 'hidden') {
         toglModul();
         OnScroll()
     }
@@ -62,7 +63,7 @@ async function handleClickOnLi(event) {
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
-    <div class="desc-text"><span>${currentProduct.desc}</span></div>
+    <div class="desc-text"> <p class="textModalp">${currentProduct.desc}</p></div>
     <div class="footer-product_card">
     <p class="price-product">$${currentProduct.price}</p>
     <button type="button" class="modal-button">Add</button>`
