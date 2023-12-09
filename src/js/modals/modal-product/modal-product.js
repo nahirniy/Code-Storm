@@ -12,6 +12,15 @@ clouseBottun.addEventListener('click', function(){
     toglModul();
     OnScroll()
 })
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        toglModul();
+        OnScroll()
+    }
+  });
+
+
 function toglModul(){
     modalBackdrop.classList.toggle('is-hidden')
 }
@@ -20,12 +29,6 @@ function OnScroll(){
     document.body.style.overflow = 'auto';
 }
 /////////
-
-// const testButton = document.querySelector('.btn-basket')
-
-// testButton.addEventListener('click', testFunctD)
-
-
 
 // const TestMod = localStorage.getItem(basket)
 // const LOCALSTORAGE_KEY = 'basket'
@@ -36,10 +39,6 @@ function OnScroll(){
 // const testCurren = "640c2dd963a319ea671e3861"
 // const currentProduct = await getProductById(testCurren);
 // console.log(currentProduct)
-
-
-
-
 
 
 async function handleClickOnLi(event) {
@@ -67,10 +66,11 @@ async function handleClickOnLi(event) {
     <div class="footer-product_card">
     <p class="price-product">$${currentProduct.price}</p>
     <button type="button" class="modal-button">Add</button>`
-   
     window_inModal.innerHTML = marcap;
+     ///
     modal_window.style.display = 'block';
   document.body.style.overflow = 'hidden'
+     ///
     toglModul()
 
 }
