@@ -1,28 +1,70 @@
 <section class="filters-section filters">
-  <div class="container">
-    <form class="form" action="submit">
-      <input type="text" class="keyword" placeholder="Search" />
-      <button>Search</button>
-      <select class="category-list" name="category-list">
-        <option value="show-all">Show all</option>
-        <option value="" disabled selected hidden>Categories</option>
-      </select>
-      <select class="filters-all-param-list" name="filters-all-param-list">
-        <option class="filters-all-param-item" value="byAtoZ">A to Z</option>
-        <option class="filters-all-param-item" value="byZtoA">Z to A</option>
-        <option class="filters-all-param-item" value="byCheaperfirst">
-          Cheaper first
-        </option>
-        <option class="filters-all-param-item" value="byExpensivefirst">
-          Expensive first
-        </option>
-        <option class="filters-all-param-item" value="byPopular">
-          Popular
-        </option>
-        <option class="filters-all-param-item" value="byNotpopular">
-          Not popular
-        </option>
-      </select>
+  <div class="container filter-field">
+    <h2 class="filter_title">Filters:</h2>
+    <form class="form filter_form" action="submit">
+      <div class="filter_field">
+        <div class="search-filter">
+          <input
+            type="text"
+            class="keyword search-input input_name"
+            placeholder="Search for anything"
+          />
+          <button class="filter_button">
+            <svg class="icon-filter-search" width="20" height="20">
+              <use href="./img/icons/sprite.svg#icon-search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- ! -->
+
+      <div class="filter_field">
+        <div class="select-filter">
+          <p class="category-name search-input">Categories</p>
+        </div>
+        <div class="filter_icon_position">
+          <svg width="20" height="20" class="icon-filter">
+            <use href="./img/icons/sprite.svg#icon-arrow-down"></use>
+          </svg>
+        </div>
+        <ul
+          class="category-list select-filter search-input filter-options filter-hidden"
+          name="category-list"
+        >
+          <li data-category="show-all" class="category-type">Show all</li>
+          <!-- <option value="" disabled selected hidden>Categories</option> -->
+        </ul>
+      </div>
+
+      <!-- ! -->
+      <div class="filter_field">
+        <div class="select-param">
+          <p class="param-name search-input">A to Z</p>
+        </div>
+        <div class="filter_icon_position">
+          <svg width="20" height="20" class="icon-filter">
+            <use href="./img/icons/sprite.svg#icon-arrow-down"></use>
+          </svg>
+        </div>
+        <ul
+          class="filters-all-param-list select-filter search-input filter-options filter-hidden"
+          name="filters-all-param-list"
+        >
+          <li class="filter-type" data-filterparam="byAtoZ" selected>A to Z</li>
+          <li class="filter-type" data-filterparam="byZtoA">Z to A</li>
+          <li class="filter-type" data-filterparam="byCheaperfirst">
+            Cheaper first
+          </li>
+          <li class="filter-type" data-filterparam="byExpensivefirst">
+            Expensive first
+          </li>
+          <li class="filter-type" data-filterparam="byPopular">Popular</li>
+          <li class="filter-type" data-filterparam="byNotpopular">
+            Not popular
+          </li>
+        </ul>
+      </div>
     </form>
   </div>
 </section>
