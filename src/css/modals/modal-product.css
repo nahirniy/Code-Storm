@@ -1,5 +1,6 @@
 .modal-product{
     position: fixed;
+    padding: 40px 20px;
     width: 335px;
     height: 535px;
     background-color:#FAFAFA;
