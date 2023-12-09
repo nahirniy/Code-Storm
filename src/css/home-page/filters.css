@@ -23,6 +23,7 @@
 }
 .filter_field {
   position: relative;
+  cursor: pointer;
 }
 .filter_button {
   font-family: 'Neue Montreal', sans-serif;
@@ -54,6 +55,7 @@
 .search-filter {
   position: relative;
   list-style: none;
+  cursor: pointer;
 }
 
 .search-input {
@@ -84,9 +86,13 @@
   fill: none;
   stroke: black;
 }
-/* .select-param {
+.icon-filter-search {
+  stroke: black;
+}
+.select-param {
   background-color: #fafafa;
-} */
+  border-radius: 30px;
+}
 
 @media screen and (min-width: 768px) {
   .filter_form {
@@ -121,6 +127,8 @@
 }
 
 .filter-options {
+  max-height: 420px;
+  opacity: 1;
   position: absolute;
   cursor: pointer;
   background-color: #fafafa;
@@ -137,7 +145,11 @@
 }
 
 .filter-hidden {
-  display: none;
+  pointer-events: none;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .category-type {
