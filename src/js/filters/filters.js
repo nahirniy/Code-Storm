@@ -46,12 +46,13 @@ async function changeCategory(e) {
   } else {
     newParams = { ...oldParams, category: null };
   }
-  const { result } = await getCurrentProducts(newParams);
-  if (!result) {
+
+  const { results } = await getCurrentProducts(newParams);
+  if (!results.length) {
     emptyContent.classList.remove('.visually-hidden');
   } else {
     emptyContent.classList.add('.visually-hidden');
-    mainProductMarkup(result);
+    mainProductMarkup(results);
   }
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
@@ -129,10 +130,13 @@ async function changeFilter(filter, state) {
 
   const { results } = await getCurrentProducts(newParams);
 
-  if (!!results.length) {
+  console.log(results.length);
+
+  if (!results.length) {
     emptyContent.classList.remove('.visually-hidden');
   } else {
     emptyContent.classList.add('.visually-hidden');
+    console.log('change filter');
     mainProductMarkup(results);
   }
 
@@ -146,7 +150,6 @@ async function loadMarkup() {
 
   if (!results.length) {
     emptyContent.classList.remove('.visually-hidden');
-    console.log('hi');
   } else {
     emptyContent.classList.add('.visually-hidden');
     mainProductMarkup(results);
@@ -174,7 +177,7 @@ function setStateFilter(params) {
       state ? (filter = 'Cheaper first') : (filter = 'Expensive first');
       break;
     case 'byPopularity':
-      state ? (filter = 'Popular') : (filter = 'Not popular');
+      state ? (filter = 'Not popular') : (filter = 'Popular');
       break;
     default:
       filter = 'A to Z';
