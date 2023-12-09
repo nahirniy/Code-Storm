@@ -7,6 +7,7 @@ const form = document.querySelector('.form');
 const input = document.querySelector('.keyword');
 const filtersABClist = document.querySelector('.filters-all-param-list');
 const emptyContent = document.querySelector('.info-query');
+const productMainList = document.querySelector('.product-list');
 
 const LOCALSTORAGE_KEY = 'params of search';
 const defaultParams = {
@@ -49,9 +50,10 @@ async function changeCategory(e) {
 
   const { results } = await getCurrentProducts(newParams);
   if (!results.length) {
-    emptyContent.classList.remove('.visually-hidden');
+    emptyContent.classList.remove('visually-hidden');
+    productMainList.innerHTML = '';
   } else {
-    emptyContent.classList.add('.visually-hidden');
+    emptyContent.classList.add('visually-hidden');
     mainProductMarkup(results);
   }
   saveToLS(LOCALSTORAGE_KEY, newParams);
@@ -70,9 +72,10 @@ async function formSub(e) {
   const currentParams = loadFromLS(LOCALSTORAGE_KEY);
   const { results } = await getCurrentProducts(currentParams);
   if (!results.length) {
-    emptyContent.classList.remove('.visually-hidden');
+    emptyContent.classList.remove('visually-hidden');
+    productMainList.innerHTML = '';
   } else {
-    emptyContent.classList.add('.visually-hidden');
+    emptyContent.classList.add('visually-hidden');
     mainProductMarkup(results);
   }
 }
@@ -133,10 +136,10 @@ async function changeFilter(filter, state) {
   console.log(results.length);
 
   if (!results.length) {
-    emptyContent.classList.remove('.visually-hidden');
+    productMainList.innerHTML = '';
+    emptyContent.classList.remove('visually-hidden');
   } else {
-    emptyContent.classList.add('.visually-hidden');
-    console.log('change filter');
+    emptyContent.classList.add('visually-hidden');
     mainProductMarkup(results);
   }
 
@@ -149,9 +152,10 @@ async function loadMarkup() {
   const { results } = await getCurrentProducts(defaultParams);
 
   if (!results.length) {
-    emptyContent.classList.remove('.visually-hidden');
+    productMainList.innerHTML = '';
+    emptyContent.classList.remove('visually-hidden');
   } else {
-    emptyContent.classList.add('.visually-hidden');
+    emptyContent.classList.add('visually-hidden');
     mainProductMarkup(results);
   }
 
