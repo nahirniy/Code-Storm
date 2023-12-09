@@ -28,9 +28,9 @@ function toglModul(){
 // console.log(basketTest)
 // console.log(basketTest[0]._id)
 // // const CurrntTestProduct = loadFromLS(currentProduct)
-// const testCurren = "640c2dd963a319ea671e3861"
-// const currentProduct = await getProductById(testCurren);
-// console.log(currentProduct)
+const testCurren = "640c2dd963a319ea671e3861"
+const currentProduct = await getProductById(testCurren);
+console.log(currentProduct)
 
 
 
@@ -60,7 +60,8 @@ async function handleClickOnLi(event) {
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
-    <div class="footer-product_card"></div>
+    <div><span>${currentProduct.desc}</span></div>
+    <div class="footer-product_card">
     <p class="price-product">$${currentProduct.price}</p>
     <button type="button" class="modal-button">Add</button>`
     // modal_window.insertAdjacentHTML('beforeend', marcap);
