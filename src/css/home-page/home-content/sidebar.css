@@ -252,7 +252,7 @@
   justify-content: space-between;
 }
 
-.btn-ligth-basket {
+.btn-light-basket {
   width: 20px;
   height: 20px;
   padding: 0;
@@ -261,7 +261,7 @@
   background: var(--white-cl);
 }
 
-.ligth-basket {
+.light-basket {
   display: flex;
   width: 100%;
   height: 100%;
@@ -275,7 +275,23 @@
   background-color: var(--light-grey-cl);
 }
 
-.ligth-basket:hover {
+.light-basket:hover {
   fill: var(--light-grey-cl);
   background-color: var(--accent-cl);
+}
+
+
+
+/* ----------------стилі для галочки на  зелену корзинку */
+.svg-checkmark{
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: var(--accent-cl);
+    fill: var(--light-grey-cl);
 }
