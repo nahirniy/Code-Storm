@@ -1,23 +1,20 @@
 .hero-container {
-  margin-top: 110px;
-  padding: auto;
+  margin-top: 54px;
 }
 
 .hero-text {
   color: var(--main-cl);
   text-align: center;
-  font-family: Neue Montreal;
   font-size: 44px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.09em;
+  line-height: 1.09;
   letter-spacing: -0.88px;
   margin-bottom: 16px;
 }
 
 .highlight {
   color: var(--accent-cl);
-  font-family: Neue Montreal;
   font-size: 44px;
   font-style: normal;
   font-weight: 500;
@@ -29,10 +26,7 @@
   margin: auto;
   color: rgba(1, 1, 1, 0.8);
   text-align: center;
-  font-family: Neue Montreal;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 18px;
   max-width: 292px;
 }
@@ -79,9 +73,8 @@
 }
 
 @media (min-width: 1440px) {
-}
-
-.hero-svg {
-  right: 20px;
-  top: -50px;
+  .hero-svg {
+    right: 20px;
+    top: -50px;
+  }
 }
