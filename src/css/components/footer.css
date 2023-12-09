@@ -1,18 +1,13 @@
 /* Mobile */
 .footer {
   background-color: #6d8434;
-}
-.footer-logo {
-  padding-top: 40px;
+  padding: 40px 0 20px 0;
 }
 .list-social {
   display: flex;
   gap: 12px;
   margin-top: 20px;
   margin-bottom: 40px;
-}
-.link-logo {
-  padding: 15px 15px 15px 0;
 }
 .logo-social {
   opacity: 0.8;
@@ -30,10 +25,8 @@
 }
 
 .second-motto {
-  color: #e8e8e2;
-  opacity: 0.6;
+  color: rgba(232, 232, 226, 0.7);
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.28;
   margin-bottom: 80px;
 }
@@ -41,16 +34,12 @@
 .email-title {
   color: #e8e8e2;
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.28;
   margin-bottom: 20px;
-  opacity: 0.8;
 }
 ::placeholder {
-  color: #e8e8e2;
-  opacity: 0.6;
+  color: rgba(232, 232, 226, 0.6);
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.28;
   padding-left: 18px;
   padding-top: 12px;
@@ -75,21 +64,19 @@
   width: 100%;
   height: 42px;
   margin-bottom: 80px;
+  font-weight: 500;
+}
+
+.privacy-wrap {
+  display: flex;
+  gap: 8px;
 }
 
 .services-list {
-  display: inline-flex;
+  display: flex;
   gap: 8px;
-  margin-top: 8px;
   flex-direction: row;
   flex-wrap: wrap;
-}
-.services-item {
-  color: #e8e8e2;
-  opacity: 0.7;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.28;
 }
 .bottom-footer {
   display: flex;
@@ -99,7 +86,6 @@
   color: #e8e8e2;
   opacity: 0.9;
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.28;
   margin-right: 55px;
 }
@@ -107,7 +93,6 @@
 .slash {
   color: #e8e8e2;
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.28;
 }
 
@@ -129,14 +114,14 @@
     font-size: 40px;
     font-weight: 500;
     line-height: 1.1;
+    margin-bottom: 20px;
   }
   .second-motto {
-    color: #e8e8e2;
-    opacity: 0.5;
     font-size: 18px;
     font-weight: 400;
     line-height: 1.33;
     margin-right: 32px;
+    margin-bottom: 64px;
   }
   .email-title {
     color: #e8e8e2;
@@ -151,6 +136,12 @@
     width: 335px;
     height: 42px;
   }
+  .input-label {
+    margin-bottom: 20px;
+  }
+  .subscribe {
+    margin-bottom: 120px;
+  }
   .form-footer {
     display: flex;
     flex-direction: column;
@@ -161,7 +152,7 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 18px;
-    margin-right: 290px;
+    margin-right: auto;
   }
   .services-list {
     display: flex;
@@ -180,21 +171,25 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-top: 40px;
+    gap: 0;
   }
   .footer-logo {
     display: flex;
     padding-top: 0;
+    margin-bottom: 128px;
   }
   .footer-icons {
-    margin-right: 120px;
+    margin-right: 149px;
   }
   .motto {
-    margin-right: 128px;
     width: 410px;
+  }
+  .second-motto {
+    margin: 0;
   }
   .bottom-footer {
     display: block;
+    margin-left: auto;
   }
   .email-title {
     margin-right: 0;
@@ -207,14 +202,11 @@
     width: 335px;
     height: 42px;
   }
-  .services {
-    margin-right: 826px;
+  .subscribe {
+    margin-bottom: 0;
   }
+
   .about {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-content: center;
+    width: 100%;
   }
 }
