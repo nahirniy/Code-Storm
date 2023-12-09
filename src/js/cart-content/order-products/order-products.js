@@ -7,7 +7,7 @@ const LOCALSTORAGE_KEY = 'basket';
 const basket = loadFromLS(LOCALSTORAGE_KEY) ?? [];
 const basketSum = basket.reduce((sum, product) => sum + product.price, 0);
 const orderProductsSum = document.querySelector(".order-products-sum");
-orderProductsSum.textContent = `$${String(basketSum)}`;
+orderProductsSum.textContent = `$${String(basketSum.toFixed(2))}`;
 
 const orderForm = document.querySelector('.order-products-form');
 orderForm.addEventListener('submit', (event) => {
