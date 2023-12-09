@@ -16,7 +16,7 @@ export default function markupPopularList(arr) {
                     <div class="popular-product-info">
                     <div class="popular-info-top">
                         <h3 class="product-name">${name}</h3>
-                        <button type="button" class="btn-basket js-btn-basket">
+                        <button type="button" class="btn-ligth-basket js-btn-basket">
                         <svg class="ligth-basket"><use width="12" height="12 "href="${sprite}#icon-basket"></use></svg>
                         </button>
                         </div>
