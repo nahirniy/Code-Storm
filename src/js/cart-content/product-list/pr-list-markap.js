@@ -59,4 +59,3 @@ export const funEmplyCartCreateMarkup = function createEmplyMarkup() {
 </div>`;
   return emplyMarkup;
 };
-// console.log(funEmplyCartCreateMarkup());

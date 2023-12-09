@@ -1,9 +1,8 @@
 import { funCartCreateMarkup } from './pr-list-markap';
 import { funEmplyCartCreateMarkup } from './pr-list-markap';
 import { funLoadFromLS } from './pr-list-localStorage';
-import { funLoadLellOneLS } from './pr-list-localStorage';
 import { funLoadLellAllLS } from './pr-list-localStorage';
-console.log('чаокакао');
+// console.log('чаокакао');
 // console.log(funEmplyCartCreateMarkup());
 const refs = {
   cartTitle: document.querySelector('.cart-title'),
@@ -19,53 +18,12 @@ refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
 const LOCALSTORAGE_KEY = 'basket';
 let cartResults = funLoadFromLS(LOCALSTORAGE_KEY);
 let arrayLength = cartResults.length;
-
+let newTotal = cartTotal(cartResults);
+// console.log(newTotal);
 cartProductList();
 
-console.log(cartResults);
-console.log(cartResults[0]._id);
-console.log(cartTotal(cartResults)); //?
-
-// пример масива данных - подлежит удалению
-// const cartResults = [
-//   {
-//     _id: '640c2dd963a319ea671e383b',
-//     name: 'Ackee',
-//     img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png',
-//     category: 'Fresh_Produce',
-//     price: 8.99,
-//     size: '16 oz',
-//     is10PercentOff: false,
-//     popularity: 0,
-//   },
-//   {
-//     _id: '640c2dd963a319ea671e3864',
-//     name: 'Black Beans',
-//     img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3864.png',
-//     category: 'Pantry_Items',
-//     price: 1.99,
-//     size: '16oz',
-//     is10PercentOff: false,
-//     popularity: 0,
-//   },
-//   {
-//     _id: '640c2dd963a319ea671e37ad',
-//     name: 'Black Olives',
-//     img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e37ad.png',
-//     category: 'Fresh_Produce',
-//     price: 3.99,
-//     size: '1 jar (16 oz)',
-//     is10PercentOff: false,
-//     popularity: 0,
-//   },
-// ];
-
-// const names = cartResults.map(cartResult => cartResult.price);
-// console.log(names);
-// const toPrice = cartResults.reduce((total, cartResult) => {
-//   return total + cartResult.price;
-// }, 0);
-// console.log(toPrice);
+// console.log(cartResults);
+// console.log(cartResults[0]._id);
 
 // колбек кнопки удалить все
 function onCartDellAll() {
@@ -78,32 +36,29 @@ function onCartDellAll() {
 
 // колбек удаления поштучно
 function onCartItem(evt) {
-  console.log(evt.target.nodeName);
-  // funLoadLellOneLS(LOCALSTORAGE_KEY, 1);
-  if (
-    evt.target.nodeName !== 'svg'
-    // evt.target.nodeName !== 'use' ||
-    // evt.target.nodeName !== 'BUTTON'
-  ) {
+  // console.log(evt.target.nodeName);
+
+  const evtBtn = evt.target.closest('.cart-btn-close');
+  // console.log(evtBtn);
+  if (!evtBtn.nodeName) {
     return;
   }
-  console.dir(evt.target);
-  const cartItemDell = evt.target.parentNode.parentNode.parentNode;
+  // console.dir(evt.target);
+  // const cartItemDell = evt.target.parentNode.parentNode.parentNode;
+  const cartItemDell = evt.target.closest('.cart-item');
   const cartIdDell = cartItemDell.dataset.id;
-  console.dir(cartIdDell);
-
-  // удаление элемента из локалстораж
+  // удаление элемента из локалстораж и разметки
   const indexToRemove = cartResults.findIndex(obj => obj._id === cartIdDell);
-  console.log(indexToRemove);
-  const cartNeWResults = cartResults.splice(indexToRemove, 1);
-  // console.log(cartNeWResults);
+  // console.log(indexToRemove);
+  cartResults.splice(indexToRemove, 1);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cartResults));
   cartItemDell.remove();
   //============
   arrayLength -= 1;
   cartTitleAdd(arrayLength);
   // берем новый масив из локал сторож и  пересситываем тотал
-  console.log(cartTotal(cartResults));
+  newTotal = cartTotal(cartResults);
+  console.log(newTotal);
   // если в корзине пусто - выводим пустую корзину
   const recountItem = evt.currentTarget.childNodes.length;
   if (recountItem === 0) {
@@ -138,6 +93,5 @@ function cartTotal(results) {
   const totalPrice = results.reduce((total, result) => {
     return total + result.price;
   }, 0);
-  console.log(totalPrice);
-  console.log(results);
+  return totalPrice;
 }
