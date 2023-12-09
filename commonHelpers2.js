@@ -1,59 +1,59 @@
-import"./assets/styles-9b9e63e5.js";import{n as v,a as d}from"./assets/vendor-424513b8.js";function u(e,s){localStorage.setItem(e,JSON.stringify(s))}function n(e){const s=localStorage.getItem(e);try{return JSON.parse(s)}catch{return v.Notify.failure("Oops! Something went wrong..."),s}}function k(e){const{keyword:s,category:t,page:a,limit:o,...r}=e,l=Object.keys(r).length,i=new URLSearchParams({page:a,limit:o});if(s&&i.set("keyword",s),t&&i.set("category",t),l){const[b,h]=Object.entries(r)[0];i.set(b,h)}return i}function $(e,s,t){const a=t.findIndex(o=>o._id===s._id);a!==-1?t.splice(a,1):t.push(s),u(e,t)}const f="basket",w=n(f)??[],L=document.querySelector(".product-list");async function P(e){if(!e.target.closest(".btn-basket"))return;const t=e.target.closest(".resp-item").dataset.id,o=n("main products").filter(({_id:r})=>t===r)[0];$(f,o,w)}L.addEventListener("click",P);d.defaults.baseURL="https://food-boutique.b.goit.study/api";const S=async()=>{const{data:e}=await d.get("/products/categories");return e},p=async e=>{const s=k(e),{data:t}=await d.get("/products/",{params:s});return t},C=async e=>{const{data:s}=await d.get(`/products/popular?limit=${e}`);return s},A=async()=>{const{data:e}=await d.get("/products/discount");return e},y="/Code-Storm/assets/sprite-f073391d.svg",E={popularList:document.querySelector(".popular-list")};function O(e){const s=e.map(({name:t,img:a,category:o,size:r,popularity:l,_id:i})=>`<li class="popular-item" data-id="${i}">
+import"./assets/styles-02ec7889.js";import{n as A,a as g}from"./assets/vendor-424513b8.js";function y(t,s){localStorage.setItem(t,JSON.stringify(s))}function i(t){const s=localStorage.getItem(t);try{return JSON.parse(s)}catch{return A.Notify.failure("Oops! Something went wrong..."),s}}function E(t){const{keyword:s,category:e,page:a,limit:r,...c}=t,d=Object.keys(c).length,u=new URLSearchParams({page:a,limit:r});if(s&&u.set("keyword",s),e&&u.set("category",e),d){const[S,w]=Object.entries(c)[0];u.set(S,w)}return u}function O(t,s,e){const a=e.findIndex(r=>r._id===s._id);a!==-1?e.splice(a,1):e.push(s),y(t,e)}const v="basket",q=i(v)??[],x=document.querySelector(".product-list");async function _(t){if(!t.target.closest(".btn-basket"))return;const e=t.target.closest(".resp-item").dataset.id,r=i("main products").filter(({_id:c})=>e===c)[0];O(v,r,q)}x.addEventListener("click",_);g.defaults.baseURL="https://food-boutique.b.goit.study/api";const j=async()=>{const{data:t}=await g.get("/products/categories");return t},m=async t=>{const s=E(t),{data:e}=await g.get("/products/",{params:s});return e},B=async t=>{const{data:s}=await g.get(`/products/popular?limit=${t}`);return s},M=async()=>{const{data:t}=await g.get("/products/discount");return t},f="/Code-Storm/assets/sprite-f073391d.svg",F={popularList:document.querySelector(".popular-list")};function I(t){const s=t.map(({name:e,img:a,category:r,size:c,popularity:d,_id:u})=>`<li class="popular-item" data-id="${u}">
                     <div class="wrapper-img">
                         <img
                             src="${a}"
-                            alt="${t}"
+                            alt="${e}"
                         />
                     </div>
                     <div class="popular-product-info">
                     <div class="popular-info-top">
-                        <h3 class="product-name">${t}</h3>
+                        <h3 class="product-name">${e}</h3>
                         <button type="button" class="btn-ligth-basket js-btn-basket">
-                        <svg class="ligth-basket"><use width="12" height="12 "href="${y}#icon-basket"></use></svg>
+                        <svg class="ligth-basket"><use width="12" height="12 "href="${f}#icon-basket"></use></svg>
                         </button>
                         </div>
-                        <p class="product-category">Category: <span>${o.replace("_"," ")}</span></p>
+                        <p class="product-category">Category: <span>${r.replace("_"," ")}</span></p>
                         <div class="product-text">
-                            <p>Size: <span>${r}</span></p>
-                            <p>Popularity: <span>${l}</span></p>
+                            <p>Size: <span>${c}</span></p>
+                            <p>Popularity: <span>${d}</span></p>
                         </div>
                     </div>
-                </li>`);E.popularList.insertAdjacentHTML("beforeend",s.join(""))}const _=5;C(_).then(e=>O(e));const j={discountList:document.querySelector(".discount-list")};function B(e){const s=e.map(({name:t,img:a,_id:o,price:r})=>`<li class="discount-item" data-id="${o}">
+                </li>`);F.popularList.insertAdjacentHTML("beforeend",s.join(""))}const N=5;B(N).then(t=>I(t));const T={discountList:document.querySelector(".discount-list")};function z(t){const s=t.map(({name:e,img:a,_id:r,price:c})=>`<li class="discount-item" data-id="${r}">
         <svg class="svg-discount" width="60" height="60">
-          <use href="${y}#icon-discount-mark"></use>
+          <use href="${f}#icon-discount-mark"></use>
         </svg>
         <div class="wrap-img">
           <img
             src="${a}"
-            alt="${t}"
+            alt="${e}"
           />
         </div>
         <div class="discount-product-info">
-          <h3 class="product-name">${t}</h3>
-          <p class="product-price">$${r}</p>
+          <h3 class="product-name">${e}</h3>
+          <p class="product-price">$${c}</p>
           <button type="button" class="btn-basket">
           <svg class="svg-basket">
-            <use class="href-icon" href="${y}#icon-basket"></use>
+            <use class="href-icon" href="${f}#icon-basket"></use>
           </svg>
           </button>
         </div>
-      </li>`);j.discountList.insertAdjacentHTML("beforeend",s.join(""))}A().then(e=>B(e));const M=document.querySelector(".product-list"),q="main products";function g(e){u(q,e);const s=e.map(t=>{let a=x(t.category),o=T(t.price);return`<li class="resp-item" data-id=${t._id} data-info="${t}">
+      </li>`);T.discountList.insertAdjacentHTML("beforeend",s.join(""))}M().then(t=>z(t));const D=document.querySelector(".product-list"),R="main products";function b(t){y(R,t);const s=t.map(e=>{let a=Z(e.category),r=H(e.price);return`<li class="resp-item" data-id=${e._id} data-info="${e}">
         <div class="img" >
-          <img class="photo" src="${t.img}" alt="${t.name}" loading="lazy"/>
+          <img class="photo" src="${e.img}" alt="${e.name}" loading="lazy"/>
         </div>
-        <h2 class="name-product">${t.name}</h2>
+        <h2 class="name-product">${e.name}</h2>
         <div class="descr-product">
           <p class="category-product"><span class="style-word">Category:</span>${a}</p>
-          <p class="size-product"><span class="style-word">Size:</span>${t.size}</p>
-          <p class="popular-product"><span class="style-word">Popularity:</span>${t.popularity}</p>
+          <p class="size-product"><span class="style-word">Size:</span>${e.size}</p>
+          <p class="popular-product"><span class="style-word">Popularity:</span>${e.popularity}</p>
         </div>
         <div class="footer-product_card">
-          <p class="price-product">$${o}</p>
+          <p class="price-product">$${r}</p>
           <button type="button" class="btn-basket">
           <svg class="svg-basket" width="34" height="34">
-            <use class="href-icon" href="${y}#icon-basket"></use>
+            <use class="href-icon" href="${f}#icon-basket"></use>
           </svg>
           </button>
         </div>
-      </li>`}).join("");M.innerHTML=s}function x(e){return e.replace(/_/g," ")}function T(e){return Number.isInteger(e)?`${e}.00`:e.toFixed(2)}const m=document.querySelector(".category-list"),I=document.querySelector(".form"),F=document.querySelector(".keyword"),N=document.querySelector(".filters-all-param-list"),c="params of search",z={keyword:null,category:null,page:1,limit:9,byABC:!0};n(c)??u(c,z);async function D(){const s=(await S()).map(t=>`<option value="${t}" class="category-type">${G(t)}</option>`).join("");m.insertAdjacentHTML("afterbegin",s)}async function R(e){const s=e.target.value,t=n(c);let a;s!=="show-all"?a={...t,category:s}:a={...t,category:null};const o=await p(a);o?g(o):console.log("Ploha"),u(c,a)}async function H(e){const t={...n(c),keyword:e.target.value},a=await p(t);g(a),u(c,t)}async function K(e){e.preventDefault();const s=n(c),t=await p(s);t?g(t):console.log("Ploha")}function G(e){return e.replaceAll("_"," ")}async function U(e){let s,t;switch(e.target.value){case"byAtoZ":s="byABC",t=!0;break;case"byZtoA":s="byABC",t=!1;break;case"byCheaperfirst":s="byPrice",t=!0;break;case"byExpensivefirst":s="byPrice",t=!1;break;case"byPopular":s="byPopularity",t=!1;break;case"byNotpopular":s="byPopularity",t=!0;break;default:s="byABC",t=!0;break}Y(s,t)}async function Y(e,s){const t=n(c),{[Object.keys(t).pop()]:a,...o}=t,r={...o,[e]:s},l=await p(r);g(l),u(c,r)}async function J(){const e=n(c),s=await p(e);g(s)}I.addEventListener("submit",K);N.addEventListener("change",U);m.addEventListener("change",R);F.addEventListener("input",H);document.addEventListener("DOMContentLoaded",D);document.addEventListener("DOMContentLoaded",J);
+      </li>`}).join("");D.innerHTML=s}function Z(t){return t.replace(/_/g," ")}function H(t){return Number.isInteger(t)?`${t}.00`:t.toFixed(2)}const l=document.querySelector(".category-list"),K=document.querySelector(".form"),G=document.querySelector(".keyword"),p=document.querySelector(".filters-all-param-list"),o=document.querySelector(".info-query"),n="params of search",U={keyword:null,category:null,page:1,limit:9,byABC:!0};i(n)??y(n,U);async function Y(){const s=(await j()).map(e=>`<li data-category="${e}" class="category-type">${L(e)}</li>`).join("");l.insertAdjacentHTML("afterbegin",s)}async function J(t){if(!t.target.classList.contains("category-type"))return;const s=t.target.dataset.category,e=i(n);let a;s!=="show-all"?a={...e,category:s}:a={...e,category:null};const{result:r}=await m(a);r?(o.classList.add(".visually-hidden"),b(r)):o.classList.remove(".visually-hidden"),y(n,a)}async function V(t){const e={...i(n),keyword:t.target.value};y(n,e)}async function Q(t){t.preventDefault();const s=i(n),{result:e}=await m(s);e?(o.classList.add(".visually-hidden"),b(e)):o.classList.remove(".visually-hidden")}function L(t){return t.replaceAll("_"," ")}async function W(t){let s,e;switch(t.target.dataset.filterparam){case"byAtoZ":s="byABC",e=!0;break;case"byZtoA":s="byABC",e=!1;break;case"byCheaperfirst":s="byPrice",e=!0;break;case"byExpensivefirst":s="byPrice",e=!1;break;case"byPopular":s="byPopularity",e=!1;break;case"byNotpopular":s="byPopularity",e=!0;break;default:s="byABC",e=!0;break}X(s,e)}async function X(t,s){const e=i(n),{[Object.keys(e).pop()]:a,...r}=e,c={...r,[t]:s},{result:d}=await m(c);d?(o.classList.add(".visually-hidden"),b(d)):o.classList.remove(".visually-hidden"),y(n,c)}async function tt(){const t=i(n),{result:s}=await m(t);s?(o.classList.add(".visually-hidden"),b(s)):o.classList.remove(".visually-hidden"),t.category!==null?h.textContent=L(t.category):h.textContent="Categories",et(t)}function et(t){const s=document.querySelector(".param-name");let e;const a=Object.entries(t),[r,c]=a[a.length-1];switch(r){case"byABC":c?e="A to Z":e="Z to A";break;case"byPrice":c?e="Cheaper first":e="Expensive first";break;case"byPopularity":c?e="Popular":e="Not popular";break;default:e="A to Z";break}s.textContent=e}K.addEventListener("submit",Q);p.addEventListener("click",W);l.addEventListener("click",J);G.addEventListener("input",V);document.addEventListener("DOMContentLoaded",Y);document.addEventListener("DOMContentLoaded",tt);const k=document.querySelector(".select-filter"),C=document.querySelector(".select-param"),h=document.querySelector(".category-name"),st=document.querySelector(".param-name");k.addEventListener("click",()=>$(l));C.addEventListener("click",()=>$(p));l.addEventListener("click",t=>P(t,l,h));p.addEventListener("click",t=>P(t,p,st));document.addEventListener("click",at);function $(t){t.classList.toggle("filter-hidden")}function P(t,s,e){const a=t.target;(a.classList.contains("category-type")||a.classList.contains("filter-type"))&&(e.textContent=a.textContent,s.classList.add("filter-hidden"))}function at(t){const s=k.contains(t.target),e=C.contains(t.target);!s&&!l.classList.contains("filter-hidden")&&l.classList.add("filter-hidden"),!e&&!p.classList.contains("filter-hidden")&&p.classList.add("filter-hidden")}
 //# sourceMappingURL=commonHelpers2.js.map
