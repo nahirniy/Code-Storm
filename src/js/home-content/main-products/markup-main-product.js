@@ -1,19 +1,18 @@
 import { saveToLS } from '../../services/helpers';
-import sprite from '../../../img/icons/sprite.svg'
+import sprite from '../../../img/icons/sprite.svg';
 
 const productMainList = document.querySelector('.product-list');
 const LOCALSTORAGE_KEY = 'main products';
 
-
 /*-----------------------------------MARKUP----------------------------*/
 
-export function mainProductMarkup({ results }) {
-  saveToLS(LOCALSTORAGE_KEY, results);
-  const markup = results
+export function mainProductMarkup(mainProduct) {
+  saveToLS(LOCALSTORAGE_KEY, mainProduct);
+  const markup = mainProduct
     .map(item => {
       let formattedCategory = removeUnderscore(item.category);
-      let formatPrice = formatNumber(item.price)
-      //let formatResult = 
+      let formatPrice = formatNumber(item.price);
+      //let formatResult =
       return `<li class="resp-item" data-id=${item._id} data-info="${item}">
         <div class="img" >
           <img class="photo" src="${item.img}" alt="${item.name}" loading="lazy"/>
@@ -48,4 +47,3 @@ function formatNumber(number) {
     return number.toFixed(2);
   }
 }
-
