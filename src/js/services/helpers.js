@@ -47,3 +47,7 @@ export function updateBasket(LOCALSTORAGE_KEY, currentProduct, basket) {
 
   saveToLS(LOCALSTORAGE_KEY, basket);
 }
+
+export function editText(someText) {
+  return someText.replaceAll('_', ' ');
+}
