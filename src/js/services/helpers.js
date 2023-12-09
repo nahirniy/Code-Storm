@@ -40,3 +40,10 @@ export function createParams(parameters) {
 
   return params;
 }
+
+export function updateBasket(LOCALSTORAGE_KEY, currentProduct, basket) {
+  const index = basket.findIndex(product => product._id === currentProduct._id);
+  index !== -1 ? basket.splice(index, 1) : basket.push(currentProduct);
+
+  saveToLS(LOCALSTORAGE_KEY, basket);
+}
