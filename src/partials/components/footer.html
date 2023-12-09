@@ -9,21 +9,25 @@
         </a>
         <ul class="list-social">
           <li class="item-social">
-            <a href="https://www.facebook.com/goITclub/">
+            <a href="https://www.facebook.com/goITclub/" target="_blank">
               <svg class="logo-social" width="40" height="40">
                 <use href="./img/icons/sprite.svg#icon-facebook"></use>
               </svg>
             </a>
           </li>
           <li class="item-social">
-            <a href="https://www.instagram.com/goitclub/">
+            <a
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+              class="item-logo"
+            >
               <svg class="logo-social" width="40" height="40">
                 <use href="./img/icons/sprite.svg#icon-instagram"></use>
               </svg>
             </a>
           </li>
           <li class="item-social">
-            <a href="https://www.youtube.com/c/GoIT">
+            <a href="https://www.youtube.com/c/GoIT" target="_blank">
               <svg class="logo-social" width="40" height="40">
                 <use href="./img/icons/sprite.svg#icon-youtube"></use>
               </svg>
@@ -51,7 +55,7 @@
             placeholder="Email"
           />
         </label>
-        <button type="submit" class="subscribe">Send</button>
+        <button type="submit" class="subscribe" id="data-modal-open">Send</button>
       </form>
     </div>
     <div class="about">
@@ -65,4 +69,18 @@
       </div>
     </div>
   </div>
+  
 </footer>
+<div id="data-modal" class="modal" >
+    <div class="modal-content">
+      <span class="close" id="data-modal-close"
+        ><svg class="js-close-menu">
+          <use href="./img/icons/sprite.svg#icon-close" width="24" height="24"></use>
+        </svg></span>
+      <h2>This <span>email address</span> has already been entered</h2>
+      <p>
+        You have already subscribed to our new products. Watch for offers at the
+        mailing address.
+      </p>
+    </div>
+  </div>

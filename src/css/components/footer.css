@@ -16,6 +16,10 @@
   border: 1px solid #e8e8e2;
   border-radius: 10px;
 }
+.logo-social:hover,
+.logo-social:focus {
+  background: rgba(232, 232, 226, 0.2);
+}
 .first-motto {
   color: #e8e8e2;
   font-size: 24px;
@@ -66,7 +70,10 @@
   margin-bottom: 80px;
   font-weight: 500;
 }
-
+.subscribe:hover,
+.subscribe:focus {
+  color: #6d8434;
+}
 .privacy-wrap {
   display: flex;
   gap: 8px;
@@ -94,6 +101,39 @@
   color: #e8e8e2;
   font-size: 14px;
   line-height: 1.28;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* Tablet */
@@ -162,6 +202,17 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 469px;
+    height: 308px;
+    flex-shrink: 0;
+    overflow: auto;
   }
 }
 
