@@ -20,3 +20,18 @@
     background-color: var(--light-grey-cl);
     margin-bottom: 20px;
 }
+.desc-text {
+margin-top: 20px;
+
+}
+/* .descr-product-modal {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: var(--main-cl);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    flex-wrap: wrap;
+} */

@@ -60,7 +60,7 @@ async function handleClickOnLi(event) {
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
-    <div><span>${currentProduct.desc}</span></div>
+    <div class="desc-text"><span>${currentProduct.desc}</span></div>
     <div class="footer-product_card">
     <p class="price-product">$${currentProduct.price}</p>
     <button type="button" class="modal-button">Add</button>`
