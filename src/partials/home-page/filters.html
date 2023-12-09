@@ -1,3 +1,28 @@
-<section class="filters-section">
-  <div class="container"></div>
+<section class="filters-section filters">
+  <div class="container">
+    <form class="form" action="submit">
+      <input type="text" class="keyword" placeholder="Search" />
+      <button>Search</button>
+      <select class="category-list" name="category-list">
+        <option value="show-all">Show all</option>
+        <option value="" disabled selected hidden>Categories</option>
+      </select>
+      <select class="filters-all-param-list" name="filters-all-param-list">
+        <option class="filters-all-param-item" value="byAtoZ">A to Z</option>
+        <option class="filters-all-param-item" value="byZtoA">Z to A</option>
+        <option class="filters-all-param-item" value="byCheaperfirst">
+          Cheaper first
+        </option>
+        <option class="filters-all-param-item" value="byExpensivefirst">
+          Expensive first
+        </option>
+        <option class="filters-all-param-item" value="byPopular">
+          Popular
+        </option>
+        <option class="filters-all-param-item" value="byNotpopular">
+          Not popular
+        </option>
+      </select>
+    </form>
+  </div>
 </section>
