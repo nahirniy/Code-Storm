@@ -16,7 +16,7 @@
   }
 }
 
-.popular-section-title {
+.section-title {
   color: var(--main-cl);
   font-size: 24px;
   font-style: normal;
@@ -83,12 +83,9 @@
   font-weight: 500;
   line-height: 1.11;
 
-  margin-bottom: 12px;
-
   @media screen and (min-width: 768px) {
     font-size: 20px;
     line-height: 1.2;
-    margin-bottom: 10px;
   }
 }
 
@@ -116,6 +113,143 @@
 
 .product-category {
   margin-bottom: 9px;
+
+  margin-top: 12px;
+  @media screen and (min-width: 768px){
+    margin-top: 10px;
+  }
+}
+
+
+
+.discount-section{
+margin-bottom: 80px;
+
+@media screen and (min-width: 768px) {
+  margin-bottom: 100px;
+}
+
+@media screen and (min-width: 1440px){
+  max-width: 275px;
+  margin-bottom: 140px;
+}
+}
+
+.discount-list{
+display: flex;
+flex-direction: row;
+  flex-wrap: wrap;
+gap: 20px;
+
+@media screen and (min-width: 768px){
+  gap: 32px;
+}
+
+@media screen and (min-width: 1440px) {
+gap: 20px;
+}
+}
+
+.discount-item {
+  max-width: 335px;
+  width: 100%;
+    height: 232px;
+    border-radius: 15px;
+      background: var(--white-cl);
+      padding: 16px ;
+
+
+      @media screen and (min-width: 768px){
+        width: 336px;
+      }
+
+      @media screen and (min-width: 1440px){
+        width: 275px;
+      }
+
+      position: relative;
+}
+
+/* --------Відображаємо тільки перших два продукта */
+.discount-item:nth-child(n+3){
+  display: none;
+}
+
+
+.wrap-img{
+  width: 100%;
+  height: 150px;
+padding: 18px auto;
+border-radius: 10px;
+  background: var(--light-grey-cl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 16px;
+
+}
+
+.discount-item img{
+  width: 114px;
+  height: 114px;
+}
+
+.discount-product-info{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.discount-product-info .product-name{
+  flex-grow: 1;
+}
+
+.product-price{
+  color: var(--main-cl);
+  
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-right: 8px;
+}
+
+
+/* -----------------стіли для зеленої корзинки  */
+
+.btn-basket {
+  width: 34px;
+  height: 34px;
+  border: none;
+  border-radius: 50%;
+}
+
+.svg-basket {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  fill: var(--light-grey-cl);
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background-color: var(--accent-cl);
+}
+
+.svg-basket:hover{
+  background-color: #586F1F;
+}
+
+.svg-discount{
+position:absolute;
+top: 3px;
+right: 10px;
+
+@media screen and (min-width: 1440px) {
+  top: -3px
+}
+=======
 }
 
 
@@ -155,5 +289,4 @@ width: 20px;
 .ligth-basket:hover{
   fill: var(--light-grey-cl);
   background-color: var(--accent-cl);
-
 }
