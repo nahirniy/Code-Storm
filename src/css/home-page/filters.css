@@ -97,12 +97,14 @@
   .select_categories {
     width: 189px;
   }
+  .select-filter {
+    width: 189px;
+  }
   .select-param {
     width: 200px;
   }
-
-  .select-filter {
-    width: 189px;
+  .filters-all-param-list {
+    width: 200px;
   }
 }
 
