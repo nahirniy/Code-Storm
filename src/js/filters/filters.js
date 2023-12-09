@@ -67,12 +67,12 @@ async function changeKeyword(e) {
 async function formSub(e) {
   e.preventDefault();
   const currentParams = loadFromLS(LOCALSTORAGE_KEY);
-  const { result } = await getCurrentProducts(currentParams);
-  if (!result) {
+  const { results } = await getCurrentProducts(currentParams);
+  if (!results.length) {
     emptyContent.classList.remove('.visually-hidden');
   } else {
     emptyContent.classList.add('.visually-hidden');
-    mainProductMarkup(result);
+    mainProductMarkup(results);
   }
 }
 
@@ -123,27 +123,33 @@ async function getFilter(e) {
 // Проверка и отрисовка параметров поиска
 async function changeFilter(filter, state) {
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+
   const { [Object.keys(oldParams).pop()]: _, ...rest } = oldParams;
   const newParams = { ...rest, [filter]: state };
-  const { result } = await getCurrentProducts(newParams);
-  if (!result) {
+
+  const { results } = await getCurrentProducts(newParams);
+
+  if (!!results.length) {
     emptyContent.classList.remove('.visually-hidden');
   } else {
     emptyContent.classList.add('.visually-hidden');
-    mainProductMarkup(result);
+    mainProductMarkup(results);
   }
+
   saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
 // Разметка с обновлением названий
 async function loadMarkup() {
   const defaultParams = loadFromLS(LOCALSTORAGE_KEY);
-  const { result } = await getCurrentProducts(defaultParams);
-  if (!result) {
+  const { results } = await getCurrentProducts(defaultParams);
+
+  if (!results.length) {
     emptyContent.classList.remove('.visually-hidden');
+    console.log('hi');
   } else {
     emptyContent.classList.add('.visually-hidden');
-    mainProductMarkup(result);
+    mainProductMarkup(results);
   }
 
   if (defaultParams.category !== null) {
