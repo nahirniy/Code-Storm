@@ -46,6 +46,14 @@ export function updateBasket(LOCALSTORAGE_KEY, currentProduct, basket) {
   index !== -1 ? basket.splice(index, 1) : basket.push(currentProduct);
 
   saveToLS(LOCALSTORAGE_KEY, basket);
+  counterProducts(basket);
+}
+
+export function counterProducts(basket) {
+  const oldNumberProducts = document.querySelector('.number-products');
+  const newNumberProducts = basket.length;
+
+  oldNumberProducts.textContent = newNumberProducts;
 }
 
 export function editText(someText) {
