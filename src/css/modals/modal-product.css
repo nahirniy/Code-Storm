@@ -12,13 +12,11 @@
     right: 14px;
 }
 
-.img_modal {
+.img {
     width: 295px;
-    height: 212px;
     padding: 19px 77px;
     border-radius: 10px;
     background-color: var(--light-grey-cl);
-    margin-bottom: 20px;
 }
 .desc-text {
 margin-top: 20px;
