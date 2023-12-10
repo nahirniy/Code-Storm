@@ -1,5 +1,11 @@
 import { getCategoryList, getCurrentProducts } from '../services/food-api';
-import { loadFromLS, saveToLS } from '../services/helpers';
+import {
+  hideLoader,
+  loadFromLS,
+  saveToLS,
+  showError,
+  showLoader,
+} from '../services/helpers';
 import { mainProductMarkup } from '../home-content/main-products/markup-main-product';
 import {
   changeCategory,
@@ -65,24 +71,37 @@ function checkWidth() {
 
 // Разметка с обновлением названий
 async function loadMarkup() {
-  const defaultParams = loadFromLS(LOCALSTORAGE_KEY);
-  const { results } = await getCurrentProducts(defaultParams);
+  showLoader();
 
-  if (!results.length) {
-    productMainList.innerHTML = '';
-    emptyContent.classList.remove('visually-hidden');
-  } else {
-    emptyContent.classList.add('visually-hidden');
-    mainProductMarkup(results);
+  try {
+    const defaultParams = loadFromLS(LOCALSTORAGE_KEY);
+    const { results } = await getCurrentProducts(defaultParams);
+
+    if (!results.length) {
+      unsuccessSearch();
+    } else {
+      emptyContent.classList.add('visually-hidden');
+      mainProductMarkup(results);
+    }
+
+    if (defaultParams.category !== null) {
+      categoryName.textContent = replaceText(defaultParams.category);
+    } else {
+      categoryName.textContent = 'Categories';
+    }
+
+    setStateFilter(defaultParams);
+  } catch {
+    unsuccessSearch();
+    showError();
+  } finally {
+    hideLoader();
   }
+}
 
-  if (defaultParams.category !== null) {
-    categoryName.textContent = replaceText(defaultParams.category);
-  } else {
-    categoryName.textContent = 'Categories';
-  }
-
-  setStateFilter(defaultParams);
+export function unsuccessSearch() {
+  productMainList.innerHTML = '';
+  emptyContent.classList.remove('visually-hidden');
 }
 
 form.addEventListener('submit', formSub);

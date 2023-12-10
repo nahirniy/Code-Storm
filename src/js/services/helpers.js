@@ -1,6 +1,6 @@
-// ТУТ ПИШЕ ТІЛЬКИ МАКС
-import { Notify } from 'notiflix';
+import Swal from 'sweetalert2';
 
+// ТУТ ПИШЕ ТІЛЬКИ МАКС
 export function saveToLS(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
 }
@@ -50,4 +50,23 @@ export function updateBasket(LOCALSTORAGE_KEY, currentProduct, basket) {
 
 export function editText(someText) {
   return someText.replaceAll('_', ' ');
+}
+
+export function showError() {
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+  });
+}
+
+export function showLoader() {
+  const loader = document.querySelector('.loader-container');
+  loader.classList.remove('is-hidden');
+}
+
+export function hideLoader() {
+  const loader = document.querySelector('.loader-container');
+
+  setTimeout(() => loader.classList.add('is-hidden'), 300);
 }
