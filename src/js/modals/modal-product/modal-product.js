@@ -9,10 +9,26 @@ const modal_window = document.querySelector('.modal-product')
 const window_inModal = document.querySelector('.modal-product-inWindow')
 //////
 
+
 clouseBottun.addEventListener('click', function(){
     toglModul();
     OnScroll()
 })
+// modalBackdrop.addEventListener('click', clouseBackdrop )
+// function clouseBackdrop (event){
+//    const modalBackDrp = event.target.closest('.modal-backdrop-product');
+//    if (!modalBackDrp){
+//     toglModul()
+//     OnScroll()
+//    }
+// }
+
+window.onclick = function(event) {
+    if (event.target == modalBackdrop) {
+        toglModul();
+        OnScroll()
+    }
+}
 
 document.addEventListener('keydown', function(event) {
     const closestRespItem = event.target.closest('.modal_window-item');
@@ -49,7 +65,7 @@ async function handleClickOnLi(event) {
     if (!closestRespItem) {
         return;
     }
-
+    
     const currentId2 = closestRespItem.dataset.id;
    
     const currentProduct = await getProductById(currentId2);
