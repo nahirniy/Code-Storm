@@ -93,6 +93,21 @@
   background-color: #fafafa;
   border-radius: 30px;
 }
+.param-name {
+  color: #010101;
+  position: relative;
+  background-color: transparent;
+  border-radius: 30px;
+  padding: 14px 46px 14px 20px;
+  width: 100%;
+  outline: transparent;
+  font-size: 14px;
+  line-height: 1.28;
+  font-family: 'Neue Montreal', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
 @media screen and (min-width: 768px) {
   .filter_form {
@@ -100,6 +115,10 @@
     gap: 8px;
   }
   .search-input {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  .param-name {
     font-size: 18px;
     line-height: 1.33;
   }
