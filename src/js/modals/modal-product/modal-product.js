@@ -61,11 +61,16 @@ function OnScroll(){
 
 async function handleClickOnLi(event) {
 
-    const closestRespItem = event.target.closest('.resp-item', '.btn-basket');
+    const closestRespItem = event.target.closest('.resp-item');
     if (!closestRespItem) {
         return;
     }
-    
+    const clickedButton = event.target.closest('.btn-basket');
+    if (clickedButton) { 
+        return; 
+    }
+
+
     const currentIdModal = closestRespItem.dataset.id;
     const currentProduct = await getProductById(currentIdModal);
     
