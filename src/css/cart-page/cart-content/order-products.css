@@ -3,8 +3,6 @@
   color: var(--main-cl);
   font-weight: 500;
   flex-direction: column;
-  margin-top: 80px;
-  margin-bottom: 80px;
 }
 .order-products-title {
   font-weight: 500;
@@ -25,7 +23,7 @@
   margin-bottom: 30px;
 }
 .order-total-value {
-  color: rgba(1, 1, 1, 0.20);
+  color: rgba(1, 1, 1, 0.2);
   font-size: 12px;
   line-height: 14px;
 }
@@ -51,7 +49,7 @@
 .order-products-form-input label {
   position: absolute;
   left: 0;
-  color: rgba(1, 1, 1, 0.50);
+  color: rgba(1, 1, 1, 0.5);
   font-style: normal;
   line-height: 18px;
   padding-top: 12px;
@@ -87,7 +85,7 @@
 }
 .order-products-form button:focus,
 .order-products-form button:hover {
-  background-color: #586F1F;
+  background-color: #586f1f;
 }
 
 @media (min-width: 768px) {
@@ -125,5 +123,11 @@
     font-size: 18px;
     padding-top: 15px;
     line-height: 24px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .order-products {
+    padding-top: 153px;
   }
 }

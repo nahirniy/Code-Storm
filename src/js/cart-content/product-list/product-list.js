@@ -9,6 +9,7 @@ const refs = {
   cartItemContainer: document.querySelector('.cart-item-container'),
   cartBtnDelAll: document.querySelector('.cart-btn-del-all'),
   cartEmptyContent: document.querySelector('.cart-yellow-container'),
+  cartProductsSum: document.querySelector('.order-products-sum'),
 };
 
 refs.cartItemContainer.addEventListener('click', onCartItem);
@@ -16,8 +17,8 @@ refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
 
 const LOCALSTORAGE_KEY = 'basket';
 const cartResults = funLoadFromLS(LOCALSTORAGE_KEY) ?? [];
-const arrayLength = cartResults.length;
-const newTotal = cartTotal(cartResults);
+let arrayLength = cartResults.length;
+let newTotal = cartTotal(cartResults);
 
 cartProductList();
 
@@ -57,8 +58,11 @@ function onCartItem(evt) {
   if (recountItem === 0) {
     refs.cartEmptyContent.classList.remove('visually-hidden');
     refs.cartContent.classList.add('visually-hidden');
+
+    return;
   }
 
+  refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;
   refs.cartEmptyContent.classList.add('visually-hidden');
   refs.cartContent.classList.remove('visually-hidden');
 }
@@ -82,6 +86,7 @@ function cartProductList() {
   refs.cartContent.classList.remove('visually-hidden');
 
   refs.cartItemContainer.innerHTML = funCartCreateMarkup(cartResults);
+  refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;
 }
 
 // функция для подсчета тотал
