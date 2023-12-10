@@ -1,5 +1,6 @@
 import { loadFromLS } from "../../services/helpers"
 import { getProductById } from "../../services/food-api"
+import sprite from '../../../img/icons/sprite.svg'
 //////////
 const clouseBottun = document.querySelector(".clouse_modal")
 const modalBackdrop = document.querySelector('.modal-backdrop-product')
@@ -64,9 +65,13 @@ async function handleClickOnLi(event) {
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
     <div class="desc-text"> <p class="textModalp">${currentProduct.desc}</p></div>
-    <div class="footer-product_card">
-    <p class="price-product">$${currentProduct.price}</p>
-    <button type="button" class="modal-button">Add</button>`
+    
+    <div class="footer-product_card2">
+    <p class="price-product">$${currentProduct.price}</p></div>
+    <div class = "end-modal">
+    <button type="button" class="modal-button">Add to<svg class="svg-basket2" width="34" height="34">
+    <use class="href-icon" href="${sprite}#icon-basket"></use>
+  </svg></button></div>`
     window_inModal.innerHTML = marcap;
      ///
     modal_window.style.display = 'block';

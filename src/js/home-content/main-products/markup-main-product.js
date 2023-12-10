@@ -25,7 +25,7 @@ export function mainProductMarkup({ results }) {
           <p class="popular-product"><span class="style-word">Popularity:</span>${item.popularity}</p>
         </div>
         <div class="footer-product_card">
-          <p class="price-product">$${formatPrice}</p>
+          <p class="price-product2">$${formatPrice}</p>
           <button type="button" class="btn-basket">
           <svg class="svg-basket" width="34" height="34">
             <use class="href-icon" href="${sprite}#icon-basket"></use>

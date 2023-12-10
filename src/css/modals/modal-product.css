@@ -36,3 +36,42 @@ margin-top: 20px;
     line-height: 18px;
  
 }
+
+.footer-product_card2 {
+    position: absolute;
+    bottom: 40px;
+
+}
+.end-modal{
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+}
+.modal-product-inWindow{
+   height: 455px;
+}
+.price-product2 {
+    color: var(--main-cl);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-right: 30px;
+}
+.svg-basket2 {
+    
+    display: flex;
+    fill: var(--white-cl);
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    background-color: var(--accent-cl);
+}
+.svg-basket3 {
+    fill:#FAFAFA;
+   
+}
