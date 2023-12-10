@@ -1,5 +1,6 @@
 const btnElem = document.querySelector('.subscribe');
-const modalElem = document.querySelector('.modal');
+const modalElem = document.querySelector('.modal-subscription');
+const modalBackElem = document.querySelector('.modal-backdrop-subscription');
 
 modalElem.style.cssText = `
 display:none;
