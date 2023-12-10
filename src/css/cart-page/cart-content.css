@@ -1,0 +1,29 @@
+.cart-section {
+  padding: 54px 0 80px 0;
+}
+
+.cart-content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 74px;
+}
+
+@media (min-width: 768px) {
+  .cart-section {
+    padding: 82px 0 100px 0;
+  }
+
+  .cart-content-wrap {
+    gap: 100px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .cart-section {
+    padding-bottom: 57px;
+  }
+
+  .cart-content-wrap {
+    flex-direction: row;
+  }
+}
