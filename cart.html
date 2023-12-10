@@ -8,8 +8,8 @@
     
     <script type="module" crossorigin src="/Code-Storm/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-7a0e9089.js">
-    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/food-api-e351bfe4.js">
-    <link rel="stylesheet" href="/Code-Storm/assets/food-api-381b6b1a.css">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/modal-subscription-4d282987.js">
+    <link rel="stylesheet" href="/Code-Storm/assets/modal-subscription-1d8d7ab4.css">
   </head>
   <body>
     <header class="header">
@@ -125,21 +125,25 @@
         </a>
         <ul class="list-social">
           <li class="item-social">
-            <a href="https://www.facebook.com/goITclub/">
+            <a href="https://www.facebook.com/goITclub/" target="_blank">
               <svg class="logo-social" width="40" height="40">
                 <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-facebook"></use>
               </svg>
             </a>
           </li>
           <li class="item-social">
-            <a href="https://www.instagram.com/goitclub/">
+            <a
+              href="https://www.instagram.com/goitclub/"
+              target="_blank"
+              class="item-logo"
+            >
               <svg class="logo-social" width="40" height="40">
                 <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-instagram"></use>
               </svg>
             </a>
           </li>
           <li class="item-social">
-            <a href="https://www.youtube.com/c/GoIT">
+            <a href="https://www.youtube.com/c/GoIT" target="_blank">
               <svg class="logo-social" width="40" height="40">
                 <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-youtube"></use>
               </svg>
@@ -167,7 +171,9 @@
             placeholder="Email"
           />
         </label>
-        <button type="submit" class="subscribe">Send</button>
+        <button type="submit" class="subscribe" id="data-modal-open">
+          Send
+        </button>
       </form>
     </div>
     <div class="about">
@@ -181,6 +187,7 @@
       </div>
     </div>
   </div>
+  
 </footer>
 
 
@@ -202,7 +209,49 @@
 </div>
 
     <div class="modal-backdrop-subscription is-hidden">
-  <div class="modal-subscription is-hidden"></div>
+  <div class="modal-subscription is-hidden">
+    <div class="modal_subcont">
+      <span class="close"
+        ><svg width="24" height="24">
+          <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-close"></use>
+        </svg>
+      </span>
+      <div class="modal-subtext">
+        <h2 class="title-sub">
+          Thanks for subscribing for <span class="span-text">new</span> products
+        </h2>
+        <p class="paragraph-sub">
+          We promise you organic and high-quality products that will meet your
+          expectations. Please stay with us and we promise you many pleasant
+          surprises.
+        </p>
+        <img
+          src="/Code-Storm/assets/Rectangle 2-469a9781.png"
+          alt="vegitable"
+          class="img_modal"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="modal-unsubscription is-hidden">
+    <div class="modal-unsubcont">
+      <span class="close"
+        ><svg width="24" height="24">
+          <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-close"></use>
+        </svg>
+      </span>
+      <div class="modal-unsubtext">
+        <h2 class="title-unsub">
+          This <span class="span-text">email address</span> has already been
+          entered
+        </h2>
+        <p class="paragraph-unsub">
+          You have already subscribed to our new products. Watch for offers at
+          the mailing address.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
     
