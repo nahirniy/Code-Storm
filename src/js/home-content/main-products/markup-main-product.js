@@ -49,7 +49,26 @@ export function mainProductMarkup(mainProduct) {
     })
     .join('');
 
+  //console.log(mainProduct.length);
   productMainList.innerHTML = markup;
+
+  //   const productItems = document.querySelectorAll('.resp-item');
+  // console.log(productItems);
+
+  // productItems.forEach(productItem => {
+  //   const isDiscount = item.is10PercentOff; // Assuming item.is10PercentOff is a boolean
+  //   addDiscountIcon(productItem, isDiscount);
+  // });
+  //   console.log(productItems)
+  //    productItems.forEach(productItem => {
+  //     const checkDiscount = productItem.dataset.discount;
+  //     if (checkDiscount === "true") {
+  //         console.log(checkDiscount);
+  //         addDiscountIcon(productItem);
+  //     } else {
+  //         console.log('data-discount is undefined for this item.');
+  //     }
+  // });
 }
 function removeUnderscore(text) {
   return text.replace(/_/g, ' ');
@@ -61,3 +80,24 @@ function formatNumber(number) {
     return number.toFixed(2);
   }
 }
+
+/*-------------------------------------ADD DISCOUNT ICON---------------------------------*/
+
+// function addDiscountIcon(productItem) {
+//     productItem.insertAdjacentHTML("beforeend", `
+//         <svg class="svg-discount" width="60" height="60">
+//             <use href="${sprite}#icon-discount-mark"></use>
+//         </svg>
+//     `);
+// }
+// function addDiscountIcon(productItem, isDiscount) {
+//     if (isDiscount) {
+//         const discountIcon = document.createElement('svg');
+//         discountIcon.classList.add('svg-discount');
+//         discountIcon.setAttribute('width', '60');
+//         discountIcon.setAttribute('height', '60');
+//         discountIcon.innerHTML = `<use href="${sprite}#icon-discount-mark"></use>`;
+
+//         productItem.querySelector('.footer-product_card').appendChild(discountIcon);
+//     }
+// }
