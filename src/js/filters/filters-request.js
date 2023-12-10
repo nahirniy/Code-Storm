@@ -7,12 +7,10 @@ import {
   showLoader,
 } from '../services/helpers';
 import { mainProductMarkup } from '../home-content/main-products/markup-main-product';
-import {
-  emptyContent,
-  productMainList,
-  LOCALSTORAGE_KEY,
-  unsuccessSearch,
-} from './filters';
+import { emptyContent, unsuccessSearch } from './filters';
+
+const LOCALSTORAGE_KEY = 'params of search';
+let newParams = loadFromLS(LOCALSTORAGE_KEY);
 
 // Проверяем и записываем выбранную категорию в лок. хранилище.
 
@@ -21,17 +19,23 @@ export async function changeCategory(e) {
     return;
   }
 
+  const currentCategory = e.target.dataset.category;
+  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+
+  if (currentCategory !== 'show-all') {
+    newParams = { ...oldParams, category: currentCategory };
+  } else {
+    newParams = { ...oldParams, category: null };
+  }
+
+  const isChangeParams = checkedParams(oldParams, newParams);
+
+  if (!isChangeParams) {
+    return;
+  }
+
   try {
     showLoader();
-
-    const currentCategory = e.target.dataset.category;
-    const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-    let newParams;
-    if (currentCategory !== 'show-all') {
-      newParams = { ...oldParams, category: currentCategory };
-    } else {
-      newParams = { ...oldParams, category: null };
-    }
 
     const { results } = await getCurrentProducts(newParams);
     if (!results.length) {
@@ -52,19 +56,27 @@ export async function changeCategory(e) {
 // Записываем велью с инпуты(строки ввода в параметры локал)
 export function changeKeyword(e) {
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-  const newParams = { ...oldParams, keyword: e.target.value };
-  saveToLS(LOCALSTORAGE_KEY, newParams);
+  const saveKeyword = { ...oldParams, keyword: e.target.value };
+  saveToLS(LOCALSTORAGE_KEY, saveKeyword);
 }
 
 // По нажатию кнопки создаем разметку по данным с хранилища.
 export async function formSub(e) {
   e.preventDefault();
 
+  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+  const isChangeParams = checkedParams(oldParams, newParams);
+
+  if (!isChangeParams) {
+    return;
+  }
+
   try {
     showLoader();
 
-    const currentParams = loadFromLS(LOCALSTORAGE_KEY);
-    const { results } = await getCurrentProducts(currentParams);
+    newParams = oldParams;
+    const { results } = await getCurrentProducts(newParams);
+
     if (!results.length) {
       unsuccessSearch();
     } else {
@@ -124,16 +136,21 @@ async function changeFilter(e, filter, state) {
     return;
   }
 
+  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+
+  const { [Object.keys(oldParams).pop()]: _, ...rest } = oldParams;
+  newParams = { ...rest, [filter]: state };
+
+  const isChangeParams = checkedParams(oldParams, newParams);
+
+  if (!isChangeParams) {
+    return;
+  }
+
   try {
     showLoader();
 
-    const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-
-    const { [Object.keys(oldParams).pop()]: _, ...rest } = oldParams;
-    const newParams = { ...rest, [filter]: state };
-
     const { results } = await getCurrentProducts(newParams);
-
     if (!results.length) {
       unsuccessSearch();
     } else {
@@ -170,4 +187,8 @@ export function setStateFilter(params) {
       break;
   }
   filterBy.textContent = filter;
+}
+
+function checkedParams(oldParams, newParams) {
+  return !(JSON.stringify(oldParams) === JSON.stringify(newParams));
 }

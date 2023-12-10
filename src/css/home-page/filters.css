@@ -93,6 +93,12 @@
 .select-param {
   background-color: #fafafa;
   border-radius: 30px;
+  transition: 300ms all ease-in-out;
+  border: 1px solid #fafafa;
+}
+.select-param:hover,
+.select-param:focus {
+  border-color: #6d8434;
 }
 .param-name {
   color: #010101;

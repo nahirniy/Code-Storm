@@ -74,8 +74,17 @@ async function loadMarkup() {
   showLoader();
 
   try {
-    const defaultParams = loadFromLS(LOCALSTORAGE_KEY);
-    const { results } = await getCurrentProducts(defaultParams);
+    const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+    const newParams = {
+      ...oldParams,
+      keyword: oldParams.keyword || null,
+      page: 1,
+    };
+    saveToLS(LOCALSTORAGE_KEY, newParams);
+
+    const { results } = await getCurrentProducts(newParams);
+
+    input.value = newParams.keyword;
 
     if (!results.length) {
       unsuccessSearch();
@@ -84,13 +93,13 @@ async function loadMarkup() {
       mainProductMarkup(results);
     }
 
-    if (defaultParams.category !== null) {
-      categoryName.textContent = replaceText(defaultParams.category);
+    if (newParams.category !== null) {
+      categoryName.textContent = replaceText(newParams.category);
     } else {
       categoryName.textContent = 'Categories';
     }
 
-    setStateFilter(defaultParams);
+    setStateFilter(newParams);
   } catch {
     unsuccessSearch();
     showError();
