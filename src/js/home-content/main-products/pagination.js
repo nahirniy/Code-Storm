@@ -1,18 +1,22 @@
- import { getCurrentProducts } from "../../services/food-api";
- import { mainProductMarkup } from "./markup-main-product";
-//import{ loadMarkup } from "../../filters/filters"
+
+import { getCurrentProducts } from "../../services/food-api";
+import { mainProductMarkup } from "./markup-main-product";
+import { loadFromLS, saveToLS } from "../../services/helpers";
+
+
 const ulTag = document.querySelector('.pagination');
+const LOCALSTORAGE_KEY = 'params of search';
 let totalPages = 5;
 let page = 1;
 let limit = 9;
-let afterPage = page - 1;
+
 
 function pagination(totalPages, page) {
     let litag = '';
     if (totalPages > limit) {
-        if (totalPages > 4) {
+        if (totalPages > 1) {
             if (page > 1) {
-                litag += `<button type="button" class="pagination-item" data-page="${page - 1}">
+                litag += `<button type="button" class="pagination-item" data-page="${Number(page - 1)}">
                 <span><i class="fas arrow-left"></i>
                 <svg class="icon-arrow" width="24" height="24">
                     <use href="../../../img/icons/sprite.svg#icon-arrow-left"></use>
@@ -39,7 +43,7 @@ function pagination(totalPages, page) {
             }
 
             if (page < totalPages - 1) {
-                litag += `<button type="button" class="pagination-item" data-page="${page + 1}">
+                litag += `<button type="button" class="pagination-item" data-page="${Number(page + 1)}">
                 <span><i class="fas arrow-right"></i>
                 <svg class="icon-arrow" width="24" height="24">
                     <use href="../../../img/icons/sprite.svg#icon-arrow-right"></use>
@@ -84,62 +88,52 @@ form.addEventListener('click', getNumberPage)
     });
 
 /*---------------------------------NEW PARAMS--------------------------------*/
-//let newParams;
 async function getNumberPage() {
-    const clickedPage = parseInt(this.dataset.page);
-  console.log(clickedPage)
+    const clickedPage = this.dataset.page;
+
     if (!isNaN(clickedPage)) {
-        page = clickedPage; 
-        //pagination(totalPages, page);
-    } else if (this.dataset.page === 'arrow-left') {
-        page = Math.max(1, page - 1); 
-        //pagination(totalPages, page);
-    } else if (this.dataset.page === 'arrow-right') {
-        page = Math.min(totalPages, page + 1); 
-        //pagination(totalPages, page);
+        page = Number(clickedPage);
+    } else if (this.classList.contains('arrow-left')) {
+        page = Math.max(1, page - 1);
+        console.log(page)
+    } else if (this.classList.contains('arrow-right')) {
+        page = Math.min(totalPages, page + 1);
     }
 
-    const newParams = {
-        page: page,
+    const defaultParams = {
         keyword: null,
         category: null,
-        limit: limit,
-        byABC: false,
+        page: 1,
+        limit: 9,
+        byABC: true,
     };
-    console.log('New Params:', newParams);
-//     const defaultParams = {
-//   keyword: null,
-//   category: null,
-//   page: 1,
-//   limit: 9,
-//   byABC: true,
-// };
-      try {
-        const searchObjects = await getCurrentProducts(newParams);
-       totalPages = searchObjects.totalPages
-        console.log('Search Results:', searchObjects.results);
-          console.log('Total Pages:', searchObjects.totalPages);
-          if (totalPages > limit) {
-              pagination(totalPages, page);
-              //mainProductMarkup()
 
-          }
+    try {
+        const searchObjects = await getCurrentProducts(defaultParams);
+        totalPages = searchObjects.totalPages;
+        console.log('Search Results:', searchObjects.results);
+        console.log('Total Pages:', searchObjects.totalPages);
+        if (totalPages > limit) {
+            pagination(totalPages, page);
+        }
     } catch (error) {
         console.error('Error fetching products:', error);
     }
- }
-pagination(totalPages, page);
-
-
-
-
-
-
-
-
-
-
-
-
+}
+ulTag.addEventListener('click', changePage);
+async function changePage(e) {
+  const isBtn = e.target.closest('.pagination-item');
+  if (!isBtn) {
+    return;
+  }
+  const currentPage = e.target.closest('.pagination-item').dataset.page;
+  console.log(currentPage);
+  console.log(currentPage);
+  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+  const newParams = { ...oldParams, page: currentPage };
+  saveToLS(LOCALSTORAGE_KEY, newParams);
+  const { results } = await getCurrentProducts(newParams);
+  mainProductMarkup(results);
+}
 
 

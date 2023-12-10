@@ -49,7 +49,7 @@ export function mainProductMarkup(mainProduct) {
     })
     .join('');
 
-  console.log(mainProduct.length);
+  //console.log(mainProduct.length);
   productMainList.innerHTML = markup;
 
   //   const productItems = document.querySelectorAll('.resp-item');

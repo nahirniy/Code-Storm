@@ -294,20 +294,23 @@
 .icon-arrow:hover,
 .icon-arrow:focus {
    background-color: var(--accent-cl);
-   fill: var(--white-cl)
+   stroke: var(--white-cl)
 }
 .number {
     cursor: pointer;
+    width: 40px;
+    height: 40px;
 }
-.number,
 .dots {
+  color: #A3A3A3;
+}
+
+.number{
     color: #A3A3A3;
     transition: background-color 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95), fill 250ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 .number:hover,
-.number:focus,
-.dots:hover,
-.dots:focus {
+.number:focus {
     display: flex;
     width: 40px;
     height: 40px;
