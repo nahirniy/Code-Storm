@@ -1,0 +1,77 @@
+.modal-product{
+    position: fixed;
+    padding: 40px 20px;
+    width: 335px;
+    height: 535px;
+    background-color:#FAFAFA;
+    border-radius: 20px;
+}
+.clouse_modal{
+   position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.img_modal {
+    width: 295px;
+    height: 212px;
+    padding: 19px 77px;
+    border-radius: 10px;
+    background-color: var(--light-grey-cl);
+    margin-bottom: 20px;
+}
+.desc-text {
+margin-top: 20px;
+}
+.textModalp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 6;
+    color: rgba(1, 1, 1, 0.70);
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+ 
+}
+
+.footer-product_card2 {
+    position: absolute;
+    bottom: 40px;
+
+}
+.end-modal{
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+}
+.modal-product-inWindow{
+   height: 455px;
+}
+.price-product2 {
+    color: var(--main-cl);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-right: 30px;
+}
+.svg-basket2 {
+    
+    display: flex;
+    fill: var(--white-cl);
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 15px;
+    background-color: var(--accent-cl);
+}
+.svg-basket3 {
+    fill:#FAFAFA;
+   
+}
