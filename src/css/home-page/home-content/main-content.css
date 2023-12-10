@@ -64,6 +64,17 @@
     border-radius: 20px;
     background-color: var(--white-cl);
     display: flex;
+    position: relative;
+}
+/* Додала (position: relative) на .resp-item  і стилі для свг  */
+.svg-discount {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+
+    @media screen and (min-width: 1440px) {
+        top: -3px;
+    }
 }
 
 .photo {

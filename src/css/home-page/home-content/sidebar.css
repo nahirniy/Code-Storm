@@ -121,15 +121,8 @@
 }
 
 .discount-section {
-  margin-bottom: 80px;
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 100px;
-  }
-
   @media screen and (min-width: 1440px) {
     max-width: 275px;
-    margin-bottom: 140px;
   }
 }
 
@@ -293,5 +286,6 @@
     gap: 10px;
     border-radius: 30px;
     background: var(--accent-cl);
-    fill: var(--light-grey-cl);
+    fill: none;
+    stroke: var(--light-grey-cl);
 }
