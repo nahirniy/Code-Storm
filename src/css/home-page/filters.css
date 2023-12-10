@@ -44,7 +44,7 @@
 .filter_icon_position {
   position: absolute;
   right: 20px;
-  top: 27px;
+  top: 50%;
   transform: translateY(-50%);
   padding: 0;
   margin: 0;
@@ -73,6 +73,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: 300ms all ease-in-out;
 }
 .search-input:focus,
 .search-input:hover {
@@ -157,6 +158,7 @@
   border: none;
   box-shadow: 0px 4px 11.212px 0px rgba(0, 0, 0, 0.04),
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  transition: 400ms all ease-in-out;
 }
 
 .filter-options li:not(:last-child) {
@@ -168,7 +170,6 @@
   opacity: 0;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
 .category-type {
