@@ -51,3 +51,5 @@ export function updateBasket(LOCALSTORAGE_KEY, currentProduct, basket) {
 export function editText(someText) {
   return someText.replaceAll('_', ' ');
 }
+
+Notify.success('check notiflix');

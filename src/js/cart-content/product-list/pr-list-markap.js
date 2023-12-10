@@ -40,22 +40,3 @@ export const funCartCreateMarkup = function createMarkup(arr) {
     )
     .join('');
 };
-// функция разметки пустой корзины
-export const funEmplyCartCreateMarkup = function createEmplyMarkup() {
-  const emplyMarkup = `<div class="cart-yellow-container">
-  <img
-    class="cart-yellow-img"
-    src="./img/cart/yellow shopping basket .png "
-    alt="yellow shopping basket "
-  />
-
-  <h3 class="cart-yellow-title">
-    Your basket is <span class="cart-yellow-span">empty...</span>
-  </h3>
-  <p class="cart-yellow-text">
-    Go to the main page to select your favorite <br />
-    products and add them to the cart.
-  </p>
-</div>`;
-  return emplyMarkup;
-};
