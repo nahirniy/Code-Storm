@@ -43,8 +43,8 @@ function toglModul(){
     modalBackdrop.classList.toggle('is-hidden')
 }
 function OnScroll(){
-    modal_window.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = '';
+    window.scrollTo(0, scrollPosition);
 }
 /////////
 
@@ -61,16 +61,14 @@ function OnScroll(){
 
 async function handleClickOnLi(event) {
 
-    const closestRespItem = event.target.closest('.resp-item');
+    const closestRespItem = event.target.closest('.resp-item', '.btn-basket');
     if (!closestRespItem) {
         return;
     }
     
-    const currentId2 = closestRespItem.dataset.id;
-   
-    const currentProduct = await getProductById(currentId2);
+    const currentIdModal = closestRespItem.dataset.id;
+    const currentProduct = await getProductById(currentIdModal);
     
- 
     const marcap = `<div class="img_modal" >
     <img class="photo" src="${currentProduct.img}" alt="${currentProduct.name}" loading="lazy"/>
     </div>
