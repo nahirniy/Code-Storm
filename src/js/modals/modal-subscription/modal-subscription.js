@@ -1,27 +1,60 @@
 const btnElem = document.querySelector('.subscribe');
-const modalElem = document.querySelector('.modal-subscription');
+const modalSubscription = document.querySelector('.modal-subscription');
+const modalUnsubscription = document.querySelector('.modal-unsubscription');
 const modalBackElem = document.querySelector('.modal-backdrop-subscription');
 
-modalElem.style.cssText = `
-display:none;
-visibility: hidden
-opacity: 0;
+modalSubscription.style.cssText = `
+  display: none;
+  visibility: visible;
+  opacity: 0;
+`;
+
+modalUnsubscription.style.cssText = `
+  display: none;
+  visibility: visible;
+  opacity: 0;
 `;
 
 const closeModal = event => {
   const target = event.target;
 
-  if (target === modalElem || target.closest('.close')) {
-    modalElem.style.visibility = 'hidden';
-    modalElem.style.opacity = 0;
+  if (target === modalSubscription || target.closest('.close')) {
+    modalSubscription.style.visibility = 'hidden';
+    modalSubscription.style.opacity = 0;
+  }
+
+  if (target === modalUnsubscription || target.closest('.close')) {
+    modalUnsubscription.style.visibility = 'hidden';
+    modalUnsubscription.style.opacity = 0;
   }
 };
 
-const openModal = () => {
-  modalElem.style.display = 'flex';
-  modalElem.style.visibility = 'visible';
-  modalElem.style.opacity = 1;
+const openModalSubscription = () => {
+  modalSubscription.style.display = 'flex';
+  modalSubscription.style.visibility = 'visible';
+  modalSubscription.style.opacity = 1;
 };
-openModal();
-btnElem.addEventListener('click', openModal);
-modalElem.addEventListener('click', closeModal);
+
+const openModalUnsubscription = () => {
+  modalUnsubscription.style.display = 'flex';
+  modalUnsubscription.style.visibility = 'visible';
+  modalUnsubscription.style.opacity = 1;
+};
+
+const handleSubscription = email => {
+  if (email) {
+    openModalSubscription();
+  } else {
+    openModalUnsubscription();
+  }
+};
+
+btnElem.addEventListener('click', () => {
+  const emailInput = document.querySelector('.email-input');
+  const email = emailInput.value.trim();
+
+  handleSubscription(email);
+});
+
+modalSubscription.addEventListener('click', closeModal);
+modalUnsubscription.addEventListener('click', closeModal);
