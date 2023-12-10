@@ -1,46 +1,30 @@
-const btnElem = document.querySelector('.subscribe');
+const formElem = document.querySelector('.form-footer');
 const modalSubscription = document.querySelector('.modal-subscription');
 const modalUnsubscription = document.querySelector('.modal-unsubscription');
 const modalBackElem = document.querySelector('.modal-backdrop-subscription');
 
-modalSubscription.style.cssText = `
-  display: none;
-  visibility: visible;
-  opacity: 0;
-`;
-
-modalUnsubscription.style.cssText = `
-  display: none;
-  visibility: visible;
-  opacity: 0;
-`;
+modalSubscription.classList.add('is-hidden');
+modalUnsubscription.classList.add('is-hidden');
 
 const closeModal = event => {
   const target = event.target;
-
   if (target === modalSubscription || target.closest('.close')) {
-    modalSubscription.style.visibility = 'hidden';
-    modalSubscription.style.opacity = 0;
+    modalSubscription.classList.add('is-hidden');
+    modalBackElem.classList.add('is-hidden');
   }
-
   if (target === modalUnsubscription || target.closest('.close')) {
-    modalUnsubscription.style.visibility = 'hidden';
-    modalUnsubscription.style.opacity = 0;
+    modalUnsubscription.classList.add('is-hidden');
+    modalBackElem.classList.add('is-hidden');
   }
 };
-
 const openModalSubscription = () => {
-  modalSubscription.style.display = 'flex';
-  modalSubscription.style.visibility = 'visible';
-  modalSubscription.style.opacity = 1;
+  modalSubscription.classList.remove('is-hidden');
+  modalBackElem.classList.remove('is-hidden');
 };
-
 const openModalUnsubscription = () => {
-  modalUnsubscription.style.display = 'flex';
-  modalUnsubscription.style.visibility = 'visible';
-  modalUnsubscription.style.opacity = 1;
+  modalUnsubscription.classList.remove('is-hidden');
+  modalBackElem.classList.remove('is-hidden');
 };
-
 const handleSubscription = email => {
   if (email) {
     openModalSubscription();
@@ -48,13 +32,11 @@ const handleSubscription = email => {
     openModalUnsubscription();
   }
 };
-
-btnElem.addEventListener('click', () => {
-  const emailInput = document.querySelector('.email-input');
+formElem.addEventListener('submit', e => {
+  e.preventDefault();
+  const emailInput = document.querySelector('.input-label');
   const email = emailInput.value.trim();
-
   handleSubscription(email);
 });
-
 modalSubscription.addEventListener('click', closeModal);
 modalUnsubscription.addEventListener('click', closeModal);
