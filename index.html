@@ -7,7 +7,7 @@
     
     <script type="module" crossorigin src="/Code-Storm/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-7a0e9089.js">
-    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/modal-subscription-4d282987.js">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/modal-subscription-b6c8f11c.js">
     <link rel="stylesheet" href="/Code-Storm/assets/modal-subscription-1d8d7ab4.css">
   </head>
   <body>
@@ -32,7 +32,9 @@
                 <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-basket"></use>
               </svg>
             </span>
-            <span class="header-navigation-link">Cart (0)</span>
+            <span class="header-navigation-link"
+              >Cart (<span class="number-products">0</span>)</span
+            >
           </a>
         </li>
       </ul>
@@ -62,16 +64,17 @@
             media="(min-width: 768px)"
             srcset="/Code-Storm/assets/hero-tablet-1x-aa7378a3.webp 1x, /Code-Storm/assets/hero-tablet-2x-448566dd.webp 2x"
           />
-
-          <img
+          <source
+            media="(min-width: 320px)"
             srcset="
-              ./img/hero/hero-mobile-1x.webp,
+              /img/hero/hero-mobile-1x.webp,
               1x,
-              ./img/hero/hero-mobile-2x.webp,
+              /img/hero/hero-mobile-2x.webp,
               2x
             "
-            alt="basket"
           />
+
+          <img src="/Code-Storm/assets/hero-desctop-1x-b79c9974.webp" alt="basket" />
         </picture>
         <svg class="hero-svg" width="100" height="100">
           <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-organic-food-mark"></use>
