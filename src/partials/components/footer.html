@@ -55,7 +55,9 @@
             placeholder="Email"
           />
         </label>
-        <button type="submit" class="subscribe" id="data-modal-open">Send</button>
+        <button type="submit" class="subscribe" id="data-modal-open">
+          Send
+        </button>
       </form>
     </div>
     <div class="about">
@@ -69,18 +71,21 @@
       </div>
     </div>
   </div>
-  
-</footer>
-<div id="data-modal" class="modal" >
+  <div class="modal">
     <div class="modal-content">
       <span class="close" id="data-modal-close"
-        ><svg class="js-close-menu">
-          <use href="./img/icons/sprite.svg#icon-close" width="24" height="24"></use>
-        </svg></span>
-      <h2>This <span>email address</span> has already been entered</h2>
-      <p>
-        You have already subscribed to our new products. Watch for offers at the
-        mailing address.
-      </p>
+        ><svg class="js-close-menu" width="24" height="24">
+          <use href="./img/icons/sprite.svg#icon-close"></use></svg></span>
+      <div class="modal-text">
+        <h2 class="head-text">
+          This <span class="span-text">email address</span> has already been
+          entered
+        </h2>
+        <p class="bottom-modal">
+          You have already subscribed to our new products. Watch for offers at
+          the mailing address.
+        </p>
+      </div>
     </div>
   </div>
+</footer>

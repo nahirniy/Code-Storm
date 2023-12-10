@@ -1,17 +1,26 @@
-const openButton = document.getElementById('data-modal-open');
-const modal = document.getElementById('data-modal');
-const closeButton = document.getElementById('data-modal-close');
+const btnElem = document.querySelector('.subscribe');
+const modalElem = document.querySelector('.modal');
 
-openButton.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
+modalElem.style.cssText = `
+display:none;
+visibility: hidden
+opacity: 0;
+`;
 
-closeButton.addEventListener('click', () => {
-  modal.style.display = 'none';
-});
+const closeModal = event => {
+  const target = event.target;
 
-window.addEventListener('click', event => {
-  if (event.target === modal) {
-    modal.style.display = 'none';
+  if (target === modalElem || target.closest('.close')) {
+    modalElem.style.visibility = 'hidden';
+    modalElem.style.opacity = 0;
   }
-});
+};
+
+const openModal = () => {
+  modalElem.style.display = 'flex';
+  modalElem.style.visibility = 'visible';
+  modalElem.style.opacity = 1;
+};
+openModal();
+btnElem.addEventListener('click', openModal);
+modalElem.addEventListener('click', closeModal);
