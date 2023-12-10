@@ -1,6 +1,6 @@
 import { funCartCreateMarkup } from './pr-list-markap';
-import { funLoadFromLS } from './pr-list-localStorage';
 import { funLoadLellAllLS } from './pr-list-localStorage';
+import { loadFromLS } from '../../services/helpers';
 
 const refs = {
   cartContent: document.querySelector('.cart-content-wrap'),
@@ -16,7 +16,7 @@ refs.cartItemContainer.addEventListener('click', onCartItem);
 refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
 
 const LOCALSTORAGE_KEY = 'basket';
-const cartResults = funLoadFromLS(LOCALSTORAGE_KEY) ?? [];
+const cartResults = loadFromLS(LOCALSTORAGE_KEY) ?? [];
 let arrayLength = cartResults.length;
 let newTotal = cartTotal(cartResults);
 
