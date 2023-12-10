@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cart</title>
     
-    <script type="module" crossorigin src="/Code-Storm/assets/styles-7fa91617.js"></script>
-    <link rel="stylesheet" href="/Code-Storm/assets/styles-7d316c45.css">
+    <script type="module" crossorigin src="/Code-Storm/commonHelpers.js"></script>
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-424513b8.js">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/food-api-2456832c.js">
+    <link rel="stylesheet" href="/Code-Storm/assets/food-api-1759979b.css">
   </head>
   <body>
     <header class="header">
@@ -47,9 +49,24 @@
     <div class="cart-content-wrap">
       
 
-      
+      <section class="order-products">
+    <h3 class="order-products-title">Your Order</h3>
+    <div class="order-total">
+      <div class="order-total-name">Total</div>
+      <div class="order-total-value">Sum:<span class="order-products-sum">$0.00</span></div>
+    </div>
+    <form class="order-products-form">
+      <div class="order-products-form-input">
+        <input type="email" required id="email" name="email_address" placeholder="Enter your email"
+          pattern="^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,4}$" />
+        <label for="email">Mail:</label>
+      </div>
+      <button class="button" type="submit">Checkout</button>
+    </form>
+</section>
     </div>
     
+
   </div>
 </section>
 
@@ -126,7 +143,20 @@
 
 
     <div class="modal-backdrop-order is-hidden">
-  <div class="modal-order is-hidden"></div>
+  <div class="modal-order is-hidden">
+    <svg class="modal-order-close">
+      <use href="../../img/icons/sprite.svg#icon-close"></use>
+    </svg>
+    <div class="modal-order-img">
+      <img src="../../img/modal-order/order_success.webp" alt="order-success">
+    </div>
+    <div class="modal-order-title">
+      Order success
+    </div>
+    <p class="modal-order-text">Thank you for shopping at Food Boutique. Your order has been received and is now being freshly prepared just for you!
+    Get ready to indulge in nourishing goodness, delivered right to your doorstep. We're thrilled to be part of your journey
+    to better health and happiness.</p>
+  </div>
 </div>
 
     <div class="modal-backdrop-subscription is-hidden">
