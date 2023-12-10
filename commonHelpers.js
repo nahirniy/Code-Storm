@@ -1,4 +1,4 @@
-import{l as p,s as S,a as C}from"./assets/modal-subscription-b6c8f11c.js";import"./assets/vendor-7a0e9089.js";const f=function(c){return c.map(({name:r,category:o,size:n,price:u,img:l,_id:y})=>`<li class="cart-item" data-id="${y}">
+import{l as p,s as S,a as C}from"./assets/modal-subscription-6a1db4c6.js";import"./assets/vendor-7a0e9089.js";const f=function(c){return c.map(({name:r,category:o,size:n,price:u,img:l,_id:y})=>`<li class="cart-item" data-id="${y}">
       <div class="cart-item-wrap">
         <div class="cart-img-container">
           <img class="cart-img" src="${l}" alt="${r}" />
