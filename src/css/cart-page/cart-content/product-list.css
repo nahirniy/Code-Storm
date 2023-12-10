@@ -1,0 +1,223 @@
+.cart-title-container {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 31px;
+  margin-top: 33px;
+}
+.cart-wrap-basket {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background-color: var(--accent-cl);
+}
+.cart-icon-basket {
+  fill: var(--white-cl);
+}
+.cart-title {
+  color: var(--main-cl);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 116.667%;
+  text-transform: uppercase;
+}
+.cart-btn-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cart-btn-del-all {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 96px;
+  height: 24px;
+  margin-bottom: 42px;
+  color: var(--main-cl);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 125%;
+  border: none;
+  background-color: var(--light-grey-cl);
+}
+
+.cart-display-none {
+  display: none;
+}
+.cart-item-container {
+  height: 480px;
+  overflow: auto;
+}
+.cart-item {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 130px;
+}
+
+.cart-btn-close {
+  border: none;
+  background-color: var(--light-grey-cl);
+
+  /* transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1  */
+}
+.cart-icon-close {
+  width: 18px;
+  height: 18px;
+}
+.cart-item:not(:last-child) {
+  margin-bottom: 30px; /* учесть линию*/
+  padding-bottom: 30px;
+  position: relative;
+}
+.cart-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 100%; /* Ширина линии */
+  height: 1px; /* Высота линии */
+  background-color: rgba(1, 1, 1, 0.1); /* Цвет линии */
+  transform: translateX(-50%);
+}
+.cart-item:last-child {
+  margin-bottom: 50px;
+}
+.cart-item-wrap {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.cart-img-container {
+  padding: 18px;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: var(--white-cl);
+  flex-shrink: 0;
+}
+
+.cart-img {
+  width: 64px;
+  height: 64px;
+}
+
+.cart-item-title {
+  margin-bottom: 10px;
+}
+.cart-item-title,
+.cart-info-price {
+  color: var(--main-cl);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 111.1%;
+}
+.cart-info-container {
+  display: flex;
+  gap: 8px;
+  /* align-items: center; */
+  justify-content: flex-start;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  /* overflow: hidden;
+  text-overflow: ellipsis; */
+  width: 215px;
+  /* border: 2px solid #c73737; */
+}
+.cart-info {
+  color: var(--grey-cl);
+  font-size: 12px;
+  line-height: 1.16em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cart-info span {
+  color: var(--main-cl);
+}
+/* кнопка крестик
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+/* .modal-btn-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
+/* ===================планшет=========*/
+@media (min-width: 768px) {
+  .cart-title {
+    font-size: 32px;
+    line-height: 1em;
+  }
+  .cart-item-container {
+    height: 600px;
+  }
+  .cart-img {
+    width: 72px;
+    height: 72px;
+  }
+  .cart-img-container {
+    padding: 24px;
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+  }
+
+  .cart-item-wrap {
+    gap: 40px;
+  }
+  .cart-item-title {
+    margin-bottom: 12px;
+  }
+  .cart-item-title,
+  .cart-info-price {
+    font-size: 20px;
+    line-height: 120%;
+  }
+  .cart-info-container {
+    gap: 16px;
+    margin-bottom: 46px;
+    white-space: normal;
+    width: 100%;
+  }
+  .cart-info span {
+    font-size: 14px;
+    line-height: 1.29em; /* 128.571% */
+  }
+  .cart-wrap-basket {
+    padding: 12px;
+  }
+  .cart-item {
+    height: 170px;
+  }
+  .cart-item:not(:last-child) {
+    margin-bottom: 40px; /*учесть линию */
+    padding-bottom: 40px;
+  }
+  .cart-item:last-child {
+    margin-bottom: 70px;
+  }
+  .cart-icon-close {
+    width: 20px;
+    height: 20px;
+  }
+}
+/* .cart-item:not(:last-child)::after {
+    width: 672px; /* Ширина линии */
+
+/* ===================desktop=========*/
+@media (min-width: 1440px) {
+}
+
+/* mobile-width: 375px;
+  --tablet-width: 768px;
+  --desktop-width: 1440px */
