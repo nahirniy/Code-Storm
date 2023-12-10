@@ -1,7 +1,18 @@
 import { getCurrentProducts } from '../services/food-api';
-import { loadFromLS, saveToLS } from '../services/helpers';
+import {
+  hideLoader,
+  loadFromLS,
+  saveToLS,
+  showError,
+  showLoader,
+} from '../services/helpers';
 import { mainProductMarkup } from '../home-content/main-products/markup-main-product';
-import { emptyContent, productMainList, LOCALSTORAGE_KEY } from './filters';
+import {
+  emptyContent,
+  productMainList,
+  LOCALSTORAGE_KEY,
+  unsuccessSearch,
+} from './filters';
 
 // Проверяем и записываем выбранную категорию в лок. хранилище.
 
@@ -9,28 +20,37 @@ export async function changeCategory(e) {
   if (!e.target.classList.contains('category-type')) {
     return;
   }
-  const currentCategory = e.target.dataset.category;
-  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-  let newParams;
-  if (currentCategory !== 'show-all') {
-    newParams = { ...oldParams, category: currentCategory };
-  } else {
-    newParams = { ...oldParams, category: null };
-  }
 
-  const { results } = await getCurrentProducts(newParams);
-  if (!results.length) {
-    emptyContent.classList.remove('visually-hidden');
-    productMainList.innerHTML = '';
-  } else {
-    emptyContent.classList.add('visually-hidden');
-    mainProductMarkup(results);
+  try {
+    showLoader();
+
+    const currentCategory = e.target.dataset.category;
+    const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+    let newParams;
+    if (currentCategory !== 'show-all') {
+      newParams = { ...oldParams, category: currentCategory };
+    } else {
+      newParams = { ...oldParams, category: null };
+    }
+
+    const { results } = await getCurrentProducts(newParams);
+    if (!results.length) {
+      unsuccessSearch();
+    } else {
+      emptyContent.classList.add('visually-hidden');
+      mainProductMarkup(results);
+    }
+    saveToLS(LOCALSTORAGE_KEY, newParams);
+  } catch {
+    unsuccessSearch();
+    showError();
+  } finally {
+    hideLoader();
   }
-  saveToLS(LOCALSTORAGE_KEY, newParams);
 }
 
 // Записываем велью с инпуты(строки ввода в параметры локал)
-export async function changeKeyword(e) {
+export function changeKeyword(e) {
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
   const newParams = { ...oldParams, keyword: e.target.value };
   saveToLS(LOCALSTORAGE_KEY, newParams);
@@ -39,19 +59,28 @@ export async function changeKeyword(e) {
 // По нажатию кнопки создаем разметку по данным с хранилища.
 export async function formSub(e) {
   e.preventDefault();
-  const currentParams = loadFromLS(LOCALSTORAGE_KEY);
-  const { results } = await getCurrentProducts(currentParams);
-  if (!results.length) {
-    emptyContent.classList.remove('visually-hidden');
-    productMainList.innerHTML = '';
-  } else {
-    emptyContent.classList.add('visually-hidden');
-    mainProductMarkup(results);
+
+  try {
+    showLoader();
+
+    const currentParams = loadFromLS(LOCALSTORAGE_KEY);
+    const { results } = await getCurrentProducts(currentParams);
+    if (!results.length) {
+      unsuccessSearch();
+    } else {
+      emptyContent.classList.add('visually-hidden');
+      mainProductMarkup(results);
+    }
+  } catch {
+    unsuccessSearch();
+    showError();
+  } finally {
+    hideLoader();
   }
 }
 
 // Определяем фильтр параметров поиска и отрисовуем
-export async function getFilter(e) {
+export function getFilter(e) {
   let filter;
   let state;
   let args = e.target.dataset.filterparam;
@@ -86,27 +115,39 @@ export async function getFilter(e) {
       break;
   }
 
-  changeFilter(filter, state);
+  changeFilter(e, filter, state);
 }
 
 // Проверка и отрисовка параметров поиска
-async function changeFilter(filter, state) {
-  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-
-  const { [Object.keys(oldParams).pop()]: _, ...rest } = oldParams;
-  const newParams = { ...rest, [filter]: state };
-
-  const { results } = await getCurrentProducts(newParams);
-
-  if (!results.length) {
-    productMainList.innerHTML = '';
-    emptyContent.classList.remove('visually-hidden');
-  } else {
-    emptyContent.classList.add('visually-hidden');
-    mainProductMarkup(results);
+async function changeFilter(e, filter, state) {
+  if (!e.target.classList.contains('filter-type')) {
+    return;
   }
 
-  saveToLS(LOCALSTORAGE_KEY, newParams);
+  try {
+    showLoader();
+
+    const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+
+    const { [Object.keys(oldParams).pop()]: _, ...rest } = oldParams;
+    const newParams = { ...rest, [filter]: state };
+
+    const { results } = await getCurrentProducts(newParams);
+
+    if (!results.length) {
+      unsuccessSearch();
+    } else {
+      emptyContent.classList.add('visually-hidden');
+      mainProductMarkup(results);
+    }
+
+    saveToLS(LOCALSTORAGE_KEY, newParams);
+  } catch {
+    unsuccessSearch();
+    showError();
+  } finally {
+    hideLoader();
+  }
 }
 
 export function setStateFilter(params) {
