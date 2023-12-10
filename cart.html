@@ -8,7 +8,7 @@
     
     <script type="module" crossorigin src="/Code-Storm/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-424513b8.js">
-    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/food-api-b44bac1e.js">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/food-api-5792d81d.js">
     <link rel="stylesheet" href="/Code-Storm/assets/food-api-1488114f.css">
   </head>
   <body>
@@ -45,9 +45,8 @@
     <main>
       <section class="cart-section">
   <div class="container">
-    <h2></h2>
     <div class="cart-content-wrap">
-      <div class="cart-title-container cart-display-none">
+      <div class="cart-title-container">
   <div class="cart-wrap-basket">
     <svg class="cart-icon-basket" width="18" height="18">
       <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-basket"></use>
@@ -57,7 +56,7 @@
 </div>
 
 <div class="cart-btn-wrap">
-  <button name="button" class="cart-btn-del-all cart-display-none">
+  <button name="button" class="cart-btn-del-all">
     Delete all
     <svg class="cart-icon-all" width="24" height="24">
       <use href=".\img\icons\sprite.svg#icon-close"></use>
@@ -113,16 +112,10 @@
     </form>
 </section>
     </div>
-    <div class="cart-title-container">
-  <svg class="cart-icon-basket" width="18" height="18">
-    <use href=".\img\icons\sprite.svg#icon-basket"></use>
-  </svg>
-  <h2 class="cart-title">Cart (0)</h2>
-</div>
-<div class="cart-yellow-container">
+    <div class="cart-yellow-container visually-hidden">
   <img
     class="cart-yellow-img"
-    src="/src/img/cart/yellow shopping basket .png "
+    src="./img/cart/yellow shopping basket .png "
     alt="yellow shopping basket "
   />
 
