@@ -4,7 +4,6 @@ import sprite from '../../../img/icons/sprite.svg';
 const productMainList = document.querySelector('.product-list');
 const LOCALSTORAGE_KEY = 'main products';
 
-
 /*-----------------------------------MARKUP----------------------------*/
 
 export function mainProductMarkup(mainProduct) {
@@ -13,9 +12,6 @@ export function mainProductMarkup(mainProduct) {
     .map(item => {
       let formattedCategory = removeUnderscore(item.category);
       let formatPrice = formatNumber(item.price);
-<<<<<<< HEAD
-      return `<li class="resp-item" data-id="${item._id}" data-info="${item}" data-discount="${item.is10PercentOff}">
-=======
       //let formatResult =
       return `<li class="resp-item" data-id=${item._id} data-info="${item}">
       ${
@@ -26,7 +22,6 @@ export function mainProductMarkup(mainProduct) {
           `
           : ''
       }
->>>>>>> main
         <div class="img" >
           <img class="photo" src="${item.img}" alt="${
         item.name
@@ -54,9 +49,8 @@ export function mainProductMarkup(mainProduct) {
     })
     .join('');
 
-  console.log(mainProduct.length)
+  console.log(mainProduct.length);
   productMainList.innerHTML = markup;
- 
 
   //   const productItems = document.querySelectorAll('.resp-item');
   // console.log(productItems);
@@ -65,18 +59,16 @@ export function mainProductMarkup(mainProduct) {
   //   const isDiscount = item.is10PercentOff; // Assuming item.is10PercentOff is a boolean
   //   addDiscountIcon(productItem, isDiscount);
   // });
-//   console.log(productItems)
-//    productItems.forEach(productItem => {
-//     const checkDiscount = productItem.dataset.discount;
-//     if (checkDiscount === "true") {
-//         console.log(checkDiscount);
-//         addDiscountIcon(productItem);
-//     } else {
-//         console.log('data-discount is undefined for this item.');
-//     }
-// });
-    
-  
+  //   console.log(productItems)
+  //    productItems.forEach(productItem => {
+  //     const checkDiscount = productItem.dataset.discount;
+  //     if (checkDiscount === "true") {
+  //         console.log(checkDiscount);
+  //         addDiscountIcon(productItem);
+  //     } else {
+  //         console.log('data-discount is undefined for this item.');
+  //     }
+  // });
 }
 function removeUnderscore(text) {
   return text.replace(/_/g, ' ');
@@ -90,7 +82,7 @@ function formatNumber(number) {
 }
 
 /*-------------------------------------ADD DISCOUNT ICON---------------------------------*/
- 
+
 // function addDiscountIcon(productItem) {
 //     productItem.insertAdjacentHTML("beforeend", `
 //         <svg class="svg-discount" width="60" height="60">
