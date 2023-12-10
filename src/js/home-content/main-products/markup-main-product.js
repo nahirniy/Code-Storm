@@ -4,6 +4,7 @@ import sprite from '../../../img/icons/sprite.svg';
 const productMainList = document.querySelector('.product-list');
 const LOCALSTORAGE_KEY = 'main products';
 
+
 /*-----------------------------------MARKUP----------------------------*/
 
 export function mainProductMarkup(mainProduct) {
@@ -12,8 +13,7 @@ export function mainProductMarkup(mainProduct) {
     .map(item => {
       let formattedCategory = removeUnderscore(item.category);
       let formatPrice = formatNumber(item.price);
-      //let formatResult =
-      return `<li class="resp-item" data-id=${item._id} data-info="${item}">
+      return `<li class="resp-item" data-id="${item._id}" data-info="${item}" data-discount="${item.is10PercentOff}">
         <div class="img" >
           <img class="photo" src="${item.img}" alt="${item.name}" loading="lazy"/>
         </div>
@@ -35,7 +35,29 @@ export function mainProductMarkup(mainProduct) {
     })
     .join('');
 
+  console.log(mainProduct.length)
   productMainList.innerHTML = markup;
+ 
+
+  //   const productItems = document.querySelectorAll('.resp-item');
+  // console.log(productItems);
+
+  // productItems.forEach(productItem => {
+  //   const isDiscount = item.is10PercentOff; // Assuming item.is10PercentOff is a boolean
+  //   addDiscountIcon(productItem, isDiscount);
+  // });
+//   console.log(productItems)
+//    productItems.forEach(productItem => {
+//     const checkDiscount = productItem.dataset.discount;
+//     if (checkDiscount === "true") {
+//         console.log(checkDiscount);
+//         addDiscountIcon(productItem);
+//     } else {
+//         console.log('data-discount is undefined for this item.');
+//     }
+// });
+    
+  
 }
 function removeUnderscore(text) {
   return text.replace(/_/g, ' ');
@@ -47,3 +69,24 @@ function formatNumber(number) {
     return number.toFixed(2);
   }
 }
+
+/*-------------------------------------ADD DISCOUNT ICON---------------------------------*/
+ 
+// function addDiscountIcon(productItem) {
+//     productItem.insertAdjacentHTML("beforeend", `
+//         <svg class="svg-discount" width="60" height="60">
+//             <use href="${sprite}#icon-discount-mark"></use>
+//         </svg>
+//     `);
+// }
+// function addDiscountIcon(productItem, isDiscount) {
+//     if (isDiscount) {
+//         const discountIcon = document.createElement('svg');
+//         discountIcon.classList.add('svg-discount');
+//         discountIcon.setAttribute('width', '60');
+//         discountIcon.setAttribute('height', '60');
+//         discountIcon.innerHTML = `<use href="${sprite}#icon-discount-mark"></use>`;
+
+//         productItem.querySelector('.footer-product_card').appendChild(discountIcon);
+//     }
+// }
