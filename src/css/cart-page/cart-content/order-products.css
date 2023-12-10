@@ -7,6 +7,7 @@
   margin-bottom: 80px;
 }
 .order-products-title {
+  font-weight: 500;
   font-size: 24px;
   text-transform: uppercase;
 }
@@ -90,6 +91,10 @@
 }
 
 @media (min-width: 768px) {
+  .order-products-title {
+    font-size: 32px;
+    line-height: 32px;
+  }
   .order-products {
     width: 590px;
   }
@@ -108,6 +113,7 @@
   .order-products-form-input input {
     padding-left: 63px;
     height: 54px;
+    font-size: 18px;
   }
   .order-products-form button {
     width: 215px;

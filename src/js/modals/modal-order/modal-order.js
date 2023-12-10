@@ -17,7 +17,6 @@ modalOrderClose.addEventListener("click", (event) => {
 
   const LOCALSTORAGE_KEY = 'basket';
   saveToLS(LOCALSTORAGE_KEY, []);
-  document.querySelector(".cart-content-empty").classList.remove("is-hidden");
-  document.querySelector(".cart-content-wrap").classList.add("is-hidden");
+  document.querySelector(".order-products-sum").textContent = "$0.00";
 } );
 
