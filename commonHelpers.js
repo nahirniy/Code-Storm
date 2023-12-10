@@ -1,4 +1,4 @@
-import{s as S,l as y,a as C}from"./assets/food-api-71aacb77.js";import"./assets/vendor-424513b8.js";const f=function(c){return c.map(({name:e,category:o,size:a,price:u,img:l,_id:v})=>`<li class="cart-item" data-id="${v}">
+import{s as S,l as y,a as C}from"./assets/food-api-b1f524db.js";import"./assets/vendor-424513b8.js";const f=function(c){return c.map(({name:e,category:o,size:a,price:u,img:l,_id:v})=>`<li class="cart-item" data-id="${v}">
       <div class="cart-item-wrap">
         <div class="cart-img-container">
           <img class="cart-img" src="${l}" alt="${e}" />
