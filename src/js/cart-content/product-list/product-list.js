@@ -48,6 +48,9 @@ function onCartItem(evt) {
 
   //============
   arrayLength -= 1;
+  if (arrayLength < 4) {
+    refs.cartItemContainer.classList.remove('cart-scrol');
+  }
   cartTitleAdd(arrayLength);
 
   // берем новый масив из локал сторож и  пересситываем тотал
@@ -69,7 +72,7 @@ function onCartItem(evt) {
 
 // добавление заголовка
 function cartTitleAdd(leng) {
-  refs.cartTitle.textContent = `cart(${leng})`;
+  refs.cartTitle.textContent = `cart (${leng})`;
 }
 
 // главная функция-создание контента корзины
