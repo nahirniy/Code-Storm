@@ -13,7 +13,7 @@ export function mainProductMarkup(mainProduct) {
       let formattedCategory = removeUnderscore(item.category);
       let formatPrice = formatNumber(item.price);
       //let formatResult =
-      return `<li class="resp-item" data-id=${item._id}">
+      return `<li class="resp-item" data-id="${item._id}">
       ${
         item.is10PercentOff
           ? `<svg class="svg-discount" width="60" height="60">

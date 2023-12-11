@@ -10,21 +10,27 @@
     </p>
   </div>
   <ul class="photo-card product-list"></ul>
-  <div class="pagination visually-hidden">
-    <!-- <li>
-          <span><i class="fas arrow-left"></i>
-        <svg class="icon-arrow" width="24" height="24">
-          <use href="../../../img/icons/sprite.svg#icon-arrow-left"></use></svg></span></li>
-          <li class="number">1</li>
-          <li class="number">2</li>
-          <li class="dots">...</li>
-          <li class="number">7</li>
-          <li class="number">8</li>
-        <li><span>
-          <svg class="icon-arrow" width="24" height="24">
-            <use href="../../../img/icons/sprite.svg#icon-arrow-right"></use>
-          </svg><i class="fas arrow-right"></i>
-        </span>
-      </li> -->
+  <div class="pagination">
+    <button
+      type="button"
+      class="pagination-arrow-btn pagination-left-btn"
+      data-page="prev-page"
+    >
+      <svg class="icon-arrow" width="24" height="24">
+        <use href="./img/icons/sprite.svg#icon-arrow-left"></use>
+      </svg>
+    </button>
+
+    <div class="pagination-btn-wrap"></div>
+
+    <button
+      type="button"
+      class="pagination-arrow-btn pagination-right-btn"
+      data-page="next-page"
+    >
+      <svg class="icon-arrow" width="24" height="24">
+        <use href="./img/icons/sprite.svg#icon-arrow-right"></use>
+      </svg>
+    </button>
   </div>
 </div>

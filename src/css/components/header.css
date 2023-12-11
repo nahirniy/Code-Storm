@@ -1,14 +1,17 @@
 /* HEADER */
 .header {
   padding: 18px 0;
+  position: sticky;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--light-grey-cl);
+  top: 0;
 }
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-}
-.header-navigation {
 }
 .header-logo {
   display: flex;

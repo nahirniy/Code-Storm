@@ -20,6 +20,7 @@ async function handleClickBasket(event) {
   const currentId = event.target.closest('.resp-item').dataset.id;
   const currentProducts = loadFromLS('main products');
   const someProduct = currentProducts.filter(({ _id }) => currentId === _id)[0];
+
   updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
 }
 counterProducts(basket);

@@ -1,5 +1,6 @@
 import { getCurrentProducts } from '../services/food-api';
 import {
+  checkedParams,
   hideLoader,
   loadFromLS,
   saveToLS,
@@ -8,7 +9,10 @@ import {
 } from '../services/helpers';
 import { mainProductMarkup } from '../home-content/main-products/markup-main-product';
 import { emptyContent, unsuccessSearch } from './filters';
+import { createPagination } from '../home-content/main-products/pagination';
 
+const pagination = document.querySelector('.pagination');
+const paginationBtnWrap = document.querySelector('.pagination-btn-wrap');
 const LOCALSTORAGE_KEY = 'params of search';
 let newParams = loadFromLS(LOCALSTORAGE_KEY);
 
@@ -37,15 +41,11 @@ export async function changeCategory(e) {
   try {
     showLoader();
 
-    const { results } = await getCurrentProducts(newParams);
-    if (!results.length) {
-      unsuccessSearch();
-    } else {
-      emptyContent.classList.add('visually-hidden');
-      mainProductMarkup(results);
-    }
+    const { results, totalPages } = await getCurrentProducts(newParams);
+    updateMarkup(results, totalPages);
+
     saveToLS(LOCALSTORAGE_KEY, newParams);
-  } catch {
+  } catch (err) {
     unsuccessSearch();
     showError();
   } finally {
@@ -67,6 +67,8 @@ export async function formSub(e) {
   const oldParams = loadFromLS(LOCALSTORAGE_KEY);
   const isChangeParams = checkedParams(oldParams, newParams);
 
+  newParams = oldParams;
+
   if (!isChangeParams) {
     return;
   }
@@ -74,15 +76,8 @@ export async function formSub(e) {
   try {
     showLoader();
 
-    newParams = oldParams;
-    const { results } = await getCurrentProducts(newParams);
-
-    if (!results.length) {
-      unsuccessSearch();
-    } else {
-      emptyContent.classList.add('visually-hidden');
-      mainProductMarkup(results);
-    }
+    const { results, totalPages } = await getCurrentProducts(newParams);
+    updateMarkup(results, totalPages);
   } catch {
     unsuccessSearch();
     showError();
@@ -150,13 +145,8 @@ async function changeFilter(e, filter, state) {
   try {
     showLoader();
 
-    const { results } = await getCurrentProducts(newParams);
-    if (!results.length) {
-      unsuccessSearch();
-    } else {
-      emptyContent.classList.add('visually-hidden');
-      mainProductMarkup(results);
-    }
+    const { results, totalPages } = await getCurrentProducts(newParams);
+    updateMarkup(results, totalPages);
 
     saveToLS(LOCALSTORAGE_KEY, newParams);
   } catch {
@@ -189,6 +179,18 @@ export function setStateFilter(params) {
   filterBy.textContent = filter;
 }
 
-function checkedParams(oldParams, newParams) {
-  return !(JSON.stringify(oldParams) === JSON.stringify(newParams));
+function updateMarkup(results, totalPages) {
+  if (totalPages > 1) {
+    paginationBtnWrap.innerHTML = createPagination(totalPages);
+    pagination.classList.remove('visually-hidden');
+  } else {
+    pagination.classList.add('visually-hidden');
+  }
+
+  if (!results.length) {
+    unsuccessSearch();
+  } else {
+    emptyContent.classList.add('visually-hidden');
+    mainProductMarkup(results);
+  }
 }

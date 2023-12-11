@@ -1,139 +1,144 @@
+import { getCurrentProducts } from '../../services/food-api';
+import { mainProductMarkup } from './markup-main-product';
+import {
+  checkedParams,
+  hideLoader,
+  loadFromLS,
+  saveToLS,
+  showError,
+  showLoader,
+} from '../../services/helpers';
 
-import { getCurrentProducts } from "../../services/food-api";
-import { mainProductMarkup } from "./markup-main-product";
-import { loadFromLS, saveToLS } from "../../services/helpers";
-
-
-const ulTag = document.querySelector('.pagination');
 const LOCALSTORAGE_KEY = 'params of search';
-let totalPages = 5;
+const pagination = document.querySelector('.pagination');
+const paginationBtnWrap = document.querySelector('.pagination-btn-wrap');
+const emptyContent = document.querySelector('.info-query');
+const productMainList = document.querySelector('.product-list');
+const prevPage = document.querySelector('[data-page="prev-page"]');
+const nextPage = document.querySelector('[data-page="next-page"]');
+
+let totalPages;
 let page = 1;
-let limit = 9;
+let previousPage = 1;
 
+export function createPagination(allPages, page = 1) {
+  let markup = '';
+  let beforePage = page;
+  let afterPage = page;
+  let sizeScreen = window.innerWidth;
 
-function pagination(totalPages, page) {
-    let litag = '';
-    if (totalPages > limit) {
-        if (totalPages > 1) {
-            if (page > 1) {
-                litag += `<button type="button" class="pagination-item" data-page="${Number(page - 1)}">
-                <span><i class="fas arrow-left"></i>
-                <svg class="icon-arrow" width="24" height="24">
-                    <use href="../../../img/icons/sprite.svg#icon-arrow-left"></use>
-                </svg></span></button>`;
-            }
+  totalPages = allPages;
 
-            if (page > 2) {
-                litag += `<button type="button" class="number pagination-item" data-page="1">1</button>`;
-                if (page > 3) {
-                    litag += `<span class="dots">...</span>`;
-                }
-            }
+  nextPage.classList.remove('disabled');
+  prevPage.classList.remove('disabled');
 
-            for (let currentPage = Math.max(1, page - 1); currentPage <= Math.min(totalPages, page + 1); currentPage++) {
-                const activeLi = (currentPage === page) ? "active-page" : "";
-                litag += `<button type="button" class="number ${activeLi} pagination-item" data-page="${currentPage}">${currentPage}</button>`;
-            }
+  if (sizeScreen >= 768) {
+    beforePage -= 1;
+    afterPage += 1;
 
-            if (page < totalPages - 1) {
-                if (page < totalPages - 2) {
-                    litag += `<span class="dots">...</span>`;
-                }
-                litag += `<button type="button" class="number pagination-item" data-page="${totalPages}">${totalPages}</button>`;
-            }
+    if (page > 2) {
+      markup += `<button type="button" class="number pagination-item" data-page="1">1</button>`;
+      if (page > 3) {
+        markup += `<span class="dots">...</span>`;
+      }
+    }
+  } else {
+    if (page > 2) {
+      markup += `<button type="button" class="number pagination-item" data-page="1">1</button>`;
+      markup += `<span class="dots">...</span>`;
+    }
+  }
 
-            if (page < totalPages - 1) {
-                litag += `<button type="button" class="pagination-item" data-page="${Number(page + 1)}">
-                <span><i class="fas arrow-right"></i>
-                <svg class="icon-arrow" width="24" height="24">
-                    <use href="../../../img/icons/sprite.svg#icon-arrow-right"></use>
-                </svg></span></button>`;
-            }
-        } else {
-            for (let currentPage = 1; currentPage <= totalPages; currentPage++) {
-                const activeLi = (currentPage === page) ? "active-page" : "";
-                litag += `<button type="button" class="number ${activeLi} pagination-item" data-page="${currentPage}">${currentPage}</button>`;
-            }
-        }
+  if (page === totalPages) {
+    beforePage = beforePage - 1;
+
+    nextPage.classList.add('disabled');
+  } else if (page === totalPages - 1) {
+    beforePage = beforePage - 1;
+  }
+
+  if (page === 1) {
+    afterPage = afterPage + 1;
+
+    prevPage.classList.add('disabled');
+  } else if (page == 2) {
+    afterPage = afterPage + 1;
+  }
+
+  for (let plength = beforePage; plength <= afterPage; plength += 1) {
+    if (plength > totalPages) {
+      continue;
+    }
+    if (plength === 0) {
+      plength += 1;
     }
 
-    ulTag.innerHTML = '';
-    ulTag.insertAdjacentHTML('beforeend', litag);
+    markup += `<button type="button" class="number pagination-item ${
+      page === plength ? 'active-page' : ''
+    }" data-page="${plength}">${plength}</button>`;
+  }
 
-    document.querySelectorAll('.pagination-item').forEach(item => {
-        item.removeEventListener('click', handlePaginationClick);
-    });
-
-    document.querySelectorAll('.pagination-item').forEach(item => {
-        item.addEventListener('click', handlePaginationClick);
-    });
-}
-
-function handlePaginationClick() {
-    const clickedPage = parseInt(this.dataset.page);
-    pagination(totalPages, clickedPage);
-}
-
-//pagination(totalPages, page);
-/*--------------------------GET NUMBER OF PAGE-------------------*/
-const form = document.querySelector('.filter_form')
-
-form.addEventListener('click', getNumberPage)
-    document.querySelectorAll('.pagination-item').forEach(item => {
-        item.removeEventListener('click', getNumberPage);
-    });
-
-    document.querySelectorAll('.pagination-item').forEach(item => {
-        item.addEventListener('click', getNumberPage);
-    });
-
-/*---------------------------------NEW PARAMS--------------------------------*/
-async function getNumberPage() {
-    const clickedPage = this.dataset.page;
-
-    if (!isNaN(clickedPage)) {
-        page = Number(clickedPage);
-    } else if (this.classList.contains('arrow-left')) {
-        page = Math.max(1, page - 1);
-        console.log(page)
-    } else if (this.classList.contains('arrow-right')) {
-        page = Math.min(totalPages, page + 1);
+  if (sizeScreen >= 768) {
+    if (page < totalPages - 1) {
+      if (page < totalPages - 2) {
+        markup += `<span class="dots"><span>...</span></span>`;
+      }
+      markup += `<button type="button" class="number pagination-item" data-page="${totalPages}">${totalPages}</button>`;
     }
-
-    const defaultParams = {
-        keyword: null,
-        category: null,
-        page: 1,
-        limit: 9,
-        byABC: true,
-    };
-
-    try {
-        const searchObjects = await getCurrentProducts(defaultParams);
-        totalPages = searchObjects.totalPages;
-        console.log('Search Results:', searchObjects.results);
-        console.log('Total Pages:', searchObjects.totalPages);
-        if (totalPages > limit) {
-            pagination(totalPages, page);
-        }
-    } catch (error) {
-        console.error('Error fetching products:', error);
+  } else {
+    if (page < totalPages - 1) {
+      markup += `<span class="dots"><span>...</span></span>`;
+      markup += `<button type="button" class="number pagination-item" data-page="${totalPages}">${totalPages}</button>`;
     }
+  }
+
+  paginationBtnWrap.innerHTML = markup;
+  return markup;
 }
-ulTag.addEventListener('click', changePage);
-async function changePage(e) {
-  const isBtn = e.target.closest('.pagination-item');
+
+function changePage(e) {
+  const isBtn = e.target.closest('button');
   if (!isBtn) {
     return;
   }
-  const currentPage = e.target.closest('.pagination-item').dataset.page;
-  console.log(currentPage);
-  console.log(currentPage);
-  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
-  const newParams = { ...oldParams, page: currentPage };
-  saveToLS(LOCALSTORAGE_KEY, newParams);
-  const { results } = await getCurrentProducts(newParams);
-  mainProductMarkup(results);
+
+  const currentPage = isBtn.dataset.page;
+
+  if (currentPage === 'next-page') {
+    page += 1;
+  } else if (currentPage === 'prev-page') {
+    page -= 1;
+  } else {
+    page = Number(currentPage);
+  }
+
+  if (previousPage === page) {
+    return;
+  }
+
+  createPage(page);
+  createPagination(totalPages, page);
+  previousPage = page;
 }
 
+async function createPage(newPage) {
+  const oldParams = loadFromLS(LOCALSTORAGE_KEY);
+  const newParams = { ...oldParams, page: newPage };
 
+  try {
+    showLoader();
+
+    const { results } = await getCurrentProducts(newParams);
+
+    mainProductMarkup(results);
+  } catch {
+    emptyContent.classList.remove('visually-hidden');
+    pagination.classList.add('visually-hidden');
+    productMainList.innerHTML = '';
+    showError();
+  } finally {
+    hideLoader();
+  }
+}
+
+pagination.addEventListener('click', changePage);

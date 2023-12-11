@@ -78,3 +78,7 @@ export function hideLoader() {
 
   setTimeout(() => loader.classList.add('is-hidden'), 300);
 }
+
+export function checkedParams(oldParams, newParams) {
+  return !(JSON.stringify(oldParams) === JSON.stringify(newParams));
+}

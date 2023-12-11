@@ -15,6 +15,7 @@ import {
   setStateFilter,
 } from './filters-request';
 import { categoryName } from './filters-style';
+import { createPagination } from '../home-content/main-products/pagination';
 
 const categoryList = document.querySelector('.category-list');
 const filtersABClist = document.querySelector('.filters-all-param-list');
@@ -22,6 +23,8 @@ const form = document.querySelector('.form');
 const input = document.querySelector('.keyword');
 const emptyContent = document.querySelector('.info-query');
 const productMainList = document.querySelector('.product-list');
+const pagination = document.querySelector('.pagination');
+const paginationBtnWrap = document.querySelector('.pagination-btn-wrap');
 
 const LOCALSTORAGE_KEY = 'params of search';
 
@@ -83,9 +86,16 @@ async function loadMarkup() {
     };
     saveToLS(LOCALSTORAGE_KEY, newParams);
 
-    const { results } = await getCurrentProducts(newParams);
+    const { results, totalPages } = await getCurrentProducts(newParams);
 
     input.value = newParams.keyword;
+
+    if (totalPages > 1) {
+      paginationBtnWrap.innerHTML = createPagination(totalPages);
+      pagination.classList.remove('visually-hidden');
+    } else {
+      pagination.classList.add('visually-hidden');
+    }
 
     if (!results.length) {
       unsuccessSearch();
@@ -111,6 +121,7 @@ async function loadMarkup() {
 
 export function unsuccessSearch() {
   productMainList.innerHTML = '';
+  pagination.classList.add('visually-hidden');
   emptyContent.classList.remove('visually-hidden');
 }
 
