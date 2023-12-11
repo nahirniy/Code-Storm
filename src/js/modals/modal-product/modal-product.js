@@ -1,5 +1,6 @@
 import { loadFromLS } from "../../services/helpers"
 import { getProductById } from "../../services/food-api"
+import { editText } from "../../services/helpers"
 import sprite from '../../../img/icons/sprite.svg'
 //////////
 const clouseBottun = document.querySelector(".clouse_modal")
@@ -66,40 +67,44 @@ let currentIdModal;
     const closestRespItem = event.target.closest('.resp-item');
     if (closestRespItem){
         currentIdModal = closestRespItem.dataset.id;
-        console.log(currentIdModal)
+       
     }
     const clickedButton = event.target.closest('.btn-basket');
     if (clickedButton) { 
+        return; 
+    }
+    const clickButtn = event.target.closest('.btn-light-basket');
+    if (clickButtn) { 
         return; 
     }
 /////////
 const closestPopularItem = event.target.closest('.popular-item');
 if (closestPopularItem) {
     currentIdModal = closestPopularItem.dataset.id;
-    console.log(currentIdModal)
+  
 }
 
 const closestDiscounItem = event.target.closest('.discount-item');
 if(closestDiscounItem){
     currentIdModal = closestDiscounItem.dataset.id;
-    console.log(currentIdModal)
+   
 }
 
 if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     return;
 }
-
+// editText()
 /////////
-    // const currentIdModal = closestRespItem.dataset.id;
+
     const currentProduct = await getProductById(currentIdModal);
-    
+    const editTest = editText(currentProduct.category)
     const marcap = `<div class ="TestDiv1"><div class="img_modal2" >
     <img class="photo" src="${currentProduct.img}" alt="${currentProduct.name}" loading="lazy"/>
     </div>
     <div class="testDiv">
     <h2 class="name-product2">${currentProduct.name}</h2>
     <div class="descr-product">
-    <p class="category-product"><span class="style-word">Category:</span>${currentProduct.category}</p>
+    <p class="category-product"><span class="style-word">Category:</span>${editTest}</p>
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
@@ -117,6 +122,7 @@ if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     modal_window.style.display = 'block';
   document.body.style.overflow = 'hidden'
      ///
+     
     toglModul()
 
 }
