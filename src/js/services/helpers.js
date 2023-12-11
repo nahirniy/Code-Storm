@@ -1,7 +1,4 @@
 import Swal from 'sweetalert2';
-import { updateIconPopular } from '../home-content/popular-products/popular-products';
-import { updateIconMain } from '../home-content/main-products/main-products';
-import { updateDiscountIcon } from '../home-content/discount-products/discount-products';
 
 // ТУТ ПИШЕ ТІЛЬКИ МАКС
 export function saveToLS(key, value) {
@@ -84,22 +81,4 @@ export function hideLoader() {
 
 export function checkedParams(oldParams, newParams) {
   return !(JSON.stringify(oldParams) === JSON.stringify(newParams));
-}
-
-export function updateAllIcon(buttons, id, basket) {
-  for (let i = 0; i < buttons.length; i += 1) {
-    switch (true) {
-      case buttons[i].classList.contains('main-products-btn'):
-        updateIconMain(buttons[i], id, basket);
-        break;
-      case buttons[i].classList.contains('popular-products-btn'):
-        updateIconPopular(buttons[i], id, basket);
-        break;
-      case buttons[i].classList.contains('discount-products-btn'):
-        updateDiscountIcon(buttons[i], id, basket);
-        break;
-      default:
-        break;
-    }
-  }
 }

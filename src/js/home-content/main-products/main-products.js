@@ -1,11 +1,11 @@
 import {
   counterProducts,
   loadFromLS,
-  updateAllIcon,
   updateBasket,
 } from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
 import { updateIconPopular } from '../popular-products/popular-products';
+import { updateDiscountIcon } from '../discount-products/discount-products';
 
 const LOCALSTORAGE_KEY = 'basket';
 const productMainList = document.querySelector('.product-list');
@@ -26,7 +26,7 @@ async function handleClickBasket(event) {
   updateBasket(LOCALSTORAGE_KEY, someProduct, newBasket);
   updateAllIcon([...currentButton], id, newBasket);
 }
-export function updateIconMain(btn, id, products) {
+function updateIconMain(btn, id, products) {
   const checkmarkIcon = `<svg class="svg-checkmark" width="18" height="18">
             <use class="href-icon" href="${sprite}#icon-checkmark"></use>
           </svg>`;
@@ -38,6 +38,25 @@ export function updateIconMain(btn, id, products) {
 
   btn.innerHTML = inStorage ? checkmarkIcon : basketIcon;
 }
+
+export function updateAllIcon(buttons, id, basket) {
+  for (let i = 0; i < buttons.length; i += 1) {
+    switch (true) {
+      case buttons[i].classList.contains('main-products-btn'):
+        updateIconMain(buttons[i], id, basket);
+        break;
+      case buttons[i].classList.contains('popular-products-btn'):
+        updateIconPopular(buttons[i], id, basket);
+        break;
+      case buttons[i].classList.contains('discount-products-btn'):
+        updateDiscountIcon(buttons[i], id, basket);
+        break;
+      default:
+        break;
+    }
+  }
+}
+
 counterProducts(basket);
 
 productMainList.addEventListener('click', handleClickBasket);

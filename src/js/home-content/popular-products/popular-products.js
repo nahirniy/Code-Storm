@@ -1,19 +1,17 @@
 import { getPopularProducts } from '../../services/food-api';
 import markupPopularList from './markup-popular-products';
-import {
-  loadFromLS,
-  updateBasket,
-  saveToLS,
-  updateAllIcon,
-} from '../../services/helpers';
+import { loadFromLS, updateBasket, saveToLS } from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
+import { updateAllIcon } from '../main-products/main-products';
 
 const limitPopularProduct = 5;
 
-getPopularProducts(limitPopularProduct).then(data => {
-  markupPopularList(data);
-  saveToLS('popular products', data);
-});
+getPopularProducts(limitPopularProduct)
+  .then(data => {
+    markupPopularList(data);
+    saveToLS('popular products', data);
+  })
+  .catch(err => console.log(err));
 
 const refs = {
   popularList: document.querySelector('.popular-list'),

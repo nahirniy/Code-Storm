@@ -1,6 +1,5 @@
 import { modalOrder } from '../../modals/modal-order/modal-order';
 import { addOrder } from '../../services/food-api';
-import { Notify } from 'notiflix';
 import { loadFromLS } from '../../services/helpers';
 
 const LOCALSTORAGE_KEY = 'basket';

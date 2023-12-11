@@ -1,12 +1,8 @@
 import { getDiscountProducts } from '../../services/food-api';
 import markupDiscountList from './markup-discount-products';
-import {
-  loadFromLS,
-  updateBasket,
-  saveToLS,
-  updateAllIcon,
-} from '../../services/helpers';
+import { loadFromLS, updateBasket, saveToLS } from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
+import { updateAllIcon } from '../main-products/main-products';
 
 getDiscountProducts().then(data => {
   markupDiscountList(data);
