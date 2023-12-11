@@ -1,6 +1,11 @@
 import { getPopularProducts } from '../../services/food-api';
 import markupPopularList from './markup-popular-products';
-import { loadFromLS, updateBasket, saveToLS } from '../../services/helpers';
+import {
+  loadFromLS,
+  updateBasket,
+  saveToLS,
+  updateAllIcon,
+} from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
 
 const limitPopularProduct = 5;
@@ -14,8 +19,6 @@ const refs = {
   popularList: document.querySelector('.popular-list'),
 };
 
-refs.popularList.addEventListener('click', handleClickBasket);
-
 async function handleClickBasket(event) {
   const LOCALSTORAGE_KEY = 'basket';
   const basket = loadFromLS(LOCALSTORAGE_KEY) ?? [];
@@ -23,14 +26,16 @@ async function handleClickBasket(event) {
   if (!clickedItem) {
     return;
   }
-  const currentId = event.target.closest('.popular-item').dataset.id;
+  const id = event.target.closest('.popular-item').dataset.id;
   const currentProducts = loadFromLS('popular products');
-  const someProduct = currentProducts.filter(({ _id }) => currentId === _id)[0];
+  const someProduct = currentProducts.filter(({ _id }) => id === _id)[0];
+  const currentButton = document.querySelectorAll(`[data-button-id="${id}"]`);
+
   updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
-  updateIcon(clickedItem, currentId, basket);
+  updateAllIcon([...currentButton], id, basket);
 }
 
-export function updateIcon(btn, id, products) {
+export function updateIconPopular(btn, id, products) {
   const checkmarkIcon = `<svg class="light-checkmark" width="12" height="12">
             <use class="href-icon" href="${sprite}#icon-checkmark"></use>
           </svg>`;
@@ -42,3 +47,5 @@ export function updateIcon(btn, id, products) {
 
   btn.innerHTML = inStorage ? checkmarkIcon : basketIcon;
 }
+
+refs.popularList.addEventListener('click', handleClickBasket);

@@ -1,6 +1,11 @@
 import { getDiscountProducts } from '../../services/food-api';
 import markupDiscountList from './markup-discount-products';
-import { loadFromLS, updateBasket, saveToLS } from '../../services/helpers';
+import {
+  loadFromLS,
+  updateBasket,
+  saveToLS,
+  updateAllIcon,
+} from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
 
 getDiscountProducts().then(data => {
@@ -21,15 +26,17 @@ async function handleClickBasket(event) {
   if (!clickedItem) {
     return;
   }
-  const currentId = event.target.closest('.discount-item').dataset.id;
-  const currentProducts = loadFromLS('discount products');
-  const someProduct = currentProducts.filter(({ _id }) => currentId === _id)[0];
 
-  updateIcon(clickedItem, currentId, basket);
+  const id = event.target.closest('.discount-item').dataset.id;
+  const currentProducts = loadFromLS('discount products');
+  const someProduct = currentProducts.filter(({ _id }) => id === _id)[0];
+  const currentButton = document.querySelectorAll(`[data-button-id="${id}"]`);
+
   updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
+  updateAllIcon([...currentButton], id, basket);
 }
 
-function updateIcon(btn, id, products) {
+export function updateDiscountIcon(btn, id, products) {
   const checkmarkIcon = `<svg class="svg-checkmark" width="18" height="18">
             <use class="href-icon" href="${sprite}#icon-checkmark"></use>
           </svg>`;
@@ -39,5 +46,5 @@ function updateIcon(btn, id, products) {
 
   const inStorage = products.some(({ _id }) => _id === id);
 
-  btn.innerHTML = inStorage ? basketIcon : checkmarkIcon;
+  btn.innerHTML = inStorage ? checkmarkIcon : basketIcon;
 }

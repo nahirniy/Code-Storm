@@ -21,7 +21,7 @@ export default function markupPopularList(arr) {
                     <div class="popular-product-info">
                     <div class="popular-info-top">
                         <h4 class="product-name">${name}</h4>
-                        <button type="button" class="btn-light-basket">
+                        <button type="button" class="btn-light-basket popular-products-btn" data-button-id="${_id}">
                         ${
                           inStorage
                             ? `<svg class="light-checkmark" width="12" height="12">
