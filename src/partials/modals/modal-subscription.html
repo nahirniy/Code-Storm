@@ -1,6 +1,11 @@
 <div class="modal-backdrop-subscription is-hidden">
   <div class="modal-subscription is-hidden">
     <div class="modal_subcont">
+      <button class="close">
+        <svg class="icon-close">
+          <use href="./img/icons/sprite.svg#icon-close"></use>
+        </svg>
+      </button>
       <div class="modal-subtext">
         <h2 class="title-sub">
           Thanks for subscribing for <span class="span-text">new</span> products
@@ -10,11 +15,35 @@
           expectations. Please stay with us and we promise you many pleasant
           surprises.
         </p>
-        <img
-          src="./img/modal-subscription/Rectangle 2.png"
-          alt="vegitable"
-          class="img_modal"
-        />
+        <picture class="modal-subscription-img">
+          <source
+            media="(min-width: 1440px)"
+            srcset="
+              /img/modal-subscription/desc1x.webp 1x,
+              /img/modal-subscription/desc2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              /img/modal-subscription/tab1x.webp 1x,
+              /img/modal-subscription/tab2x.webp 2x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              /img/modal-subscription/mob1x.webp 1x,
+              /img/modal-subscription/mob2x.webp 2x
+            "
+          />
+
+          <img
+            src="/img/modal-subscription/desc2x.webp"
+            alt="vegetable"
+            class="modal-img"
+          />
+        </picture>
       </div>
     </div>
   </div>
