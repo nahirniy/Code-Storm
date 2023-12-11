@@ -19,9 +19,10 @@
 }
 
 @media (min-width: 1440px) {
-  .cart-section {
+  /* Тут не треба змінювати */
+  /* .cart-section {
     padding-bottom: 57px;
-  }
+  } */  
 
   .cart-content-wrap {
     flex-direction: row;
