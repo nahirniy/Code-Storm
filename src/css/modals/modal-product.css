@@ -1,0 +1,151 @@
+.modal-product{
+    position: absolute;
+    padding: 40px 20px;
+    width: 335px;
+    height: 535px;
+    background-color:#FAFAFA;
+    border-radius: 20px;
+}
+.clouse_modal{
+   position: absolute;
+    top: 14px;
+    right: 14px;
+    border:none;
+    background-color:#FAFAFA;
+}
+.svg-basket3 {
+    z-index: 2;
+}
+.img_modal2 {
+    z-index: 1;
+    width: 295px;
+    background: #E8E8E2;
+    padding: 26px 67px;
+    border-radius: 10px;
+}
+
+.name-product2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    color: var(--main-cl);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+}
+.descr-product2 {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 9px;
+    color: var(--main-cl);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+}
+
+.desc-text {
+margin-top: 20px;
+}
+.textModalp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 6;
+    color: rgba(1, 1, 1, 0.70);
+    font-family: Neue Montreal;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+ 
+}
+
+.footer-product_card2 {
+    position: absolute;
+    bottom: 40px;
+
+}
+.end-modal{
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+}
+.modal-product-inWindow{
+   height: 455px;
+}
+.price-product2 {
+    color: var(--main-cl);
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.1;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-right: 30px;
+}
+.svg-basket2 {
+    fill: var(--white-cl);
+}
+.modal-button{
+    display: flex;
+    align-items:center;
+    background-color: var(--accent-cl);
+    box-shadow: none; /* Убираем тень */
+    border: none;
+    border-radius: 30px;
+    padding: 10px 28px
+    
+}
+.textInButton{
+    color: #E8E8E2;
+font-family: Neue Montreal;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+margin-right: 10px;
+}
+
+.TestDiv1 {
+    display:grid;
+}
+
+@media screen and (min-width: 768px) {
+    .img_modal2 {
+    width: 240px;
+    height: 212px;
+    padding: 26px 40px;
+    }
+
+.modal-product{
+    width: 600px;
+    height: 380px;
+    padding: 40px 40px;
+}
+.modal-product-inWindow{
+    height: 300px;
+ }
+
+
+.testDiv {
+   
+    width: 300px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+.TestDiv1 {
+    display: flex;
+    gap: 24px;
+}
+.name-product2 {
+    margin-top: 0px;
+}
+.end-modal{
+    right: 40px;
+}
+
+}
