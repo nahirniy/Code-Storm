@@ -109,7 +109,7 @@ if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     <div class="footer-product_card2">
     <p class="price-product">$${currentProduct.price}</p></div>
     <div class = "end-modal">
-    <button type="button" class="modal-button">Add to<svg class="svg-basket2" width="34" height="34">
+    <button type="button" class="modal-button"><span class ="textInButton">Add to</span><svg class="svg-basket2" width="18" height="18">
     <use class="href-icon" href="${sprite}#icon-basket"></use>
   </svg></button></div>`
     window_inModal.innerHTML = marcap;

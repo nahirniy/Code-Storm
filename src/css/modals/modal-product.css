@@ -71,14 +71,34 @@ margin-top: 20px;
 }
 .svg-basket2 {
     
-    display: flex;
+    /* display: flex; */
     fill: var(--white-cl);
-    padding: 8px;
-    justify-content: center;
+    /* padding: 8px; */
+    /* justify-content: center;
     align-items: center;
-    gap: 10px;
-    border-radius: 15px;
+    gap: 10px; */
+    /* border-radius: 15px; */
+    background-color: #6D8434;;
+}
+.modal-button{
+    display: flex;
+    align-items:center;
     background-color: var(--accent-cl);
+    box-shadow: none; /* Убираем тень */
+    border: none;
+    border-radius: 30px;
+    padding: 10px 28px
+    
+}
+.textInButton{
+    color: #E8E8E2;
+
+font-family: Neue Montreal;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+margin-right: 10px;
 }
 .svg-basket3 {
     fill:#FAFAFA;
