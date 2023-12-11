@@ -2,7 +2,6 @@ import { loadFromLS } from '../../services/helpers';
 import { getProductById } from '../../services/food-api';
 import { editText } from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
-import anime from 'animejs';
 //////////
 const clouseBottun = document.querySelector('.clouse_modal');
 const modalBackdrop = document.querySelector('.modal-backdrop-product');
@@ -32,17 +31,6 @@ document.addEventListener('keydown', function (event) {
     OnScroll();
   }
 });
-
-function showElement() {
-  anime({
-    targets: modal_window,
-    opacity: 1,
-    visibility: 'visible',
-    display: 'block',
-    duration: 1000,
-    easing: 'easeInOutQuad',
-  });
-}
 
 function toglModul() {
   modalBackdrop.classList.toggle('is-hidden');
