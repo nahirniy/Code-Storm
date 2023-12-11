@@ -1,3 +1,4 @@
+import sprite from '../../../img/icons/sprite.svg';
 // функция разметки корзины с товаром
 export const funCartCreateMarkup = function createMarkup(arr) {
   return arr
@@ -18,7 +19,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
         <div class="cart-item-title-wrap"><h3 class="cart-item-title">${name}</h3>
         <button name="button" type="button" class="cart-btn-close">
         <svg class="cart-icon-close">
-          <use href="./img/icons/sprite.svg#icon-close"></use>
+          <use href="${sprite}#icon-close"></use>
         </svg>
       </button>
         </div>
