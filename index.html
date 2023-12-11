@@ -7,8 +7,8 @@
     
     <script type="module" crossorigin src="/Code-Storm/commonHelpers2.js"></script>
     <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-7a0e9089.js">
-    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/modal-subscription-ca5b2084.js">
-    <link rel="stylesheet" href="/Code-Storm/assets/modal-subscription-cffbe718.css">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/modal-subscription-e00fb5e9.js">
+    <link rel="stylesheet" href="/Code-Storm/assets/modal-subscription-65932e22.css">
   </head>
   <body>
     <header class="header">
@@ -165,22 +165,28 @@
     </p>
   </div>
   <ul class="photo-card product-list"></ul>
-  <div class="pagination visually-hidden">
-    <!-- <li>
-          <span><i class="fas arrow-left"></i>
-        <svg class="icon-arrow" width="24" height="24">
-          <use href="../../../img/icons/sprite.svg#icon-arrow-left"></use></svg></span></li>
-          <li class="number">1</li>
-          <li class="number">2</li>
-          <li class="dots">...</li>
-          <li class="number">7</li>
-          <li class="number">8</li>
-        <li><span>
-          <svg class="icon-arrow" width="24" height="24">
-            <use href="../../../img/icons/sprite.svg#icon-arrow-right"></use>
-          </svg><i class="fas arrow-right"></i>
-        </span>
-      </li> -->
+  <div class="pagination">
+    <button
+      type="button"
+      class="pagination-arrow-btn pagination-left-btn"
+      data-page="prev-page"
+    >
+      <svg class="icon-arrow" width="24" height="24">
+        <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-arrow-left"></use>
+      </svg>
+    </button>
+
+    <div class="pagination-btn-wrap"></div>
+
+    <button
+      type="button"
+      class="pagination-arrow-btn pagination-right-btn"
+      data-page="next-page"
+    >
+      <svg class="icon-arrow" width="24" height="24">
+        <use href="/Code-Storm/assets/sprite-f073391d.svg#icon-arrow-right"></use>
+      </svg>
+    </button>
   </div>
 </div>
 
