@@ -94,16 +94,18 @@
   font-weight: 400;
   line-height: 1.28;
   width: calc(100% - 15px);
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 27px;
+  padding-right: 27px;
 }
-.img_modal {
+.modal-subscription-img {
   position: absolute;
   border-radius: 19px;
-  width: 335px;
   height: 135px;
   bottom: 0%;
   right: 0%;
+}
+.modal-img {
+  border-radius: 19px;
 }
 @media (max-width: 375px) {
   .modal-unsubcont {
@@ -150,21 +152,21 @@
     font-size: 16px;
     line-height: 20px;
   }
-  .img_modal {
+  .modal-subscription-img {
     position: absolute;
     border-radius: 19px;
-    width: 490px;
     height: 135px;
     bottom: 0%;
     right: 0%;
   }
   .title-sub {
     font-size: 24px;
-    padding: 90px 120px 20px 120px;
+    padding: 90px 115px 20px 115px;
   }
   .paragraph-sub {
     font-size: 16px;
     padding-left: 80px;
     padding-right: 80px;
+    padding-bottom: 5px;
   }
 }
