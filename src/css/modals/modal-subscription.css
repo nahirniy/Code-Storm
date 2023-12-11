@@ -12,6 +12,10 @@
   padding: 5px;
   background-color: transparent;
 }
+.close:hover,
+.close:focus {
+  background-color: rgba(1, 1, 1, 0.1);
+}
 
 .icon-close {
   width: 22px;
@@ -20,7 +24,7 @@
 
 .modal-unsubcont {
   position: relative;
-  width: calc(100% - 15px);
+  width: calc(100% - 20px);
   max-width: 335px;
   height: 276px;
   background-color: #e8e8e2;
@@ -63,7 +67,7 @@
 
 .modal_subcont {
   position: relative;
-  width: calc(100% - 15px);
+  width: calc(100% - 20px);
   max-width: 335px;
   height: 400px;
   background-color: #e8e8e2;
@@ -100,19 +104,19 @@
 .modal-subscription-img {
   position: absolute;
   border-radius: 19px;
-  height: 135px;
+  max-height: 135px;
   bottom: 0%;
   right: 0%;
 }
 .modal-img {
   border-radius: 19px;
 }
-@media (max-width: 375px) {
+@media (min-width: 375px) {
   .modal-unsubcont {
-    width: 335px;
+    max-width: 335px;
   }
   .modal-subcont {
-    width: 335px;
+    max-width: 335px;
   }
 }
 @media (min-width: 768px) {
@@ -125,6 +129,8 @@
   .close {
     width: 33px;
     height: 33px;
+    top: 24px;
+    right: 24px;
   }
 
   .icon-close {
