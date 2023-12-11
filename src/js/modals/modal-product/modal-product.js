@@ -93,7 +93,7 @@ if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     // const currentIdModal = closestRespItem.dataset.id;
     const currentProduct = await getProductById(currentIdModal);
     
-    const marcap = `<div class="img" >
+    const marcap = `<div class="img_modal2" >
     <img class="photo" src="${currentProduct.img}" alt="${currentProduct.name}" loading="lazy"/>
     </div>
     <h2 class="name-product">${currentProduct.name}</h2>

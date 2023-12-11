@@ -1,5 +1,5 @@
 .modal-product{
-    position: fixed;
+    position: absolute;
     padding: 40px 20px;
     width: 335px;
     height: 535px;
@@ -11,13 +11,13 @@
     top: 14px;
     right: 14px;
 }
-
-.img {
+.img_modal2 {
     width: 295px;
-    padding: 19px 77px;
+    background: #E8E8E2;
+    padding: 26px 67px;
     border-radius: 10px;
-    background-color: var(--light-grey-cl);
 }
+
 .desc-text {
 margin-top: 20px;
 }
@@ -72,4 +72,17 @@ margin-top: 20px;
 .svg-basket3 {
     fill:#FAFAFA;
    
+}
+
+@media screen and (min-width: 768px) {
+/* .img {
+    width: 240px;
+} */
+.modal-product{
+width: 600px;
+height: 380px;
+}
+.modal-product-inWindow{
+    height: 300px;
+ }
 }
