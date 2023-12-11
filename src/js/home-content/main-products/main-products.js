@@ -1,4 +1,8 @@
-import { loadFromLS, updateBasket} from '../../services/helpers';
+import {
+  counterProducts,
+  loadFromLS,
+  updateBasket,
+} from '../../services/helpers';
 
 //import { updateSlider } from '../../home-content/main-products/pagination'
 
@@ -17,14 +21,7 @@ async function handleClickBasket(event) {
   const currentProducts = loadFromLS('main products');
   const someProduct = currentProducts.filter(({ _id }) => currentId === _id)[0];
   updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
-} 
+}
+counterProducts(basket);
 
-
-productMainList.addEventListener("click", handleClickBasket)
-
-
-
-
-
-
-
+productMainList.addEventListener('click', handleClickBasket);

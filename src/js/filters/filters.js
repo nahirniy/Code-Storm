@@ -78,6 +78,7 @@ async function loadMarkup() {
     const newParams = {
       ...oldParams,
       keyword: oldParams.keyword || null,
+      limit: checkWidth(),
       page: 1,
     };
     saveToLS(LOCALSTORAGE_KEY, newParams);

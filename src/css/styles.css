@@ -1,8 +1,8 @@
 /* general styles*/
 @import url('./reset.css');
+@import url('./components/loader.css');
 @import url('./common.css');
 @import url('./variables.css');
-@import url('./components/loader.css');
 @import '../../node_modules/modern-normalize/modern-normalize.css';
 
 /* components styles */

@@ -17,7 +17,7 @@ export default function markupDiscountList(arr) {
           />
         </div>
         <div class="discount-product-info">
-          <h3 class="product-name">${name}</h3>
+          <h4 class="product-name">${name}</h4>
           <p class="product-price">$${price}</p>
           <button type="button" class="btn-basket">
           <svg class="svg-basket">

@@ -48,6 +48,8 @@
   border-radius: 10px;
   background: var(--white-cl);
   padding: 12px;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
 
   max-width: 335px;
   height: 98px;
@@ -58,6 +60,11 @@
   @media screen and (min-width: 768px) {
     max-width: 275px;
   }
+}
+
+.popular-item:hover {
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+  transform: scale(1.03);
 }
 
 .wrapper-img {
@@ -82,6 +89,10 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 1.11;
+  width: 124px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media screen and (min-width: 768px) {
     font-size: 20px;
@@ -148,6 +159,8 @@
   border-radius: 15px;
   background: var(--white-cl);
   padding: 16px;
+  cursor: pointer;
+  transition: 300ms all ease-in-out;
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -158,6 +171,11 @@
   }
 
   position: relative;
+}
+
+.discount-item:hover {
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+  transform: scale(1.03);
 }
 
 /* --------Відображаємо тільки перших два продукта */
@@ -266,6 +284,7 @@
   gap: 10px;
   border-radius: 30px;
   background-color: var(--light-grey-cl);
+  transition: all 300ms ease-in-out;
 }
 
 .light-basket:hover {
@@ -273,19 +292,17 @@
   background-color: var(--accent-cl);
 }
 
-
-
 /* ----------------стилі для галочки на  зелену корзинку */
-.svg-checkmark{
+.svg-checkmark {
   width: 34px;
   height: 34px;
   display: inline-flex;
-    padding: 8px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 30px;
-    background: var(--accent-cl);
-    fill: none;
-    stroke: var(--light-grey-cl);
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 30px;
+  background: var(--accent-cl);
+  fill: none;
+  stroke: var(--light-grey-cl);
 }

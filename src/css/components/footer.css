@@ -15,6 +15,7 @@
   padding: 8px;
   border: 1px solid #e8e8e2;
   border-radius: 10px;
+  transition: all 300ms ease-in-out;
 }
 .logo-social:hover,
 .logo-social:focus {
@@ -59,9 +60,15 @@
   padding-left: 18px;
   outline: none;
   color: #e8e8e2;
+  transition: all 300ms ease-in-out;
 }
+.input-label:focus,
+.input-label:hover {
+  border-color: #3dc3ba;
+}
+
 .subscribe {
-  border: 1px solid #e8e8e2;
+  border: none;
   border-radius: 30px;
   align-items: flex-start;
   gap: 14px;
@@ -69,6 +76,7 @@
   height: 42px;
   margin-bottom: 80px;
   font-weight: 500;
+  transition: all 300ms ease-in-out;
 }
 .subscribe:hover,
 .subscribe:focus {
@@ -118,7 +126,7 @@
   flex-direction: row;
   justify-content: center;
 }
-.title-unsub{
+.title-unsub {
   color: #010101;
   text-align: center;
   font-size: 24px;
@@ -264,11 +272,11 @@
     flex-direction: column;
     align-items: flex-end;
   }
-  .modal_subcont{
+  .modal_subcont {
     width: 490px;
   }
-  
-  .paragraph-sub{
+
+  .paragraph-sub {
     width: 328px;
   }
   .modal-unsubcont {
