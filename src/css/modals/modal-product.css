@@ -14,9 +14,10 @@
     background-color:#FAFAFA;
 }
 .svg-basket3 {
-    
+    z-index: 2;
 }
 .img_modal2 {
+    z-index: 1;
     width: 295px;
     background: #E8E8E2;
     padding: 26px 67px;
@@ -97,9 +98,7 @@ font-weight: 500;
 line-height: 20px;
 margin-right: 10px;
 }
-.svg-basket2{
 
-}
 .TestDiv1 {
     display:grid;
 }
@@ -113,6 +112,7 @@ margin-right: 10px;
 .modal-product{
     width: 600px;
     height: 380px;
+    padding: 40px 40px;
 }
 .modal-product-inWindow{
     height: 300px;
