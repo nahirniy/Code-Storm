@@ -1,4 +1,4 @@
-import{l as d,s as g,b as k,c as h,g as b,d as v,h as L,e as E,f as U,i as V,j as J}from"./assets/modal-subscription-5f4a1b0e.js";import"./assets/vendor-a33440dc.js";const Q=document.querySelector(".product-list"),X="main products",tt=d("basket")??[];function A(e){g(X,e);const s=e.map(t=>{const a=et(t.category),n=st(t.price),o=tt.some(({_id:c})=>c===t._id);return`<li class="resp-item" data-id="${t._id}">
+import{l as d,s as g,b as k,c as h,g as b,d as v,h as L,e as E,f as U,i as V,j as J}from"./assets/modal-subscription-2998d20d.js";import"./assets/vendor-a33440dc.js";const Q=document.querySelector(".product-list"),X="main products",tt=d("basket")??[];function A(e){g(X,e);const s=e.map(t=>{const a=et(t.category),n=st(t.price),o=tt.some(({_id:c})=>c===t._id);return`<li class="resp-item" data-id="${t._id}">
       ${t.is10PercentOff?`<svg class="svg-discount" width="60" height="60">
           <use href="${k}#icon-discount-mark"></use>
         </svg>
