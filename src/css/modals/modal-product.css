@@ -5,6 +5,9 @@
   height: 535px;
   background-color: #fafafa;
   border-radius: 20px;
+  transform: scale(1);
+  opacity: 1;
+  transition: all 300ms ease-in-out;
 }
 .clouse_modal {
   position: absolute;

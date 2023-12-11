@@ -15,6 +15,7 @@
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "animejs": "^3.2.2",
     "axios": "^1.6.2",
     "modern-normalize": "^2.0.0",
     "notiflix": "^3.2.6",

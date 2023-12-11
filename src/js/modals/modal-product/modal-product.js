@@ -2,6 +2,7 @@ import { loadFromLS } from '../../services/helpers';
 import { getProductById } from '../../services/food-api';
 import { editText } from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
+import anime from 'animejs';
 //////////
 const clouseBottun = document.querySelector('.clouse_modal');
 const modalBackdrop = document.querySelector('.modal-backdrop-product');
@@ -16,29 +17,32 @@ clouseBottun.addEventListener('click', function () {
   toglModul();
   OnScroll();
 });
-// modalBackdrop.addEventListener('click', clouseBackdrop )
-// function clouseBackdrop (event){
-//    const modalBackDrp = event.target.closest('.modal-backdrop-product');
-//    if (!modalBackDrp){
-//     toglModul()
-//     OnScroll()
-//    }
-// }
 
-window.onclick = function (event) {
+modalBackdrop.addEventListener('click', function (event) {
   if (event.target == modalBackdrop) {
     toglModul();
     OnScroll();
   }
-};
+});
 
 document.addEventListener('keydown', function (event) {
   const closestRespItem = event.target.closest('.modal_window-item');
-  if (event.key === 'Escape' && document.body.style.overflow == 'hidden') {
+  if (event.key === 'Escape' && document.body.style.overflow === 'hidden') {
     toglModul();
     OnScroll();
   }
 });
+
+function showElement() {
+  anime({
+    targets: modal_window,
+    opacity: 1,
+    visibility: 'visible',
+    display: 'block',
+    duration: 1000,
+    easing: 'easeInOutQuad',
+  });
+}
 
 function toglModul() {
   modalBackdrop.classList.toggle('is-hidden');
@@ -86,8 +90,6 @@ async function handleClickOnLi(event) {
   if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     return;
   }
-  // editText()
-  /////////
 
   const currentProduct = await getProductById(currentIdModal);
   const editTest = editText(currentProduct.category);
@@ -114,7 +116,6 @@ async function handleClickOnLi(event) {
   ///
   modal_window.style.display = 'block';
   document.body.style.overflow = 'hidden';
-  ///
 
   toglModul();
 }
