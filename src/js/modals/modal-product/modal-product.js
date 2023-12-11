@@ -93,17 +93,19 @@ if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     // const currentIdModal = closestRespItem.dataset.id;
     const currentProduct = await getProductById(currentIdModal);
     
-    const marcap = `<div class="img_modal2" >
+    const marcap = `<div class ="TestDiv1"><div class="img_modal2" >
     <img class="photo" src="${currentProduct.img}" alt="${currentProduct.name}" loading="lazy"/>
     </div>
-    <h2 class="name-product">${currentProduct.name}</h2>
+    <div class="testDiv">
+    <h2 class="name-product2">${currentProduct.name}</h2>
     <div class="descr-product">
     <p class="category-product"><span class="style-word">Category:</span>${currentProduct.category}</p>
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>
     </div>
     <div class="desc-text"> <p class="textModalp">${currentProduct.desc}</p></div>
-    
+    </div>
+    </div>
     <div class="footer-product_card2">
     <p class="price-product">$${currentProduct.price}</p></div>
     <div class = "end-modal">
