@@ -20,7 +20,8 @@
 
 .modal-unsubcont {
   position: relative;
-  width: calc(100% - 40px);
+  width: calc(100% - 15px);
+  max-width: 335px;
   height: 276px;
   background-color: #e8e8e2;
   margin: auto;
@@ -35,7 +36,7 @@
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
-  width: 245px;
+  width: calc(100% - 40px);
 }
 .span-text {
   color: #6d8434;
@@ -47,7 +48,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 18px;
-  width: 248px;
+  width: calc(100% - 40px);
 }
 .close {
   position: absolute;
