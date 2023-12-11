@@ -28,7 +28,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: 998;
-  background: rgba(46, 47, 66, 0.65);
+  background: rgba(1, 1, 1, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;

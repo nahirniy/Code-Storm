@@ -51,8 +51,11 @@
             class="input-label"
             type="email"
             name="email"
-            pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})"
+            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
+            required=""
             placeholder="Email"
+            maxlength="64"
+            minlength="6"
           />
         </label>
         <button type="submit" class="subscribe" id="data-modal-open">
@@ -71,5 +74,4 @@
       </div>
     </div>
   </div>
-  
 </footer>

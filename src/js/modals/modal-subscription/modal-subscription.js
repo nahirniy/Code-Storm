@@ -1,3 +1,6 @@
+import { addEmail } from '../../services/food-api';
+import { showError } from '../../services/helpers';
+
 const formElem = document.querySelector('.form-footer');
 const modalSubscription = document.querySelector('.modal-subscription');
 const modalUnsubscription = document.querySelector('.modal-unsubscription');
@@ -17,26 +20,40 @@ const closeModal = event => {
     modalBackElem.classList.add('is-hidden');
   }
 };
+
 const openModalSubscription = () => {
   modalSubscription.classList.remove('is-hidden');
   modalBackElem.classList.remove('is-hidden');
 };
+
 const openModalUnsubscription = () => {
   modalUnsubscription.classList.remove('is-hidden');
   modalBackElem.classList.remove('is-hidden');
 };
-const handleSubscription = email => {
-  if (email) {
+
+const handleSubscription = async email => {
+  const body = { email };
+
+  try {
+    const checkedEmail = await addEmail(body);
+
     openModalSubscription();
-  } else {
-    openModalUnsubscription();
+  } catch (err) {
+    if (err.response.data.message === 'Subscription already exists') {
+      openModalUnsubscription();
+    } else {
+      showError();
+    }
   }
 };
-formElem.addEventListener('submit', e => {
+
+function handleSubmit(e) {
   e.preventDefault();
   const emailInput = document.querySelector('.input-label');
   const email = emailInput.value.trim();
   handleSubscription(email);
-});
+}
+
+formElem.addEventListener('submit', handleSubmit);
 modalSubscription.addEventListener('click', closeModal);
 modalUnsubscription.addEventListener('click', closeModal);
