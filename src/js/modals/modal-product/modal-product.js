@@ -103,7 +103,7 @@ if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     </div>
     <div class="testDiv">
     <h2 class="name-product2">${currentProduct.name}</h2>
-    <div class="descr-product">
+    <div class="descr-product2">
     <p class="category-product"><span class="style-word">Category:</span>${editTest}</p>
     <p class="size-product"><span class="style-word">Size:</span>${currentProduct.size}</p>
     <p class="popular-product"><span class="style-word">Popularity:</span>${currentProduct.popularity}</p>

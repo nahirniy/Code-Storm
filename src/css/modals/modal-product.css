@@ -33,7 +33,17 @@
     font-weight: 500;
     line-height: 1.11;
 }
-
+.descr-product2 {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 9px;
+    color: var(--main-cl);
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+}
 
 .desc-text {
 margin-top: 20px;
@@ -90,7 +100,6 @@ margin-top: 20px;
 }
 .textInButton{
     color: #E8E8E2;
-
 font-family: Neue Montreal;
 font-size: 16px;
 font-style: normal;
@@ -134,4 +143,8 @@ margin-right: 10px;
 .name-product2 {
     margin-top: 0px;
 }
+.end-modal{
+    right: 40px;
+}
+
 }
