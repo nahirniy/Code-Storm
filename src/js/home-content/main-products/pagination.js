@@ -66,9 +66,10 @@ export function createPagination(allPages, page = 1) {
   }
 
   for (let plength = beforePage; plength <= afterPage; plength += 1) {
-    if (plength > totalPages) {
+    if (plength > totalPages || plength < 0) {
       continue;
     }
+
     if (plength === 0) {
       plength += 1;
     }

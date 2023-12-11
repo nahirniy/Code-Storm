@@ -24,12 +24,20 @@ async function handleClickBasket(event) {
   const currentId = event.target.closest('.discount-item').dataset.id;
   const currentProducts = loadFromLS('discount products');
   const someProduct = currentProducts.filter(({ _id }) => currentId === _id)[0];
-  updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
 
-  // Вішаємо галочку замість корзинки
-  clickedItem.innerHTML = iconCheckMark;
+  updateIcon(clickedItem, currentId, basket);
+  updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
 }
 
-const iconCheckMark = `<svg class="svg-checkmark">
-      <use href="${sprite}#icon-checkmark"></use>
-    </svg>`;
+function updateIcon(btn, id, products) {
+  const checkmarkIcon = `<svg class="svg-checkmark" width="18" height="18">
+            <use class="href-icon" href="${sprite}#icon-checkmark"></use>
+          </svg>`;
+  const basketIcon = `<svg class="svg-basket" width="18" height="18">
+            <use class="href-icon" href="${sprite}#icon-basket"></use>
+          </svg>`;
+
+  const inStorage = products.some(({ _id }) => _id === id);
+
+  btn.innerHTML = inStorage ? basketIcon : checkmarkIcon;
+}

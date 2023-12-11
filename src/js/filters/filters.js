@@ -111,9 +111,10 @@ async function loadMarkup() {
     }
 
     setStateFilter(newParams);
-  } catch {
+  } catch (err) {
     unsuccessSearch();
     showError();
+    console.log(err);
   } finally {
     hideLoader();
   }

@@ -1,18 +1,21 @@
-import { saveToLS } from '../../services/helpers';
+import { loadFromLS, saveToLS } from '../../services/helpers';
 import sprite from '../../../img/icons/sprite.svg';
 
 const productMainList = document.querySelector('.product-list');
 const LOCALSTORAGE_KEY = 'main products';
+const basket = loadFromLS('basket') ?? [];
 
 /*-----------------------------------MARKUP----------------------------*/
 
 export function mainProductMarkup(mainProduct) {
   saveToLS(LOCALSTORAGE_KEY, mainProduct);
+
   const markup = mainProduct
     .map(item => {
-      let formattedCategory = removeUnderscore(item.category);
-      let formatPrice = formatNumber(item.price);
-      //let formatResult =
+      const formattedCategory = removeUnderscore(item.category);
+      const formatPrice = formatNumber(item.price);
+      const inStorage = basket.some(({ _id }) => _id === item._id);
+
       return `<li class="resp-item" data-id="${item._id}">
       ${
         item.is10PercentOff
@@ -40,9 +43,15 @@ export function mainProductMarkup(mainProduct) {
         <div class="footer-product_card">
           <p class="price-product">$${formatPrice}</p>
           <button type="button" class="btn-basket">
-          <svg class="svg-basket" width="34" height="34">
+          ${
+            inStorage
+              ? `<svg class="svg-checkmark" width="18" height="18">
+            <use class="href-icon" href="${sprite}#icon-checkmark"></use>
+          </svg>`
+              : `<svg class="svg-basket" width="18" height="18">
             <use class="href-icon" href="${sprite}#icon-basket"></use>
-          </svg>
+          </svg>`
+          }
           </button>
         </div>
       </li>`;

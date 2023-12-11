@@ -272,7 +272,8 @@
   background: var(--white-cl);
 }
 
-.light-basket {
+.light-basket,
+.light-checkmark {
   display: flex;
   width: 100%;
   height: 100%;
@@ -285,6 +286,14 @@
   border-radius: 30px;
   background-color: var(--light-grey-cl);
   transition: all 300ms ease-in-out;
+}
+.light-checkmark {
+  fill: none;
+  stroke: var(--accent-cl);
+}
+.light-checkmark:hover {
+  stroke: var(--light-grey-cl);
+  background-color: var(--accent-cl);
 }
 
 .light-basket:hover {

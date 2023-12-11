@@ -124,6 +124,11 @@
   transition: all 300ms ease-in-out;
 }
 
+.svg-checkmark {
+  fill: none;
+  stroke: var(--light-grey-cl);
+}
+
 .name-product {
   margin-top: 20px;
   margin-bottom: 10px;
