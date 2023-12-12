@@ -71,8 +71,8 @@ import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i 
                         <h4 class="product-name">${s}</h4>
                         <button type="button" 
                           class="btn-light-basket popular-products-btn"
-                          data-button-id="${r} 
-                          aria-label="Add or remove product from basket"  ">
+                          data-button-id="${r}"
+                          aria-label="Add or remove product from basket">
                         ${u?`<svg class="light-checkmark" width="12" height="12">
                                   <use class="href-icon" href="${p}#icon-checkmark"></use>
                                </svg>`:`<svg class="light-basket" width="12" height="12">
