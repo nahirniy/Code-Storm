@@ -37,14 +37,27 @@ export function createPagination(allPages, page = 1) {
     afterPage += 1;
 
     if (page > 2) {
-      markup += `<button type="button" class="number pagination-item" data-page="1">1</button>`;
+      markup += `<button 
+        type="button"
+        class="number pagination-item"
+        data-page="1"
+        aria-label="This is 1 page">
+        1
+      </button>`;
+
       if (page > 3) {
         markup += `<span class="dots">...</span>`;
       }
     }
   } else {
     if (page > 2) {
-      markup += `<button type="button" class="number pagination-item" data-page="1">1</button>`;
+      markup += `<button 
+        type="button"
+        class="number pagination-item"
+        data-page="1"
+        aria-label="This is 1 page">
+        1
+      </button>`;
       markup += `<span class="dots">...</span>`;
     }
   }
@@ -74,9 +87,13 @@ export function createPagination(allPages, page = 1) {
       plength += 1;
     }
 
-    markup += `<button type="button" class="number pagination-item ${
-      page === plength ? 'active-page' : ''
-    }" data-page="${plength}">${plength}</button>`;
+    markup += `<button 
+      type="button" 
+      class="number pagination-item 
+      ${page === plength ? 'active-page' : ''}" 
+      data-page="${plength}">${plength}
+      aria-label="This is ${plength} page"
+    </button>`;
   }
 
   if (sizeScreen >= 768) {
@@ -84,12 +101,23 @@ export function createPagination(allPages, page = 1) {
       if (page < totalPages - 2) {
         markup += `<span class="dots"><span>...</span></span>`;
       }
-      markup += `<button type="button" class="number pagination-item" data-page="${totalPages}">${totalPages}</button>`;
+      markup += `<button 
+      type="button"
+        class="number pagination-item"
+        data-page="${totalPages}" 
+        aria-label="This is ${totalPages} page">
+        ${totalPages}
+      </button>`;
     }
   } else {
     if (page < totalPages - 1) {
       markup += `<span class="dots"><span>...</span></span>`;
-      markup += `<button type="button" class="number pagination-item" data-page="${totalPages}">${totalPages}</button>`;
+      markup += `<button 
+      type="button"
+      class="number pagination-item"
+      data-page="${totalPages}">
+      ${totalPages}
+    </button>`;
     }
   }
 

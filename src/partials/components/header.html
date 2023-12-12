@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-container container">
     <div class="header-logo">
-      <a class="header-logo-link" href="./index.html">
+      <a class="header-logo-link" href="./index.html" aria-label="logo">
         <svg class="header-logo-svg">
           <use href="./img/icons/sprite.svg#icon-logo-header"></use>
         </svg>
@@ -10,10 +10,15 @@
     <nav class="header-navigation">
       <ul class="header-navigation-list">
         <li class="header-navigation-item">
-          <a class="header-navigation-home" href="./index.html">Home</a>
+          <a
+            class="header-navigation-home"
+            href="./index.html"
+            aria-label="home page"
+            >Home</a
+          >
         </li>
         <li class="header-navigation-item">
-          <a class="navigation-cart" href="./cart.html">
+          <a class="navigation-cart" href="./cart.html" aria-label="cart page">
             <span class="header-navigation-cart">
               <svg class="header-logo-busket">
                 <use href="./img/icons/sprite.svg#icon-basket"></use>
@@ -26,7 +31,11 @@
         </li>
       </ul>
     </nav>
-    <button type="button" class="scroll-up-btn is-hidden">
+    <button
+      type="button"
+      class="scroll-up-btn is-hidden"
+      aria-label="scroll up button"
+    >
       <svg class="arrow-scroll">
         <use href="./img/icons/sprite.svg#icon-arrow-down"></use>
       </svg>

@@ -24,7 +24,10 @@ export default function markupDiscountList(arr) {
         <div class="discount-product-info">
           <h4 class="product-name">${name}</h4>
           <p class="product-price">$${price}</p>
-          <button type="button" class="btn-basket discount-products-btn" data-button-id="${_id}">
+          <button type="button"
+            class="btn-basket discount-products-btn"
+            data-button-id="${_id}" 
+            aria-label="Add or remove product from basket">
           ${
             inStorage
               ? `<svg class="svg-checkmark" width="18" height="18">

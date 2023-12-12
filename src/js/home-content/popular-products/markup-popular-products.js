@@ -16,13 +16,18 @@ export default function markupPopularList(arr) {
                         <img
                             src="${img}"
                             alt="${name}"
+                            width="56"
+                            height="56" 
                             loading="lazy"
                         />
                     </div>
                     <div class="popular-product-info">
                     <div class="popular-info-top">
                         <h4 class="product-name">${name}</h4>
-                        <button type="button" class="btn-light-basket popular-products-btn" data-button-id="${_id}">
+                        <button type="button" 
+                          class="btn-light-basket popular-products-btn"
+                          data-button-id="${_id} 
+                          aria-label="Add or remove product from basket"  ">
                         ${
                           inStorage
                             ? `<svg class="light-checkmark" width="12" height="12">

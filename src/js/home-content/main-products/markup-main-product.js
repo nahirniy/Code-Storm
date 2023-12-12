@@ -42,9 +42,12 @@ export function mainProductMarkup(mainProduct) {
         </div>
         <div class="footer-product_card">
           <p class="price-product">$${formatPrice}</p>
-          <button type="button" class="btn-basket main-products-btn" data-button-id="${
-            item._id
-          }">
+          <button 
+            type="button" 
+            class="btn-basket main-products-btn" 
+            data-button-id="${item._id}"
+            aria-label="Add or remove product from basket"  
+          >
           ${
             inStorage
               ? `<svg class="svg-checkmark" width="18" height="18">

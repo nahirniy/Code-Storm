@@ -76,6 +76,7 @@ body {
   font-weight: 400;
   src: url('./fonts/NeueMontreal-Regular.woff2') format('woff2'),
     url('./fonts/NeueMontreal-Regular.ttf') format('ttf');
+  font-display: swap;
 }
 
 @font-face {
@@ -83,4 +84,5 @@ body {
   font-weight: 500;
   src: url('./fonts/NeueMontreal-Medium.woff2') format('woff2'),
     url('./fonts/NeueMontreal-Medium.ttf') format('ttf');
+  font-display: swap;
 }

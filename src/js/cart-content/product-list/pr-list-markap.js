@@ -17,7 +17,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
         </div>
         <div class="cart-img-text">
         <div class="cart-item-title-wrap"><h3 class="cart-item-title">${name}</h3>
-        <button name="button" type="button" class="cart-btn-close">
+        <button name="button" type="button" class="cart-btn-close" aria-label="Close modal window">
         <svg class="cart-icon-close">
           <use href="${sprite}#icon-close"></use>
         </svg>

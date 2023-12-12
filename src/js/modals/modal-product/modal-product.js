@@ -117,9 +117,13 @@ async function handleClickOnLi(event) {
     <div class="footer-product_card2">
     <p class="price-product">$${currentProduct.price.toFixed(2)}</p></div>
     <div class = "end-modal">
-    <button type="button" class="modal-button"><span class ="textInButton">${
-      inStorage ? 'Remove from' : 'Add to'
-    }</span><svg class="svg-basket2" width="18" height="18">
+    <button 
+      type="button" 
+      class="modal-button" 
+      aria-label="Add or remove product from basket"><
+      span class ="textInButton">${
+        inStorage ? 'Remove from' : 'Add to'
+      }</><svg class="svg-basket2" width="18" height="18">
     <use class="href-icon" href="${sprite}#icon-basket"></use>
   </svg></button></div>`;
   window_inModal.innerHTML = marcap;
