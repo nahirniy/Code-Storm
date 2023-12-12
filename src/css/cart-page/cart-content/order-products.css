@@ -122,6 +122,7 @@
   }
   #email::placeholder {
     font-size: 18px;
+    padding: 0;
   }
 
   .order-products-form button {
