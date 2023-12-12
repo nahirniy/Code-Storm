@@ -105,9 +105,9 @@
   background-color: rgba(1, 1, 1, 0.1); /* Цвет линии */
   transform: translateX(-50%);
 }
-.cart-item:last-child {
-  /* margin-bottom: 50px; */
-}
+/* .cart-item:last-child {
+  margin-bottom: 50px;
+} */
 /*===контейнер на содержимое li   */
 .cart-item-wrap {
   display: flex;

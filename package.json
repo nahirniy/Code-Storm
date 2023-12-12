@@ -17,6 +17,7 @@
   "dependencies": {
     "animejs": "^3.2.2",
     "axios": "^1.6.2",
+    "lodash": "^4.17.21",
     "modern-normalize": "^2.0.0",
     "sweetalert2": "^11.10.1",
     "vite-plugin-full-reload": "^1.0.5",
