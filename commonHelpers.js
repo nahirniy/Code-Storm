@@ -22,7 +22,7 @@ import{s as g,l as p,c as l,a as L,b as q,d as E}from"./assets/scroll-up-413fe59
               <span>${n}</span>
             </p>
           </div>
-          <h3 class="cart-info-price">$${y}</h3>
+          <h3 class="cart-info-price">$${y.toFixed(2)}</h3>
         </div> 
       </div>
      
