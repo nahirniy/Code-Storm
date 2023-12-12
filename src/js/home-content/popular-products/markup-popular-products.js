@@ -26,8 +26,8 @@ export default function markupPopularList(arr) {
                         <h4 class="product-name">${name}</h4>
                         <button type="button" 
                           class="btn-light-basket popular-products-btn"
-                          data-button-id="${_id} 
-                          aria-label="Add or remove product from basket"  ">
+                          data-button-id="${_id}"
+                          aria-label="Add or remove product from basket">
                         ${
                           inStorage
                             ? `<svg class="light-checkmark" width="12" height="12">
