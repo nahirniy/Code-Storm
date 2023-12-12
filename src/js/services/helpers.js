@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import sprite from '../../img/icons/sprite.svg';
 
 // ТУТ ПИШЕ ТІЛЬКИ МАКС
 export function saveToLS(key, value) {
