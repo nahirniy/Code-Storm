@@ -10,6 +10,8 @@ const refs = {
   cartBtnDelAll: document.querySelector('.cart-btn-del-all'),
   cartEmptyContent: document.querySelector('.cart-yellow-container'),
   cartProductsSum: document.querySelector('.order-products-sum'),
+  cartBtnDellContainer: document.querySelector('.cart-btn-wrap'),
+  cartOrderProducts: document.querySelector('.order-products'),
 };
 
 refs.cartItemContainer.addEventListener('click', onCartItem);
@@ -27,6 +29,11 @@ function onCartDellAll() {
   refs.cartItemContainer.innerHTML = '';
 
   funLoadLellAllLS(LOCALSTORAGE_KEY);
+  arrayLength = 0;
+  cartTitleAdd(arrayLength);
+  refs.cartEmptyContent.classList.remove('visually-hidden');
+  refs.cartBtnDellContainer.classList.add('visually-hidden');
+  refs.cartOrderProducts.classList.add('visually-hidden');
 }
 
 // колбек удаления поштучно
@@ -48,6 +55,9 @@ function onCartItem(evt) {
 
   //============
   arrayLength -= 1;
+  if (arrayLength < 4) {
+    refs.cartItemContainer.classList.remove('cart-scrol');
+  }
   cartTitleAdd(arrayLength);
 
   // берем новый масив из локал сторож и  пересситываем тотал
@@ -57,8 +67,8 @@ function onCartItem(evt) {
   const recountItem = evt.currentTarget.childNodes.length;
   if (recountItem === 0) {
     refs.cartEmptyContent.classList.remove('visually-hidden');
-    refs.cartContent.classList.add('visually-hidden');
-
+    refs.cartBtnDellContainer.classList.add('visually-hidden');
+    refs.cartOrderProducts.classList.add('visually-hidden');
     return;
   }
 
@@ -69,7 +79,7 @@ function onCartItem(evt) {
 
 // добавление заголовка
 function cartTitleAdd(leng) {
-  refs.cartTitle.textContent = `cart(${leng})`;
+  refs.cartTitle.textContent = `cart (${leng})`;
 }
 
 // главная функция-создание контента корзины
