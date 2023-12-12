@@ -10,14 +10,11 @@
 .cart-yellow-img {
   margin-top: 105px;
   margin-bottom: 28px;
-  /* margin-left: auto;
-  margin-right: auto; */
   background-color: transparent;
   width: 132px;
   height: 114px;
-  /* background-color: var(--light-grey-cl); */
-  /* background: url(<path-to-image>), lightgray 50% / contain no-repeat; */
 }
+
 .cart-yellow-title {
   margin-bottom: 14px;
   color: var(--main-cl);
