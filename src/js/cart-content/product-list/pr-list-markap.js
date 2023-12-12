@@ -34,7 +34,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
               <span>${size}</span>
             </p>
           </div>
-          <h3 class="cart-info-price">$${price}</h3>
+          <h3 class="cart-info-price">$${price.toFixed(2)}</h3>
         </div> 
       </div>
      
