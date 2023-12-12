@@ -18,6 +18,7 @@ export default function markupDiscountList(arr) {
           <img
             src="${img}"
             alt="${name}"
+            loading="lazy"
           />
         </div>
         <div class="discount-product-info">

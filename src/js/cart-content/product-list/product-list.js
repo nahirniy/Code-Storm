@@ -78,7 +78,8 @@ function onCartItem(evt) {
 
   refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;
   refs.cartEmptyContent.classList.add('visually-hidden');
-  refs.cartContent.classList.remove('visually-hidden');
+  refs.cartBtnDellContainer.classList.remove('visually-hidden');
+  refs.cartOrderProducts.classList.remove('visually-hidden');
 }
 
 // добавление заголовка
@@ -92,12 +93,14 @@ function cartProductList() {
 
   if (!arrayLength) {
     refs.cartEmptyContent.classList.remove('visually-hidden');
-    refs.cartContent.classList.add('visually-hidden');
+    refs.cartBtnDellContainer.classList.add('visually-hidden');
+    refs.cartOrderProducts.classList.add('visually-hidden');
     return;
   }
 
   refs.cartEmptyContent.classList.add('visually-hidden');
-  refs.cartContent.classList.remove('visually-hidden');
+  refs.cartBtnDellContainer.classList.remove('visually-hidden');
+  refs.cartOrderProducts.classList.remove('visually-hidden');
 
   refs.cartItemContainer.innerHTML = funCartCreateMarkup(cartResults);
   refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;

@@ -16,6 +16,7 @@ export default function markupPopularList(arr) {
                         <img
                             src="${img}"
                             alt="${name}"
+                            loading="lazy"
                         />
                     </div>
                     <div class="popular-product-info">

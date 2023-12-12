@@ -36,4 +36,9 @@
     width: 164px;
     height: 140px;
   }
+
+  .cart-yellow-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
 }
