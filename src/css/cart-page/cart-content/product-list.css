@@ -30,7 +30,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 23px;
+  padding-right: 7px;
 }
 .cart-btn-del-all {
   display: inline-flex;
@@ -58,7 +58,7 @@
   flex-direction: column;
   align-items: center;
   padding-right: 14px;
-  margin-top: 36px;
+  margin-top: 30px;
 }
 .cart-item-container.cart-scrol::-webkit-scrollbar-thumb {
   height: 117px;
@@ -81,6 +81,7 @@
   padding-top: 30px;
   padding-bottom: 30px;
   width: 100%;
+  overflow: hidden;
 }
 .cart-item:not(:last-child) {
   /* margin-bottom: 30px;  учесть линию*/
