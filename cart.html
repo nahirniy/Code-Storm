@@ -5,18 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/Code-Storm/assets/favicon-dc3fb52b.svg" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Internet grocery store (favourite basket products)"
+    />
     <title>Cart</title>
+    <link rel="preload" as="font" />
     
     <script type="module" crossorigin src="/Code-Storm/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/Code-Storm/assets/vendor-9038a9ee.js">
-    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/scroll-up-30a3bb62.js">
-    <link rel="stylesheet" href="/Code-Storm/assets/scroll-up-78b0e06e.css">
+    <link rel="modulepreload" crossorigin href="/Code-Storm/assets/scroll-up-17b2c933.js">
+    <link rel="stylesheet" href="/Code-Storm/assets/scroll-up-600fc39d.css">
   </head>
   <body>
     <header class="header">
   <div class="header-container container">
     <div class="header-logo">
-      <a class="header-logo-link" href="./index.html">
+      <a class="header-logo-link" href="./index.html" aria-label="logo">
         <svg class="header-logo-svg">
           <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-logo-header"></use>
         </svg>
@@ -25,10 +30,15 @@
     <nav class="header-navigation">
       <ul class="header-navigation-list">
         <li class="header-navigation-item">
-          <a class="header-navigation-home" href="./index.html">Home</a>
+          <a
+            class="header-navigation-home"
+            href="./index.html"
+            aria-label="home page"
+            >Home</a
+          >
         </li>
         <li class="header-navigation-item">
-          <a class="navigation-cart" href="./cart.html">
+          <a class="navigation-cart" href="./cart.html" aria-label="cart page">
             <span class="header-navigation-cart">
               <svg class="header-logo-busket">
                 <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-basket"></use>
@@ -41,7 +51,11 @@
         </li>
       </ul>
     </nav>
-    <button type="button" class="scroll-up-btn is-hidden">
+    <button
+      type="button"
+      class="scroll-up-btn is-hidden"
+      aria-label="scroll up button"
+    >
       <svg class="arrow-scroll">
         <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-arrow-down"></use>
       </svg>
@@ -65,7 +79,11 @@
   </div>
 
   <div class="cart-btn-wrap">
-    <button name="button" class="cart-btn-del-all">
+    <button
+      name="button"
+      class="cart-btn-del-all"
+      aria-label="Delete all products in basket"
+    >
       Delete all
       <svg class="cart-icon-all" width="24" height="24">
         <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-close"></use>
@@ -96,7 +114,9 @@
       />
       <label for="email">Mail:</label>
     </div>
-    <button class="button" type="submit">Checkout</button>
+    <button class="button" type="submit" aria-label="Submit button">
+      Checkout
+    </button>
   </form>
 </div>
 
@@ -127,7 +147,7 @@
   <div class="container footer-container">
     <div class="footer-logo">
       <div class="footer-icons">
-        <a href="" class="link-logo">
+        <a href="./index.html" class="link-logo" aria-label="logo">
           <svg class="logo">
             <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-logo-footer"></use>
           </svg>
@@ -145,6 +165,7 @@
               href="https://www.instagram.com/goitclub/"
               target="_blank"
               class="item-logo"
+              aria-label="instagram"
             >
               <svg class="logo-social" width="40" height="40">
                 <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-instagram"></use>
@@ -152,7 +173,11 @@
             </a>
           </li>
           <li class="item-social">
-            <a href="https://www.youtube.com/c/GoIT" target="_blank">
+            <a
+              href="https://www.youtube.com/c/GoIT"
+              target="_blank"
+              aria-label="Youtube"
+            >
               <svg class="logo-social" width="40" height="40">
                 <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-youtube"></use>
               </svg>
@@ -183,7 +208,12 @@
             minlength="6"
           />
         </label>
-        <button type="submit" class="subscribe" id="data-modal-open">
+        <button
+          type="submit"
+          class="subscribe"
+          id="data-modal-open"
+          aria-label="Submit button"
+        >
           Send
         </button>
       </form>
@@ -204,9 +234,11 @@
 
     <div class="modal-backdrop-order is-hidden">
   <div class="modal-order">
-    <svg class="modal-order-close">
-      <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-close"></use>
-    </svg>
+    <button class="close-modal-order-btn" aria-label="Close modal window">
+      <svg class="modal-order-close">
+        <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-close"></use>
+      </svg>
+    </button>
     <div class="modal-order-img">
       <img
         srcset="/Code-Storm/assets/order_success-1x-14915e12.webp 1x, /Code-Storm/assets/order_success-2x-f4bf8874.webp 2x"
@@ -226,7 +258,7 @@
     <div class="modal-backdrop-subscription is-hidden">
   <div class="modal-subscription visually-hidden">
     <div class="modal_subcont">
-      <button class="close">
+      <button class="close" aria-label="Close modal window">
         <svg class="icon-close">
           <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-close"></use>
         </svg>
@@ -265,7 +297,7 @@
   </div>
   <div class="modal-unsubscription visually-hidden">
     <div class="modal-unsubcont">
-      <button class="close">
+      <button class="close" aria-label="Close modal window">
         <svg class="icon-close">
           <use href="/Code-Storm/assets/sprite-7f96c85e.svg#icon-close"></use>
         </svg>
