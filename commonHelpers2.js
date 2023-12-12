@@ -43,7 +43,7 @@ import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i 
       type="button" 
       class="number pagination-item 
       ${e===n?"active-page":""}" 
-      data-page="${n}">${n}
+      data-page="${n}">${n}"
       aria-label="This is ${n} page"
     </button>`);return c>=768?e<l-1&&(e<l-2&&(s+='<span class="dots"><span>...</span></span>'),s+=`<button 
       type="button"
@@ -130,8 +130,8 @@ import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i 
     <button 
       type="button" 
       class="modal-button" 
-      aria-label="Add or remove product from basket"><
-      span class ="textInButton">${n?"Remove from":"Add to"}</><svg class="svg-basket2" width="18" height="18">
+      aria-label="Add or remove product from basket"><span
+      span class ="textInButton">${n?"Remove from":"Add to"}</span><svg class="svg-basket2" width="18" height="18">
     <use class="href-icon" href="${p}#icon-basket"></use>
   </svg></button></div>`;Qt.innerHTML=q,M.style.display="block",document.body.style.overflow="hidden",j(),document.querySelector(".modal-button").addEventListener("click",et)}function se(t){const e=i("main products"),s=i("popular products"),a=i("discount products");return[...e,...s,...a].find(n=>n._id===t)}function ae(t,e){const s=se(t),a=document.querySelectorAll(`[data-button-id="${t}"]`);w(tt,s,e),C([...a],t,e);const o=e.find(n=>n._id===t),c=document.querySelector(".textInButton");o?c.textContent="Remove from":c.textContent="Add to"}Xt.addEventListener("click",F);te.addEventListener("click",F);ee.addEventListener("click",F);
 //# sourceMappingURL=commonHelpers2.js.map
