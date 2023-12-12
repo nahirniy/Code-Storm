@@ -41,10 +41,10 @@ import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i 
         1
       </button>`,s+='<span class="dots">...</span>'),e===l?(a=a-1,K.classList.add("disabled")):e===l-1&&(a=a-1),e===1?(o=o+1,H.classList.add("disabled")):e==2&&(o=o+1);for(let n=a;n<=o;n+=1)n>l||n<0||(n===0&&(n+=1),s+=`<button 
       type="button" 
-      class="number pagination-item 
-      ${e===n?"active-page":""}" 
-      data-page="${n}">${n}"
+      class="number pagination-item ${e===n?"active-page":""}"
+      data-page="${n}"
       aria-label="This is ${n} page"
+      >${n}
     </button>`);return c>=768?e<l-1&&(e<l-2&&(s+='<span class="dots"><span>...</span></span>'),s+=`<button 
       type="button"
         class="number pagination-item"
