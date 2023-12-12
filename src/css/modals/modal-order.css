@@ -7,7 +7,16 @@
   height: 428px;
   border-radius: 20px;
   background: var(--light-grey-cl);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 300ms ease-in-out;
 }
+
+.visible-modal {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .modal-order-close {
   position: absolute;
   top: 14px;
@@ -33,7 +42,7 @@
   margin-bottom: 20px;
 }
 .modal-order-text {
-  color: rgba(1, 1, 1, 0.70);
+  color: rgba(1, 1, 1, 0.7);
   text-align: center;
   line-height: 18px;
   margin-left: 20px;
@@ -42,7 +51,7 @@
 }
 
 @media (min-width: 768px) {
-  .modal-order{
+  .modal-order {
     width: 560px;
     height: 509px;
   }
@@ -57,5 +66,7 @@
   .modal-order-close {
     width: 28px;
     height: 28px;
+    top: 24px;
+    right: 24px;
   }
 }
