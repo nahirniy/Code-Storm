@@ -14,11 +14,17 @@ const closeModal = event => {
     modalSubscription.classList.remove('visible-modal');
     setTimeout(() => modalSubscription.classList.add('visually-hidden'), 500);
     modalBackElem.classList.add('is-hidden');
+
+    document.removeEventListener('keydown', closeModal);
+    body.style.overflow = overflow;
   }
   if (target === modalUnsubscription || target.closest('.close')) {
     modalUnsubscription.classList.remove('visible-modal');
     setTimeout(() => modalUnsubscription.classList.add('visually-hidden'), 500);
     modalBackElem.classList.add('is-hidden');
+
+    document.removeEventListener('keydown', closeModal);
+    body.style.overflow = overflow;
   }
 
   if (event.key === 'Escape') {
@@ -55,6 +61,7 @@ const handleSubscription = async email => {
     const checkedEmail = await addEmail(body);
 
     openModalSubscription();
+    formElem.reset();
   } catch (err) {
     if (err.response.data.message === 'Subscription already exists') {
       openModalUnsubscription();
