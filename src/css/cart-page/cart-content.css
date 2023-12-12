@@ -5,7 +5,7 @@
 .cart-content-wrap {
   display: flex;
   flex-direction: column;
-  gap: 74px;
+  gap: 80px;
 }
 
 @media (min-width: 768px) {
@@ -22,7 +22,7 @@
   /* Тут не треба змінювати */
   /* .cart-section {
     padding-bottom: 57px;
-  } */  
+  } */
 
   .cart-content-wrap {
     flex-direction: row;

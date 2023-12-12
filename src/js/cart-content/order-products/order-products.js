@@ -1,6 +1,6 @@
 import { modalOrder } from '../../modals/modal-order/modal-order';
 import { addOrder } from '../../services/food-api';
-import { loadFromLS } from '../../services/helpers';
+import { counterProducts, loadFromLS } from '../../services/helpers';
 
 const LOCALSTORAGE_KEY = 'basket';
 const basket = loadFromLS(LOCALSTORAGE_KEY) ?? [];
@@ -31,3 +31,5 @@ orderForm.addEventListener('submit', event => {
 
   orderForm.reset();
 });
+
+counterProducts(basket);
