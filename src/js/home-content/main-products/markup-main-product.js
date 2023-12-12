@@ -19,7 +19,7 @@ export function mainProductMarkup(mainProduct) {
       return `<li class="resp-item" data-id="${item._id}">
       ${
         item.is10PercentOff
-          ? `<svg class="svg-discount" width="60" height="60">
+          ? `<svg class="svg-discount animation-icon" width="60" height="60">
           <use href="${sprite}#icon-discount-mark"></use>
         </svg>
           `

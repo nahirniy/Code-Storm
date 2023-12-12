@@ -1,4 +1,4 @@
-import { modalOrder } from '../../modals/modal-order/modal-order';
+import { modalOrderOpen } from '../../modals/modal-order/modal-order';
 import { addOrder } from '../../services/food-api';
 import {
   counterProducts,
@@ -34,7 +34,7 @@ orderForm.addEventListener('submit', async event => {
 
     saveToLS(LOCALSTORAGE_KEY, []);
     counterProducts([]);
-    modalOrder();
+    modalOrderOpen();
 
     cartContent.classList.add('visually-hidden');
     emptyContent.classList.remove('visually-hidden');

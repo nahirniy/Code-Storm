@@ -51,6 +51,20 @@ body {
   border-radius: 30px;
   background-color: var(--accent-cl);
 }
+
+.animation-icon {
+  animation: rotate 6s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .container {
   max-width: var(--mobile-width);
   margin: 0 auto;

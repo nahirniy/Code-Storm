@@ -11,7 +11,7 @@ export default function markupDiscountList(arr) {
     const inStorage = basket.some(product => product._id === _id);
 
     return `<li class="discount-item" data-id="${_id}">
-        <svg class="svg-discount" width="60" height="60">
+        <svg class="svg-discount animation-icon" width="60" height="60">
           <use href="${sprite}#icon-discount-mark"></use>
         </svg>
         <div class="wrap-img">
