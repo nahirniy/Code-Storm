@@ -1,5 +1,5 @@
-import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i as ct,j as rt,k as _,m as it,n as lt,o as dt}from"./assets/scroll-up-17b2c933.js";import"./assets/vendor-9038a9ee.js";const A="basket",ut=document.querySelector(".product-list"),pt=i(A)??[];async function mt(t){const e=i(A)??[];if(!t.target.closest(".btn-basket"))return;const a=t.target.closest(".resp-item").dataset.id,c=i("main products").filter(({_id:r})=>a===r)[0],n=document.querySelectorAll(`[data-button-id="${a}"]`);w(A,c,e),C([...n],a,e)}nt(pt);ut.addEventListener("click",mt);const gt=document.querySelector(".product-list"),yt="main products";function x(t){g(yt,t);const e=i("basket")??[],s=t.map(a=>{const o=ft(a.category),c=bt(a.price),n=e.find(({_id:r})=>r===a._id);return`<li class="resp-item" data-id="${a._id}">
-      ${a.is10PercentOff?`<svg class="svg-discount" width="60" height="60">
+import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i as ct,j as rt,k as _,m as it,n as lt,o as dt}from"./assets/scroll-up-f79e61bc.js";import"./assets/vendor-9038a9ee.js";const A="basket",ut=document.querySelector(".product-list"),pt=i(A)??[];async function mt(t){const e=i(A)??[];if(!t.target.closest(".btn-basket"))return;const a=t.target.closest(".resp-item").dataset.id,c=i("main products").filter(({_id:r})=>a===r)[0],n=document.querySelectorAll(`[data-button-id="${a}"]`);w(A,c,e),C([...n],a,e)}nt(pt);ut.addEventListener("click",mt);const gt=document.querySelector(".product-list"),yt="main products";function x(t){g(yt,t);const e=i("basket")??[],s=t.map(a=>{const o=ft(a.category),c=bt(a.price),n=e.find(({_id:r})=>r===a._id);return`<li class="resp-item" data-id="${a._id}">
+      ${a.is10PercentOff?`<svg class="svg-discount animation-icon" width="60" height="60">
           <use href="${p}#icon-discount-mark"></use>
         </svg>
           `:""}
@@ -87,7 +87,7 @@ import{l as i,c as nt,u as w,e as C,a as g,s as p,f as v,g as L,d as $,h as P,i 
                         </div>
                     </div>
                 </li>`});St.popularList.insertAdjacentHTML("beforeend",e.join(""))}const qt=5;ct(qt).then(t=>{Ct(t),g("popular products",t)}).catch(t=>console.log(t));const At={popularList:document.querySelector(".popular-list")};async function Et(t){const e="basket",s=i(e)??[];if(!t.target.closest(".btn-light-basket"))return;const o=t.target.closest(".popular-item").dataset.id,n=i("popular products").filter(({_id:u})=>o===u)[0],r=document.querySelectorAll(`[data-button-id="${o}"]`);w(e,n,s),C([...r],o,s)}At.popularList.addEventListener("click",Et);const Bt={discountList:document.querySelector(".discount-list")},Tt=i("basket")??[];function Mt(t){const e=t.map(({name:s,img:a,_id:o,price:c})=>{const n=Tt.some(r=>r._id===o);return`<li class="discount-item" data-id="${o}">
-        <svg class="svg-discount" width="60" height="60">
+        <svg class="svg-discount animation-icon" width="60" height="60">
           <use href="${p}#icon-discount-mark"></use>
         </svg>
         <div class="wrap-img">
