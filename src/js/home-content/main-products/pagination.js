@@ -89,10 +89,10 @@ export function createPagination(allPages, page = 1) {
 
     markup += `<button 
       type="button" 
-      class="number pagination-item 
-      ${page === plength ? 'active-page' : ''}" 
-      data-page="${plength}">${plength}"
+      class="number pagination-item ${page === plength ? 'active-page' : ''}"
+      data-page="${plength}"
       aria-label="This is ${plength} page"
+      >${plength}
     </button>`;
   }
 
