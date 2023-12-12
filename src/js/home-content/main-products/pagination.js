@@ -91,7 +91,7 @@ export function createPagination(allPages, page = 1) {
       type="button" 
       class="number pagination-item 
       ${page === plength ? 'active-page' : ''}" 
-      data-page="${plength}">${plength}
+      data-page="${plength}">${plength}"
       aria-label="This is ${plength} page"
     </button>`;
   }

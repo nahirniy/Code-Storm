@@ -120,10 +120,10 @@ async function handleClickOnLi(event) {
     <button 
       type="button" 
       class="modal-button" 
-      aria-label="Add or remove product from basket"><
+      aria-label="Add or remove product from basket"><span
       span class ="textInButton">${
         inStorage ? 'Remove from' : 'Add to'
-      }</><svg class="svg-basket2" width="18" height="18">
+      }</span><svg class="svg-basket2" width="18" height="18">
     <use class="href-icon" href="${sprite}#icon-basket"></use>
   </svg></button></div>`;
   window_inModal.innerHTML = marcap;
