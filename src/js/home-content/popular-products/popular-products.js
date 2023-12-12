@@ -1,8 +1,11 @@
 import { getPopularProducts } from '../../services/food-api';
 import markupPopularList from './markup-popular-products';
-import { loadFromLS, updateBasket, saveToLS } from '../../services/helpers';
-import sprite from '../../../img/icons/sprite.svg';
-import { updateAllIcon } from '../main-products/main-products';
+import {
+  loadFromLS,
+  updateBasket,
+  saveToLS,
+  updateAllIcon,
+} from '../../services/helpers';
 
 const limitPopularProduct = 5;
 
@@ -31,19 +34,6 @@ async function handleClickBasket(event) {
 
   updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
   updateAllIcon([...currentButton], id, basket);
-}
-
-export function updateIconPopular(btn, id, products) {
-  const checkmarkIcon = `<svg class="light-checkmark" width="12" height="12">
-            <use class="href-icon" href="${sprite}#icon-checkmark"></use>
-          </svg>`;
-  const basketIcon = `<svg class="light-basket" width="12" height="12">
-            <use class="href-icon" href="${sprite}#icon-basket"></use>
-          </svg>`;
-
-  const inStorage = products.some(({ _id }) => _id === id);
-
-  btn.innerHTML = inStorage ? checkmarkIcon : basketIcon;
 }
 
 refs.popularList.addEventListener('click', handleClickBasket);

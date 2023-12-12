@@ -1,8 +1,11 @@
 import { getDiscountProducts } from '../../services/food-api';
 import markupDiscountList from './markup-discount-products';
-import { loadFromLS, updateBasket, saveToLS } from '../../services/helpers';
-import sprite from '../../../img/icons/sprite.svg';
-import { updateAllIcon } from '../main-products/main-products';
+import {
+  loadFromLS,
+  updateBasket,
+  saveToLS,
+  updateAllIcon,
+} from '../../services/helpers';
 
 getDiscountProducts().then(data => {
   markupDiscountList(data);
@@ -30,17 +33,4 @@ async function handleClickBasket(event) {
 
   updateBasket(LOCALSTORAGE_KEY, someProduct, basket);
   updateAllIcon([...currentButton], id, basket);
-}
-
-export function updateDiscountIcon(btn, id, products) {
-  const checkmarkIcon = `<svg class="svg-checkmark" width="18" height="18">
-            <use class="href-icon" href="${sprite}#icon-checkmark"></use>
-          </svg>`;
-  const basketIcon = `<svg class="svg-basket" width="18" height="18">
-            <use class="href-icon" href="${sprite}#icon-basket"></use>
-          </svg>`;
-
-  const inStorage = products.some(({ _id }) => _id === id);
-
-  btn.innerHTML = inStorage ? checkmarkIcon : basketIcon;
 }
