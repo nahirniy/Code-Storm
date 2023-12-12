@@ -5,30 +5,47 @@ const formElem = document.querySelector('.form-footer');
 const modalSubscription = document.querySelector('.modal-subscription');
 const modalUnsubscription = document.querySelector('.modal-unsubscription');
 const modalBackElem = document.querySelector('.modal-backdrop-subscription');
-
-modalSubscription.classList.add('is-hidden');
-modalUnsubscription.classList.add('is-hidden');
+const body = document.querySelector('body');
+const overflow = document.body.style.overflow;
 
 const closeModal = event => {
   const target = event.target;
   if (target === modalSubscription || target.closest('.close')) {
-    modalSubscription.classList.add('is-hidden');
+    modalSubscription.classList.remove('visible-modal');
+    setTimeout(() => modalSubscription.classList.add('visually-hidden'), 500);
     modalBackElem.classList.add('is-hidden');
   }
   if (target === modalUnsubscription || target.closest('.close')) {
-    modalUnsubscription.classList.add('is-hidden');
+    modalUnsubscription.classList.remove('visible-modal');
+    setTimeout(() => modalUnsubscription.classList.add('visually-hidden'), 500);
     modalBackElem.classList.add('is-hidden');
+  }
+
+  if (event.key === 'Escape') {
+    closeModalOption();
+  }
+
+  if (target === modalBackElem) {
+    closeModalOption();
   }
 };
 
 const openModalSubscription = () => {
-  modalSubscription.classList.remove('is-hidden');
+  modalSubscription.classList.add('visible-modal');
+  modalSubscription.classList.remove('visually-hidden');
   modalBackElem.classList.remove('is-hidden');
+
+  document.addEventListener('keydown', closeModal);
+  body.style.overflow = 'hidden';
 };
 
 const openModalUnsubscription = () => {
-  modalUnsubscription.classList.remove('is-hidden');
+  modalUnsubscription.classList.add('visible-modal');
+  modalUnsubscription.classList.remove('visually-hidden');
   modalBackElem.classList.remove('is-hidden');
+
+  document.addEventListener('keydown', closeModal);
+  body.style.overflow = 'hidden';
 };
 
 const handleSubscription = async email => {
@@ -54,6 +71,18 @@ function handleSubmit(e) {
   handleSubscription(email);
 }
 
+function closeModalOption() {
+  modalSubscription.classList.remove('visible-modal');
+  setTimeout(() => modalSubscription.classList.add('visually-hidden'), 500);
+  modalBackElem.classList.add('is-hidden');
+
+  modalUnsubscription.classList.remove('visible-modal');
+  setTimeout(() => modalUnsubscription.classList.add('visually-hidden'), 500);
+  modalBackElem.classList.add('is-hidden');
+
+  document.removeEventListener('keydown', closeModal);
+  body.style.overflow = overflow;
+}
+
 formElem.addEventListener('submit', handleSubmit);
-modalSubscription.addEventListener('click', closeModal);
-modalUnsubscription.addEventListener('click', closeModal);
+modalBackElem.addEventListener('click', closeModal);

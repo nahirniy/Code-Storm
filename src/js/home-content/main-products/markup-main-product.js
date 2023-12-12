@@ -3,18 +3,18 @@ import sprite from '../../../img/icons/sprite.svg';
 
 const productMainList = document.querySelector('.product-list');
 const LOCALSTORAGE_KEY = 'main products';
-const basket = loadFromLS('basket') ?? [];
 
 /*-----------------------------------MARKUP----------------------------*/
 
 export function mainProductMarkup(mainProduct) {
   saveToLS(LOCALSTORAGE_KEY, mainProduct);
+  const basket = loadFromLS('basket') ?? [];
 
   const markup = mainProduct
     .map(item => {
       const formattedCategory = removeUnderscore(item.category);
       const formatPrice = formatNumber(item.price);
-      const inStorage = basket.some(({ _id }) => _id === item._id);
+      const inStorage = basket.find(({ _id }) => _id === item._id);
 
       return `<li class="resp-item" data-id="${item._id}">
       ${

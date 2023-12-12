@@ -29,11 +29,12 @@ function closeModal() {
 
   toglModul();
   OnScroll();
+
+  modal_window.classList.remove('visible-modal');
 }
 
 clouseBottun.addEventListener('click', function () {
-  toglModul();
-  OnScroll();
+  closeModal();
 });
 
 modalBackdrop.addEventListener('click', event => {
@@ -86,6 +87,8 @@ async function handleClickOnLi(event) {
   if (!closestRespItem && !closestPopularItem && !closestDiscounItem) {
     return;
   }
+
+  modal_window.classList.add('visible-modal');
 
   const inStorage = basket.find(product => product._id == currentIdModal);
   const currentProduct = await getProductById(currentIdModal);

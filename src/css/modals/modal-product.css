@@ -5,10 +5,16 @@
   height: 535px;
   background-color: #fafafa;
   border-radius: 20px;
-  transform: scale(1);
-  opacity: 1;
+  transform: scale(0.8);
+  opacity: 0;
   transition: all 300ms ease-in-out;
 }
+
+.visible-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+
 .clouse_modal {
   position: absolute;
   top: 14px;
