@@ -103,12 +103,18 @@
 .modal-button {
   display: flex;
   align-items: center;
-  background-color: var(--accent-cl);
+  background-color: #6d8434;
   box-shadow: none; /* Убираем тень */
   border: none;
   border-radius: 30px;
   padding: 12px 24px;
+  transition: all 300ms ease-in-out;
 }
+.modal-button:hover,
+.modal-button:focus {
+  background-color: #586f1f;
+}
+
 .textInButton {
   color: #e8e8e2;
   font-family: Neue Montreal;
