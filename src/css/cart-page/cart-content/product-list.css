@@ -37,9 +37,6 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  /* width: 88px;
-  height: 24px; */
-
   color: var(--main-cl);
   font-size: 14px;
   font-style: normal;
@@ -47,16 +44,29 @@
   line-height: 125%;
   border: none;
   background-color: var(--light-grey-cl);
+  border-radius: 10px;
+  padding: 3px 0px;
+  transition: all 300ms ease-in-out;
+}
+.cart-btn-del-all:hover {
+  background-color: rgba(1, 1, 1, 0.1);
 }
 /*====стили на ul *=====*/
 .cart-item-container {
   max-height: 480px;
-  /* overflow-y: auto; */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-right: 14px;
-  margin-top: 39px;
+  margin-top: 36px;
+}
+.cart-item-container.cart-scrol::-webkit-scrollbar-thumb {
+  height: 117px;
+  border-radius: 20px;
+  background: rgba(1, 1, 1, 0.08);
+}
+.cart-item-container.cart-scrol::-webkit-scrollbar {
+  width: 5px;
 }
 .cart-scrol {
   overflow-y: auto;
@@ -143,6 +153,15 @@
   position: absolute;
   right: 0;
   top: -9px;
+  transition: all 300ms ease-in-out;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 5px;
+}
+.cart-btn-close:hover {
+  background-color: rgba(1, 1, 1, 0.1);
 }
 .cart-icon-close {
   width: 18px;
@@ -202,7 +221,7 @@
   }
   /* КНОПКА delete all */
   .cart-btn-wrap {
-    padding-right: 39px;
+    padding-right: 49px;
   }
   .cart-btn-del-all {
     font-size: 16px;
@@ -211,6 +230,12 @@
   .cart-item-container {
     max-height: 600px;
     padding-right: 40px;
+  }
+  .cart-item-container.cart-scrol::-webkit-scrollbar-thumb {
+    height: 190px;
+  }
+  .cart-item-container.cart-scrol::-webkit-scrollbar {
+    width: 9px;
   }
   /*===стили на li   */
   .cart-item {
@@ -259,13 +284,6 @@
     font-size: 20px;
     line-height: 120%;
   }
-  .cart-item:not(:last-child) {
-    /* margin-bottom: 40px; 
-    padding-bottom: 40px; */
-  }
-  .cart-item:last-child {
-    /* margin-bottom: 70px; */
-  }
 }
 
 /* ===================desktop=========*/
@@ -280,9 +298,6 @@
   .cart-item-container {
     padding-right: 40px;
     margin-top: 44px;
-  }
-  .cart-btn-wrap {
-    padding-right: 40px;
   }
 }
 
