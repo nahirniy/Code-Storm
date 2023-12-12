@@ -44,6 +44,11 @@
   align-items: center;
   gap: 10px;
 }
+
+#email:hover {
+  border-color: var(--accent-cl);
+}
+
 .order-products-form-input {
   position: relative;
 }
@@ -63,6 +68,7 @@
   border: 1px solid var(--grey-cl);
   outline: none;
   padding-left: 56px;
+  transition: all 300ms ease-in-out;
 }
 .order-products-form-input input::placeholder {
   color: var(--main-cl);
@@ -123,6 +129,7 @@
     margin: 0;
     font-size: 20px;
     line-height: 24px;
+    transition: all 300ms ease-in-out;
   }
   .order-products-form-input label {
     font-size: 18px;
