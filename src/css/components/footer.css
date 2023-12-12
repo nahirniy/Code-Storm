@@ -83,6 +83,7 @@
   font-weight: 500;
   transition: all 300ms ease-in-out;
   background-color: #e8e8e2;
+  color: var(--main-cl);
 }
 .subscribe:hover,
 .subscribe:focus {
