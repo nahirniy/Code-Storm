@@ -110,12 +110,12 @@ async function handleClickOnLi(event) {
     }</p>
     </div>
     <div class="desc-text"> <p class="textModalp">${
-      currentProduct.desc
+      currentProduct.desc || ''
     }</p></div>
     </div>
     </div>
     <div class="footer-product_card2">
-    <p class="price-product">$${currentProduct.price}</p></div>
+    <p class="price-product">$${currentProduct.price.toFixed(2)}</p></div>
     <div class = "end-modal">
     <button type="button" class="modal-button"><span class ="textInButton">${
       inStorage ? 'Remove from' : 'Add to'

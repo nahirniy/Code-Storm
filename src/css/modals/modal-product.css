@@ -79,6 +79,7 @@
   color: rgba(1, 1, 1, 0.7);
   font-size: 14px;
   line-height: 18px;
+  padding-right: 15px;
 }
 
 .footer-product_card2 {
@@ -167,6 +168,7 @@
   .textModalp {
     font-size: 16px;
     line-height: 20px;
+    max-height: 120px;
   }
 
   .modal-button {

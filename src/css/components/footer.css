@@ -9,6 +9,11 @@
   margin-top: 20px;
   margin-bottom: 40px;
 }
+.logo {
+  width: 154px;
+  height: 28px;
+}
+
 .logo-social {
   opacity: 0.8;
   fill: #e8e8e2;
@@ -118,10 +123,17 @@
     gap: 78px;
     background-color: #6d8434;
   }
+  .logo {
+    width: 197px;
+    height: 32px;
+    margin-left: -10px;
+  }
+
   .footer-logo {
     display: flex;
   }
   .footer-icons {
+    width: 197px;
     margin-right: 78px;
   }
   .first-motto {
@@ -144,7 +156,7 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 1.33;
-    margin-right: 149px;
+    margin-right: 117px;
   }
   .input-label,
   .subscribe {
@@ -160,7 +172,7 @@
   .form-footer {
     display: flex;
     flex-direction: column;
-    margin-right: 125px;
+    margin-right: 93px;
   }
   .services {
     color: #e8e8e2;
