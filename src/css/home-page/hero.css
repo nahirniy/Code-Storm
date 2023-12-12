@@ -42,12 +42,15 @@
 }
 
 .hero-img img {
-  border-radius: 25px;
+  border-radius: 30px;
   margin-top: 32px;
   margin-bottom: 74px;
 }
 
 @media (min-width: 768px) {
+  .hero-container {
+    margin-top: 92px;
+  }
   .hero-text {
     font-size: 80px;
     line-height: 80px;
@@ -64,6 +67,7 @@
   }
   .hero-img img {
     margin-top: 40px;
+    border-radius: 60px;
   }
 
   .hero-svg {
@@ -76,5 +80,8 @@
   .hero-svg {
     right: 20px;
     top: -50px;
+  }
+  .hero-container {
+    margin-top: 54px;
   }
 }
