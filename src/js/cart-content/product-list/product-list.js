@@ -1,6 +1,7 @@
 import { funCartCreateMarkup } from './pr-list-markap';
 import { funLoadLellAllLS } from './pr-list-localStorage';
 import { loadFromLS } from '../../services/helpers';
+import { counterProducts } from '../../services/helpers';
 
 const refs = {
   cartContent: document.querySelector('.cart-content-wrap'),
@@ -18,7 +19,7 @@ refs.cartItemContainer.addEventListener('click', onCartItem);
 refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
 
 const LOCALSTORAGE_KEY = 'basket';
-const cartResults = loadFromLS(LOCALSTORAGE_KEY) ?? [];
+let cartResults = loadFromLS(LOCALSTORAGE_KEY) ?? [];
 let arrayLength = cartResults.length;
 let newTotal = cartTotal(cartResults);
 
@@ -30,7 +31,9 @@ function onCartDellAll() {
 
   funLoadLellAllLS(LOCALSTORAGE_KEY);
   arrayLength = 0;
+  cartResults = [];
   cartTitleAdd(arrayLength);
+  counterProducts(cartResults);
   refs.cartEmptyContent.classList.remove('visually-hidden');
   refs.cartBtnDellContainer.classList.add('visually-hidden');
   refs.cartOrderProducts.classList.add('visually-hidden');
@@ -59,6 +62,7 @@ function onCartItem(evt) {
     refs.cartItemContainer.classList.remove('cart-scrol');
   }
   cartTitleAdd(arrayLength);
+  counterProducts(cartResults);
 
   // берем новый масив из локал сторож и  пересситываем тотал
   newTotal = cartTotal(cartResults);
