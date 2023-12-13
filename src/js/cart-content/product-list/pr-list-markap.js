@@ -86,7 +86,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
                 <div class="cart-counter-wrap">
                     <button class="cart-counter-btn-minus" >
                     <svg class="cart-counter-icon">
-        <use href="/img/icons/sprite.svg#icon-minus"></use>
+        <use href="${sprite}#icon-minus"></use>
       </svg>
                     </button>
                     <span class="cart-counter-text" id="item-${_id}-counter">${amount}</span>
