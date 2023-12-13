@@ -2,8 +2,6 @@ import { funCartCreateMarkup } from './pr-list-markap';
 import { funLoadLellAllLS } from './pr-list-localStorage';
 import { loadFromLS } from '../../services/helpers';
 import { counterProducts } from '../../services/helpers';
-// import { onPlusFoo } from './cart-counter';
-// import { onMinusFoo } from './cart-counter';
 
 const refs = {
   cartContent: document.querySelector('.cart-content-wrap'),
@@ -20,9 +18,6 @@ const refs = {
 refs.cartItemContainer.addEventListener('click', onCartItem);
 refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
 
-refs.cartItemContainer.addEventListener('click', onPlus);
-refs.cartItemContainer.addEventListener('click', onMinus);
-
 const LOCALSTORAGE_KEY = 'basket';
 let cartResults = loadFromLS(LOCALSTORAGE_KEY) ?? [];
 // добавляем в массив кол-во
@@ -30,14 +25,11 @@ const quantity = 'quantity';
 cartResults.forEach(function (arr) {
   arr[quantity] = 1;
 });
-console.log(cartResults);
+
 let arrayLength = cartResults.length;
 let newTotal = cartTotal(cartResults);
 
 cartProductList();
-
-// const plusBtn = document.querySelector('.cart-counter-btn-plus');
-//
 
 // колбек кнопки удалить все
 function onCartDellAll() {
@@ -52,27 +44,40 @@ function onCartDellAll() {
   refs.cartBtnDellContainer.classList.add('visually-hidden');
   refs.cartOrderProducts.classList.add('visually-hidden');
 }
-
-// колбек удаления поштучно
+//=======колбек на li===
 function onCartItem(evt) {
-  const evtBtn = evt.target.closest('.cart-btn-close');
-
-  const classBtn = evtBtn.classList.value;
-  console.log(classBtn);
-  if (classBtn !== 'cart-btn-close') {
+  const evtBtn = evt.target.closest('button');
+  if (!evtBtn) {
     return;
   }
-
-  const cartItemDell = evt.target.closest('.cart-item');
-  const cartIdDell = cartItemDell.dataset.id;
-
+  // Определяем, какая кнопка была нажата
+  const buttonClass = evtBtn.classList.value;
+  const cartItem = evt.target.closest('.cart-item');
+  const evtWrap = evt.target.closest('.cart-counter-wrap');
+  // Выполняем соответствующую функцию
+  switch (buttonClass) {
+    case 'cart-btn-close':
+      onCartItemDel(cartItem);
+      break;
+    case 'cart-counter-btn-minus':
+      onMinus(evtWrap, cartItem);
+      break;
+    case 'cart-counter-btn-plus':
+      onPlus(evtWrap, cartItem);
+      break;
+    default:
+      break;
+  }
+}
+// колбек удаления поштучно
+function onCartItemDel(cart) {
+  const cartIdDell = cart.dataset.id;
+  console.log(cartIdDell);
   // удаление элемента из локалстораж и разметки
   const indexToRemove = cartResults.findIndex(obj => obj._id === cartIdDell);
-
   cartResults.splice(indexToRemove, 1);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cartResults));
-  cartItemDell.remove();
-
+  cart.remove();
   //============
   arrayLength -= 1;
   if (arrayLength < 4) {
@@ -80,12 +85,11 @@ function onCartItem(evt) {
   }
   cartTitleAdd(arrayLength);
   counterProducts(cartResults);
-
-  // берем новый масив из локал сторож и  пересситываем тотал
+  // берем новый масив  и  пересситываем тотал
   newTotal = cartTotal(cartResults);
-
+  console.log(cartResults);
   // если в корзине пусто - выводим пустую корзину
-  const recountItem = evt.currentTarget.childNodes.length;
+  const recountItem = cartResults.length;
   if (recountItem === 0) {
     refs.cartEmptyContent.classList.remove('visually-hidden');
     refs.cartBtnDellContainer.classList.add('visually-hidden');
@@ -123,13 +127,6 @@ function cartProductList() {
   refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;
 }
 
-// функция для подсчета тотал
-// function cartTotal(results) {
-//   const totalPrice = results.reduce((total, result) => {
-//     return total + result.price;
-//   }, 0);
-//   return totalPrice;
-// }
 // заменяем функцию cartTotal с кол-вом
 function cartTotal(results) {
   const totalPrice = results.reduce((total, result) => {
@@ -138,24 +135,14 @@ function cartTotal(results) {
   return totalPrice;
 }
 //функции на плюс и минус
-function onPlus(evt) {
-  const evtBtn = evt.target.closest('.cart-counter-btn-plus');
-  const classBtn = evtBtn.classList.value;
-  console.log(classBtn);
-  if (classBtn !== 'cart-counter-btn-plus') {
-    return;
-  }
-  console.log(classBtn);
-  const evtWrap = evt.target.closest('.cart-counter-wrap');
-  // const itemId = console.dir(evtBtn);
-  const cartCounter = evtWrap.children[1];
+function onPlus(wrap, cart) {
+  const cartCounter = wrap.children[1];
   // console.dir(cartCounter);
   const numberText = parseInt(cartCounter.textContent);
   cartCounter.textContent = numberText + 1;
-  console.log(cartCounter.textContent);
+
   // создаём в объекте новую пару с количеством
-  const cartItemDell = evt.target.closest('.cart-item');
-  const cartIdDell = cartItemDell.dataset.id;
+  const cartIdDell = cart.dataset.id;
   const indexItem = cartResults.findIndex(obj => obj._id === cartIdDell);
   // console.log(indexItem);
   cartResults[indexItem].quantity = parseInt(cartCounter.textContent);
@@ -169,31 +156,21 @@ function onPlus(evt) {
   refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;
 }
 
-function onMinus(evt) {
-  // console.log('нг');
-  const evtBtn = evt.target.closest('.cart-counter-btn-minus');
-  const classBtn = evtBtn.classList.value;
-  // console.log(classBtn);
-  if (classBtn !== 'cart-counter-btn-minus') {
-    return;
-  }
-  const evtWrap = evt.target.closest('.cart-counter-wrap');
-  const cartCounter = evtWrap.children[1];
+function onMinus(wrap, cart) {
+  const cartCounter = wrap.children[1];
   const numberText = parseInt(cartCounter.textContent);
   if (numberText === 1) {
     return;
   }
   cartCounter.textContent = numberText - 1;
   // создаём в объекте новую пару с количеством
-  const cartItemDell = evt.target.closest('.cart-item');
-  const cartIdDell = cartItemDell.dataset.id;
+  const cartIdDell = cart.dataset.id;
   const indexItem = cartResults.findIndex(obj => obj._id === cartIdDell);
   cartResults[indexItem].quantity = parseInt(cartCounter.textContent);
   // записали новый масив в локал сторож
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cartResults));
   //пересчитали newTotal
   let newTotal = cartTotal(cartResults);
-  // console.log(newTotal);
   // записали в итог
   refs.cartProductsSum.innerHTML = `$${String(newTotal.toFixed(2))}`;
 }

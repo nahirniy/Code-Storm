@@ -60,7 +60,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
           </div>
           <div class="cart-img-text">
           <div class="cart-item-title-wrap"><span class="cart-item-title">${name}</span>
-          <button name="button" type="button" class="cart-btn-close">
+          <button name="button" type="button" class="cart-btn-close" id="cart-btn-close">
           <svg class="cart-icon-close">
             <use href="${sprite}#icon-close"></use>
             
@@ -87,7 +87,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
       </svg>
                     </button>
                     <span class="cart-counter-text" id="item-${_id}-counter">1</span>
-                    <button class="cart-counter-btn-plus" >
+                    <button class="cart-counter-btn-plus"  >
                     <svg class="cart-counter-icon" >
         <use href="${sprite}#icon-plus"></use>
       </svg>
