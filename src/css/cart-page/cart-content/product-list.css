@@ -229,7 +229,7 @@
   /*====стили на ul *=====*/
   .cart-item-container {
     max-height: 600px;
-    padding-right: 40px;
+    /* padding-right: 40px; */
   }
   .cart-item-container.cart-scrol::-webkit-scrollbar-thumb {
     height: 190px;
@@ -296,7 +296,6 @@
     min-width: 549px;
   }
   .cart-item-container {
-    padding-right: 40px;
     margin-top: 44px;
   }
 }
