@@ -74,6 +74,7 @@
   .header-logo-svg {
     width: 197px;
     height: 32px;
+    margin-left: -10px;
   }
   .header-logo-link {
     height: 32px;
