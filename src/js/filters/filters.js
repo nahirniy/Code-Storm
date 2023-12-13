@@ -16,6 +16,7 @@ import {
 } from './filters-request';
 import { categoryName } from './filters-style';
 import { createPagination } from '../home-content/main-products/pagination';
+import { throttle } from 'lodash';
 
 const categoryList = document.querySelector('.category-list');
 const filtersABClist = document.querySelector('.filters-all-param-list');
@@ -126,6 +127,7 @@ export function unsuccessSearch() {
   emptyContent.classList.remove('visually-hidden');
 }
 
+// window.addEventListener('resize', throttle(checkWidth, 300));
 form.addEventListener('submit', formSub);
 filtersABClist.addEventListener('click', getFilter);
 categoryList.addEventListener('click', changeCategory);

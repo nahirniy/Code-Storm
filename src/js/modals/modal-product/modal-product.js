@@ -110,7 +110,7 @@ async function handleClickOnLi(event) {
     }</p>
     </div>
     <div class="desc-text"> <p class="textModalp">${
-      currentProduct.desc || ''
+      currentProduct.desc || 'Description will be added soon'
     }</p></div>
     </div>
     </div>

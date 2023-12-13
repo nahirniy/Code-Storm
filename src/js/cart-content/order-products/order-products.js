@@ -22,7 +22,7 @@ orderForm.addEventListener('submit', async event => {
   const orderProducts = basket.map(product => {
     return {
       productId: product._id,
-      amount: 1,
+      amount: product.amount,
     };
   });
 

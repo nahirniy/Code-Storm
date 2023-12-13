@@ -44,8 +44,6 @@ import sprite from '../../../img/icons/sprite.svg';
 // };
 // функция разметки корзины с товаром с кол-вом
 export const funCartCreateMarkup = function createMarkup(arr) {
-  console.log(arr);
-
   return arr
     .map(
       ({
