@@ -1,4 +1,4 @@
-import{s as y,l as h,c as m,a as g,b as T,d as w}from"./assets/scroll-up-3aa5205b.js";import"./assets/vendor-9038a9ee.js";const x=function(c){return console.log(c),c.map(({name:n,category:a,size:o,price:i,img:d,_id:l,amount:E})=>`<li class="cart-item" data-id="${l}">
+import{s as y,l as h,c as m,a as g,b as T,d as w}from"./assets/scroll-up-9876d6b8.js";import"./assets/vendor-9038a9ee.js";const x=function(c){return console.log(c),c.map(({name:n,category:a,size:o,price:i,img:d,_id:l,amount:E})=>`<li class="cart-item" data-id="${l}">
         <div class="cart-item-wrap">
           <div class="cart-img-container">
             <img class="cart-img" src="${d}" alt="${n}" />
