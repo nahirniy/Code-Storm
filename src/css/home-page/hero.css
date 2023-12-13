@@ -1,5 +1,5 @@
-.hero-container {
-  margin-top: 54px;
+.hero-section {
+  padding: 54px 0 74px 0;
 }
 
 .hero-text {
@@ -44,12 +44,11 @@
 .hero-img img {
   border-radius: 30px;
   margin-top: 32px;
-  margin-bottom: 74px;
 }
 
 @media (min-width: 768px) {
-  .hero-container {
-    margin-top: 92px;
+  .hero-section {
+    padding-top: 92px;
   }
   .hero-text {
     font-size: 80px;
@@ -81,7 +80,7 @@
     right: 20px;
     top: -50px;
   }
-  .hero-container {
-    margin-top: 54px;
+  .hero-section {
+    padding-top: 54px;
   }
 }
