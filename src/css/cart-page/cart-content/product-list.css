@@ -223,6 +223,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
 }
 .cart-counter-text {
   color: #010101;
