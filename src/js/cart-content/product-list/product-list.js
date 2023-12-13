@@ -21,9 +21,9 @@ refs.cartBtnDelAll.addEventListener('click', onCartDellAll);
 const LOCALSTORAGE_KEY = 'basket';
 let cartResults = loadFromLS(LOCALSTORAGE_KEY) ?? [];
 // добавляем в массив кол-во
-const quantity = 'quantity';
+const quantity = 'amount';
 cartResults.forEach(function (arr) {
-  arr[quantity] = 1;
+  arr[quantity] = arr.amount || 1;
 });
 
 let arrayLength = cartResults.length;
@@ -72,7 +72,6 @@ function onCartItem(evt) {
 // колбек удаления поштучно
 function onCartItemDel(cart) {
   const cartIdDell = cart.dataset.id;
-  console.log(cartIdDell);
   // удаление элемента из локалстораж и разметки
   const indexToRemove = cartResults.findIndex(obj => obj._id === cartIdDell);
   cartResults.splice(indexToRemove, 1);
@@ -87,7 +86,6 @@ function onCartItemDel(cart) {
   counterProducts(cartResults);
   // берем новый масив  и  пересситываем тотал
   newTotal = cartTotal(cartResults);
-  console.log(cartResults);
   // если в корзине пусто - выводим пустую корзину
   const recountItem = cartResults.length;
   if (recountItem === 0) {
@@ -130,7 +128,7 @@ function cartProductList() {
 // заменяем функцию cartTotal с кол-вом
 function cartTotal(results) {
   const totalPrice = results.reduce((total, result) => {
-    return total + result.price * result.quantity;
+    return total + result.price * result.amount;
   }, 0);
   return totalPrice;
 }
@@ -145,7 +143,7 @@ function onPlus(wrap, cart) {
   const cartIdDell = cart.dataset.id;
   const indexItem = cartResults.findIndex(obj => obj._id === cartIdDell);
   // console.log(indexItem);
-  cartResults[indexItem].quantity = parseInt(cartCounter.textContent);
+  cartResults[indexItem].amount = parseInt(cartCounter.textContent);
   // записали новый масив в локал сторож
   // console.log(cartResults);
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cartResults));
@@ -166,7 +164,7 @@ function onMinus(wrap, cart) {
   // создаём в объекте новую пару с количеством
   const cartIdDell = cart.dataset.id;
   const indexItem = cartResults.findIndex(obj => obj._id === cartIdDell);
-  cartResults[indexItem].quantity = parseInt(cartCounter.textContent);
+  cartResults[indexItem].amount = parseInt(cartCounter.textContent);
   // записали новый масив в локал сторож
   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(cartResults));
   //пересчитали newTotal

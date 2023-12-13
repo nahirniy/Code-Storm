@@ -44,6 +44,8 @@ import sprite from '../../../img/icons/sprite.svg';
 // };
 // функция разметки корзины с товаром с кол-вом
 export const funCartCreateMarkup = function createMarkup(arr) {
+  console.log(arr);
+
   return arr
     .map(
       ({
@@ -53,6 +55,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
         price,
         img,
         _id,
+        amount,
       }) => `<li class="cart-item" data-id="${_id}">
         <div class="cart-item-wrap">
           <div class="cart-img-container">
@@ -86,7 +89,7 @@ export const funCartCreateMarkup = function createMarkup(arr) {
         <use href="/img/icons/sprite.svg#icon-minus"></use>
       </svg>
                     </button>
-                    <span class="cart-counter-text" id="item-${_id}-counter">1</span>
+                    <span class="cart-counter-text" id="item-${_id}-counter">${amount}</span>
                     <button class="cart-counter-btn-plus"  >
                     <svg class="cart-counter-icon" >
         <use href="${sprite}#icon-plus"></use>

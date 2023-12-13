@@ -198,7 +198,7 @@
 /*==counter===*/
 .cart-counter-wrap {
   display: flex;
-  padding: 4px 14px;
+  padding: 4px 0;
   justify-content: center;
   align-items: center;
   gap: 6px;
@@ -218,6 +218,11 @@
   border: none;
   background-color: #e8e8e2;
   transition: all 300ms ease-in-out;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .cart-counter-text {
   color: #010101;
@@ -256,6 +261,21 @@
   .cart-btn-del-all {
     font-size: 16px;
   }
+  /* КНОПКА delete item and plus/minus */
+  .cart-counter-wrap {
+    width: 96px;
+    height: 34px;
+  }
+  .cart-counter-icon {
+    width: 18px;
+    height: 18px;
+  }
+  .cart-counter-btn-minus,
+  .cart-counter-btn-plus {
+    width: 22px;
+    height: 22px;
+  }
+
   /*====стили на ul *=====*/
   .cart-item-container {
     max-height: 600px;
