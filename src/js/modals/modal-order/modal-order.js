@@ -17,10 +17,6 @@ export function modalOrderOpen() {
 }
 
 function closeModal(e) {
-  if (e.target !== modalBackdropOrder) {
-    return;
-  }
-
   modalBackdropOrder.classList.add('is-hidden');
   modalOrder.classList.remove('visible-modal');
 

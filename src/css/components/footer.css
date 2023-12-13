@@ -3,12 +3,23 @@
   background-color: #6d8434;
   padding: 40px 0 20px 0;
 }
+
+.link-logo {
+  display: block;
+}
 .list-social {
   display: flex;
   gap: 12px;
   margin-top: 20px;
+}
+.footer-icons {
   margin-bottom: 40px;
 }
+
+.footer-logo {
+  margin-bottom: 80px;
+}
+
 .logo {
   width: 154px;
   height: 28px;
@@ -26,6 +37,7 @@
 .logo-social:focus {
   background: rgba(232, 232, 226, 0.2);
 }
+
 .first-motto {
   color: #e8e8e2;
   font-size: 24px;
@@ -38,7 +50,6 @@
   color: rgba(232, 232, 226, 0.7);
   font-size: 14px;
   line-height: 1.28;
-  margin-bottom: 80px;
 }
 
 .email-title {
@@ -61,7 +72,6 @@
   width: 100%;
   height: 42px;
   background-color: #6d8434;
-  margin-bottom: 14px;
   padding-left: 18px;
   outline: none;
   color: #e8e8e2;
@@ -72,6 +82,11 @@
   border-color: #3dc3ba;
 }
 
+.form-footer {
+  gap: 14px;
+  display: flex;
+  flex-direction: column;
+}
 .subscribe {
   border: none;
   border-radius: 30px;
@@ -79,7 +94,6 @@
   gap: 14px;
   width: 100%;
   height: 42px;
-  margin-bottom: 80px;
   font-weight: 500;
   transition: all 300ms ease-in-out;
   background-color: #e8e8e2;
@@ -103,6 +117,7 @@
 .bottom-footer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 80px;
 }
 .services {
   color: #e8e8e2;
@@ -133,9 +148,10 @@
 
   .footer-logo {
     display: flex;
+    margin-bottom: 64px;
   }
   .footer-icons {
-    width: 197px;
+    min-width: 197px;
     margin-right: 78px;
   }
   .first-motto {
@@ -149,8 +165,6 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 1.33;
-    margin-right: 32px;
-    margin-bottom: 64px;
   }
   .email-title {
     color: #e8e8e2;
@@ -158,23 +172,17 @@
     font-size: 18px;
     font-weight: 400;
     line-height: 1.33;
-    margin-right: 117px;
+    text-align: left;
+    width: 100%;
   }
   .input-label,
   .subscribe {
-    width: 335px;
+    width: 100%;
     height: 42px;
   }
-  .input-label {
-    margin-bottom: 20px;
-  }
-  .subscribe {
-    margin-bottom: 120px;
-  }
   .form-footer {
-    display: flex;
-    flex-direction: column;
-    margin-right: 93px;
+    gap: 20px;
+    width: 335px;
   }
   .services {
     color: #e8e8e2;
@@ -189,8 +197,10 @@
   }
   .bottom-footer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    margin-left: auto;
+    max-width: 336px;
+    margin-bottom: 120px;
+    margin-right: 93px;
   }
 }
 /* Desktop */
@@ -218,6 +228,7 @@
   .bottom-footer {
     display: block;
     margin-left: auto;
+    margin-right: 0;
   }
   .email-title {
     margin-right: 0;
