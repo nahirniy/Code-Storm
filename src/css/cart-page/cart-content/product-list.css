@@ -205,6 +205,40 @@
   display: none;
 }
 
+/*==counter===*/
+.cart-counter-wrap {
+  display: flex;
+  padding: 4px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 100px;
+  border: 1px solid rgba(1, 1, 1, 0.1);
+  width: 74px;
+  height: 26px;
+}
+.cart-counter-btn-minus,
+.cart-counter-btn-plus {
+  width: 14px;
+  height: 14px;
+  color: #010101;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 112.5%;
+  border: none;
+  background-color: #e8e8e2;
+}
+.cart-counter-text {
+  color: #010101;
+  font-size: 16px;
+  line-height: 112.5%;
+}
+.counter-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 /* ===================планшет=========*/
 @media (min-width: 768px) {
   /* иконка корзина и заголовок CART() */
