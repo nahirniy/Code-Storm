@@ -111,6 +111,7 @@
   .header-logo-svg {
     width: 195px;
     height: 32px;
+    margin-left: -10px;
   }
   .header-navigation-list {
     gap: 24px;
