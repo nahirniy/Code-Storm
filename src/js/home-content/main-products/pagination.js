@@ -66,12 +66,16 @@ export function createPagination(allPages, page = 1) {
     beforePage = beforePage - 1;
 
     nextPage.classList.add('disabled');
+  } else if (page === totalPages - 1) {
+    beforePage = beforePage - 1;
   }
 
   if (page === 1) {
     afterPage = afterPage + 1;
 
     prevPage.classList.add('disabled');
+  } else if (page === 2) {
+    afterPage = afterPage + 1;
   }
 
   for (let plength = beforePage; plength <= afterPage; plength += 1) {
@@ -81,6 +85,30 @@ export function createPagination(allPages, page = 1) {
 
     if (plength === 0) {
       plength += 1;
+    }
+
+    if (sizeScreen >= 768) {
+      if (totalPages === 4) {
+        if (page === 3) {
+          if (plength === 1) {
+            continue;
+          }
+        } else if (page === 2) {
+          if (plength === 4) {
+            continue;
+          }
+        }
+      } else if (totalPages === 3) {
+        if (page === 3) {
+          if (plength === 1) {
+            continue;
+          }
+        } else if (page === 1) {
+          if (plength === 3) {
+            continue;
+          }
+        }
+      }
     }
 
     markup += `<button 
