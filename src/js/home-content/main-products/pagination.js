@@ -66,16 +66,12 @@ export function createPagination(allPages, page = 1) {
     beforePage = beforePage - 1;
 
     nextPage.classList.add('disabled');
-  } else if (page === totalPages - 1) {
-    beforePage = beforePage - 1;
   }
 
   if (page === 1) {
     afterPage = afterPage + 1;
 
     prevPage.classList.add('disabled');
-  } else if (page == 2) {
-    afterPage = afterPage + 1;
   }
 
   for (let plength = beforePage; plength <= afterPage; plength += 1) {
