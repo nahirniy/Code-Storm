@@ -16,13 +16,14 @@ const cartContent = document.querySelector('.cart-content-wrap');
 
 orderForm.addEventListener('submit', async event => {
   event.preventDefault();
+  const newBasket = loadFromLS(LOCALSTORAGE_KEY) ?? [];
   const emailInput = event.target.querySelector('#email');
   const email = emailInput.value;
 
-  const orderProducts = basket.map(product => {
+  const orderProducts = newBasket.map(product => {
     return {
       productId: product._id,
-      amount: product.amount,
+      amount: product.amount || 1,
     };
   });
 
