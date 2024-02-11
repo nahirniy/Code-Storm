@@ -1,7 +1,5 @@
 # Food Boutique
 
-![GreenFruits Logo](link_to_logo.png)
-
 ## Description
 
 Welcome to the repository for GreenFruits, your go-to online shop for high-quality products. This website not only offers a diverse range of fresh fruits but also emphasizes team collaboration, local storage for personalized user experiences, and the functionality to purchase products and add them to your favorites.
